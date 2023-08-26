@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import { Home } from './src/screens/Map/index';
+import { Home } from './src/screens/Home/index';
 import MapView from 'react-native-maps';
-import { ThemeProvider, styled } from 'styled-components';
+import { ThemeProvider } from 'styled-components/native';
 import { useEffect, useState } from 'react';
 import * as Font from 'expo-font';
 import theme from './src/theme';
@@ -23,6 +23,7 @@ export default function App() {
 
     loadFonts();
   }, []);
+  
 
   if(!fontsLoaded) {
     return null;
@@ -47,19 +48,3 @@ export const styles = StyleSheet.create({
     width: '100%'
   } 
 })
-
-export const Map = styled(Home).attrs(() => ({
-    
-}))`
-    flex: 1;
-    width: '100%'
-`
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
