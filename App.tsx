@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import * as Font from 'expo-font';
 import theme from './src/theme';
 import React from 'react';
+import { Test } from './src/screens/Test';
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -31,7 +32,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme = {theme}>
-      <Home />
+      <Test />
     </ThemeProvider>
   )
 }
