@@ -1,13 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import { Home } from './src/screens/Map';
+import { Home } from './src/screens/Map/index';
 import MapView from 'react-native-maps';
 import { ThemeProvider, styled } from 'styled-components';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import * as Font from 'expo-font';
 import theme from './src/theme';
+import React from 'react';
 
 export default function App() {
+  const [fontsLoaded, setFontsLoaded] = useState(false);
   useEffect(() => {
     const loadFonts = async () => {
       await Font.loadAsync({
@@ -16,10 +18,15 @@ export default function App() {
         'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf'),
         'Roboto-Light': require('./assets/fonts/Roboto-Light.ttf'),
       });
+      setFontsLoaded(true);
     };
 
     loadFonts();
   }, []);
+
+  if(!fontsLoaded) {
+    return null;
+  }
 
   return (
     <ThemeProvider theme = {theme}>
