@@ -5,6 +5,7 @@ import { requestForegroundPermissionsAsync, getCurrentPositionAsync, LocationObj
 import { Text, View, StyleSheet } from "react-native";
 import { LoadingModal } from "../../components/Modal Loading";
 import React from "react";
+import { HeaderApp } from "../../components/HeaderApp";
 
 
 export function Home(){
@@ -29,6 +30,14 @@ export function Home(){
         }
     }
 
+    function onMenuPress(){
+        console.log('Menu Pressionado')
+    }
+
+    function onLocationPress(){
+        console.log('Localização Pressionado')
+    }
+
     useEffect(() => {
         requestUserLocationPermission()
     }, [])
@@ -36,9 +45,12 @@ export function Home(){
     return(
         <View style={styles.container}>
             <LoadingModal isVisible={isLoading} />
+            <View style={styles.headerContainer}>
+                <HeaderApp onMenuPress={onMenuPress} onLocationPress={onLocationPress} />
+            </View>
             {location &&
             <MapView
-                userInterfaceStyle='dark'
+                userInterfaceStyle='light'
                 // provider="google"
                 initialRegion={{
                     latitude: location?.coords.latitude || -15.777874,
@@ -69,5 +81,12 @@ export const styles = StyleSheet.create({
     map : {
         flex: 1,
         width: '100%'
-    }
+    },
+    headerContainer: {
+        position: 'absolute', // posição absoluta
+        top: 0, // alinhado ao topo
+        left: 0, // alinhado à esquerda
+        right: 0, // alinhado à direita
+        zIndex: 1, // coloque um zIndex alto para que fique no topo
+      },
 })

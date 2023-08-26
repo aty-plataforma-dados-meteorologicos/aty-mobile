@@ -12,23 +12,8 @@
     "strict": true,
     "baseUrl": "./",
     "paths": {
-      "@assets/*": [
-        "./src/assets/*"
-      ],
-      "@components/*": [
-        "./src/components/*"
-      ],
-      "@screens/*": [
-        "./src/screens/*"
-      ],
-      "@storage/*": [
-        "./src/storage/*"
-      ],
-      "@theme/*": [
-        "./src/theme/*"
-      ],
-      "@utils/*": [
-        "./src/utils/*"
+      "@types/*": [
+        "./src/@types/*"
       ]
     }
   }
