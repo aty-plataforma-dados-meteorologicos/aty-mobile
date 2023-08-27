@@ -5,7 +5,7 @@ import { requestForegroundPermissionsAsync, getCurrentPositionAsync, LocationObj
 import { Text, View, StyleSheet } from "react-native";
 import { LoadingModal } from "../../components/Modal Loading";
 import React from "react";
-import { HeaderApp } from "../../components/HeaderApp";
+import { HeaderMap } from "../../components/HeaderMap";
 
 
 export function Home(){
@@ -46,7 +46,7 @@ export function Home(){
         <View style={styles.container}>
             <LoadingModal isVisible={isLoading} />
             <View style={styles.headerContainer}>
-                <HeaderApp onMenuPress={onMenuPress} onLocationPress={onLocationPress} />
+                <HeaderMap onMenuPress={onMenuPress} onLocationPress={onLocationPress} />
             </View>
             {location &&
             <MapView

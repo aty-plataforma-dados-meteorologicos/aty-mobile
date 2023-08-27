@@ -38,7 +38,7 @@ export function Input({titleInput, placeholder, onChangeTeste, keyboardType} : P
                 if (i === 2 || i === 5) maskedText += '.';
                 else if (i === 8) maskedText += '/';
                 else if (i === 12) maskedText += '-';
-                if (i < 14) maskedText += newText[i];  // Limit to 14 characters for CNPJ
+                if (i < 14) maskedText += newText[i];  // Limitando 14 caracteres no CNPJ
             }
         }
         return {maskedText, unmaskedText: newText};
