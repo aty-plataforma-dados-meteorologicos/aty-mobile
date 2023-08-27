@@ -3,6 +3,7 @@ import { StyleSheet, View } from "react-native";
 import { Input } from "../../components/Input";
 import { HeaderApp } from "../../components/HeaderApp";
 import { StationCard } from "../../components/StationCard";
+import { Information } from "../../components/Information";
 
 export function Test(){
 
@@ -14,7 +15,8 @@ export function Test(){
         <View style={styles.container}>
             {/* <Input titleInput="Teste" onChangeTeste={text => teste(text)} keyboardType="default"/> */}
             {/* <HeaderApp title="Teste" onMenuPress={teste} /> */}
-            <StationCard title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " subtitle="Subtitulo Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " onPressPhoto={teste} onPressIcon={teste} />
+            {/* <StationCard title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " subtitle="Subtitulo Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " onPressPhoto={teste} onPressIcon={teste} /> */}
+            <Information title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " onPressInfo={teste} />
         </View>
     )
 }
