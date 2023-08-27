@@ -4,6 +4,7 @@ import { Input } from "../../components/Input";
 import { HeaderApp } from "../../components/HeaderApp";
 import { StationCard } from "../../components/StationCard";
 import { Information } from "../../components/Information";
+import { ListEmpty } from "../../components/ListEmpty";
 
 export function Test(){
 
@@ -16,7 +17,8 @@ export function Test(){
             {/* <Input titleInput="Teste" onChangeTeste={text => teste(text)} keyboardType="default"/> */}
             {/* <HeaderApp title="Teste" onMenuPress={teste} /> */}
             {/* <StationCard title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " subtitle="Subtitulo Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " onPressPhoto={teste} onPressIcon={teste} /> */}
-            <Information title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " onPressInfo={teste} />
+            {/* <Information title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " onPressInfo={teste} /> */}
+            <ListEmpty message="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " />
         </View>
     )
 }
