@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Input } from "../../components/Input";
 import { HeaderApp } from "../../components/HeaderApp";
+import { StationCard } from "../../components/StationCard";
 
 export function Test(){
 
@@ -12,7 +13,8 @@ export function Test(){
     return(
         <View style={styles.container}>
             {/* <Input titleInput="Teste" onChangeTeste={text => teste(text)} keyboardType="default"/> */}
-            <HeaderApp title="Teste" onMenuPress={teste} />
+            {/* <HeaderApp title="Teste" onMenuPress={teste} /> */}
+            <StationCard title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " subtitle="Subtitulo Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " onPressPhoto={teste} onPressIcon={teste} />
         </View>
     )
 }
