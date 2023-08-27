@@ -10,7 +10,7 @@ export function Test(){
 
     return(
         <View style={styles.container}>
-            <Input titleInput="Teste" placeholder="Estou Testando" onChangeTeste={text => teste(text)}/>
+            <Input titleInput="Teste" onChangeTeste={text => teste(text)} keyboardType="cpf-cnpj"/>
         </View>
     )
 }
