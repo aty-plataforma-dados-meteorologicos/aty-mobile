@@ -1,30 +1,25 @@
 import React from "react"
-import { Container, LocationContainer, MenuContainer, Title, TitleContainer } from "./styles"
+import { BackContainer, Container, Title, TitleContainer } from "./styles"
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome"
-import { faBars, faLocationCrosshairs, faStream, faTh, faThList } from "@fortawesome/free-solid-svg-icons"
+import { faBars, faChevronLeft, faLocationCrosshairs, faStream, faTh, faThList } from "@fortawesome/free-solid-svg-icons"
 import { TouchableOpacity } from "react-native"
 
 type Props = {
+    title: string,
     onMenuPress: () => void,
-    onLocationPress: () => void
 }
 
-export function HeaderApp({onMenuPress, onLocationPress} : Props){
+export function HeaderApp({title, onMenuPress} : Props){
     return(
         <Container>
-            <MenuContainer>
+            <BackContainer>
                 <TouchableOpacity onPress={onMenuPress}>
-                    <FontAwesomeIcon icon={faBars} color="#FFFFFF" size={30}/>
+                    <FontAwesomeIcon icon={faChevronLeft} color="#FFFFFF" size={30}/>
                 </TouchableOpacity>
-            </MenuContainer>
+            </BackContainer>
             <TitleContainer>
-                <Title>Estações Meteorológicas</Title>
+                <Title numberOfLines={2} ellipsizeMode='tail'>{title}</Title>
             </TitleContainer>
-            <LocationContainer>
-                <TouchableOpacity onPress={onLocationPress}>
-                        <FontAwesomeIcon icon={faLocationCrosshairs} color="#FFFFFF" size={30}/>
-                    </TouchableOpacity>
-                </LocationContainer>
         </Container>
     )
 }
