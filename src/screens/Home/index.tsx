@@ -3,7 +3,7 @@ import { Container, MapComp, Pin } from "./styles";
 import { useEffect, useState } from "react";
 import { requestForegroundPermissionsAsync, getCurrentPositionAsync, LocationObject, watchPositionAsync, LocationAccuracy } from 'expo-location'
 import { Text, View, StyleSheet } from "react-native";
-import { LoadingModal } from "../../components/Modal Loading";
+import { LoadingModal } from "../../components/ModalLoading";
 import React from "react";
 import { HeaderMap } from "../../components/HeaderMap";
 
