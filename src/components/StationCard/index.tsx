@@ -10,6 +10,9 @@ type Props = {
     subtitle: string
 }
 
+// Card da estação que deve ser implementado nas listagens das estações. Alem do titulo e subtitulo (esse pode ser localização + altura ???)
+// temos o botão para acessar a estação e um press implementado na foto para abrir o modal de visualização da foto.
+
 export function StationCard({ onPressPhoto, onPressIcon, title, subtitle } : Props){
     return(
         <Container>

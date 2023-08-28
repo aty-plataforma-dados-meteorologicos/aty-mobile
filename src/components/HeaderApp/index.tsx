@@ -9,6 +9,10 @@ type Props = {
     onMenuPress: () => void,
 }
 
+// Header utilizado pelo resto da estação. O title sinaliza o usuário em qual tela ele está. EX: "Minhas Estações", "Estações com Acesso", "Estação 1".
+// Tambem tem o botão de voltar, que deve sempre voltar para tela anterior, salvo alguns casos que são relacionados com cadastro que deve voltar
+// para a tela inicial do aplicativo (tela de mapas).
+
 export function HeaderApp({title, onMenuPress} : Props){
     return(
         <Container>

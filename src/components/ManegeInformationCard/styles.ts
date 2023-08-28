@@ -33,4 +33,5 @@ export const Icon = styled.View`
 
 export const IconWrapper = styled.TouchableOpacity`
     margin-right: 10px;
+    margin-left: 5px;
 `

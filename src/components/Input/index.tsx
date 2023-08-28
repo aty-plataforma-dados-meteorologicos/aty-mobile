@@ -5,9 +5,13 @@ import { KeyboardTypeOptions } from "react-native";
 type Props = {
     titleInput?: string,
     placeholder?: string,
-    keyboardType?: 'default' | 'phone-pad' | 'cpf-cnpj',
+    keyboardType?: 'default' | 'phone-pad' | 'cpf-cnpj' | 'url',
     onChangeTeste: (text: string) => void
 }
+
+// Componente de input da aplicação. Pode ser utilizado em todos os input na aplicação mudando apenas o keyboard type. Por padrão o keyboard
+// como default será o de texto. Phone-pad e cpf-cnpj mudam o estilo do teclado para numérico e aplica uma mascara. URL somente muda o estilo
+// do teclado com atalhos para url.
 
 export function Input({titleInput, placeholder, onChangeTeste, keyboardType} : Props){
     const [maskedText, setMaskedText] = useState('');  
@@ -63,7 +67,7 @@ export function Input({titleInput, placeholder, onChangeTeste, keyboardType} : P
     return(
         <Container>
             {titleInput && <Title>{titleInput}</Title>}
-            <InputText placeholder={placeholder} value={maskedText} onChangeText={handleChangeText} keyboardType={keyboardType === 'phone-pad' || keyboardType === 'cpf-cnpj' ? 'numeric' : 'default'}>
+            <InputText placeholder={placeholder} value={maskedText} onChangeText={handleChangeText} keyboardType={keyboardType === 'phone-pad' || keyboardType === 'cpf-cnpj' || keyboardType === 'url' ? 'numeric' : 'default'}>
             </InputText>
         </Container>
     )

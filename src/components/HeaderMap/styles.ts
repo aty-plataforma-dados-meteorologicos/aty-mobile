@@ -13,7 +13,7 @@ export const Container = styled.View`
 `
 
 export const TitleContainer = styled.View`
-    width: 220px;
+    width: 230px;
     height: 40px;
     border-radius: 10px;
     background-color: ${({theme}) => theme.COLORS.SHAPE_TERCIARIA};

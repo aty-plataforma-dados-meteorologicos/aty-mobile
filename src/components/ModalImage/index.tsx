@@ -8,6 +8,10 @@ type Props = {
   onClose: () => void;
 };
 
+// Modal de imagem para abrir quando o usuário clicar na foto da estação. Deve ser implementado durante o cadastro da estação, na visualização/edição
+// já dentro da estação e na visualização da estação em listas ou pelo pin no mapa. Por padrão a foto será renderizada em 300 x 300 mas pode ser ajustado, 
+// só que manualmente aqui dentro do código.
+
 export function ModalImage({ isOpen, onClose } : Props) {
   const [fadeAnim] = useState(new Animated.Value(0));  // Inicializa a animação
   
