@@ -7,6 +7,7 @@ export const Container = styled.View`
 export const Title = styled.Text`
     font-family: ${({theme}) => theme.FONT_FAMILY.MEDIUM};
     font-size: ${({theme}) => theme.FONT_SIZE.MD}px;
+    color: ${({theme}) => theme.COLORS.WHITE};
 `
 
 export const InputText = styled(TextInput).attrs(({ theme }) => ({

@@ -2,25 +2,27 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Input } from "../../components/Input";
 import { HeaderApp } from "../../components/HeaderApp";
-import { StationCard } from "../../components/StationCard";
+import { StationCard } from "../../components/StationCardList";
 import { ListEmpty } from "../../components/ListEmpty";
 import { ManegePeopleCard } from "../../components/ManegeInformationCard";
 import { ModalImage } from "../../components/ModalImage";
+import { StationCardMap } from "../../components/StationCardMap";
 
 export function Test(){
 
-    function teste(){
-        console.log("teste")
+    function teste(teste : string){
+        console.log(teste)
     }
 
     return(
         <View style={styles.container}>
-            {/* <Input titleInput="Teste" onChangeTeste={text => teste(text)} keyboardType="default"/> */}
+            {/* <Input titleInput="Testezin" onChangeTeste={text => teste(text)} keyboardType="cpf-cnpj"/> */}
             {/* <HeaderApp title="Teste" onMenuPress={teste} /> */}
             {/* <StationCard title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " subtitle="Subtitulo Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " onPressPhoto={teste} onPressIcon={teste} /> */}
             {/* <ListEmpty message="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " /> */}
-            <ManegePeopleCard title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " email="Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste " showInfo onPressEdit={teste} onPressDelete={teste}/>
+            {/* <ManegePeopleCard title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " email="Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste " showInfo onPressEdit={teste} onPressDelete={teste}/> */}
             {/* <ModalImage isOpen onClose={teste} /> */}
+            <StationCardMap />
         </View>
     )
 }
@@ -28,7 +30,7 @@ export function Test(){
 export const styles = StyleSheet.create({
     container : {
         flex: 1,
-        backgroundColor: '#000000',
+        backgroundColor: '#FFFFFF',
         alignItems: 'center',
         justifyContent: 'center',
     },
