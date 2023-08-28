@@ -9,6 +9,9 @@ type Props = {
     onLocationPress: () => void
 }
 
+// Esse é o header da tela de mapa da aplicação, com um botão para levar focar o mapa na localização atual do usuário
+// e um botão para abrir o menu lateral da aplicação.
+
 export function HeaderMap({onMenuPress, onLocationPress} : Props){
     return(
         <Container>

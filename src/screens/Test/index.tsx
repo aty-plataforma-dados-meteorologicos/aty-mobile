@@ -3,9 +3,8 @@ import { StyleSheet, View } from "react-native";
 import { Input } from "../../components/Input";
 import { HeaderApp } from "../../components/HeaderApp";
 import { StationCard } from "../../components/StationCard";
-import { Information } from "../../components/Information";
 import { ListEmpty } from "../../components/ListEmpty";
-import { ManegePeopleCard } from "../../components/ManegePeopleCard";
+import { ManegePeopleCard } from "../../components/ManegeInformationCard";
 import { ModalImage } from "../../components/ModalImage";
 
 export function Test(){
@@ -19,10 +18,9 @@ export function Test(){
             {/* <Input titleInput="Teste" onChangeTeste={text => teste(text)} keyboardType="default"/> */}
             {/* <HeaderApp title="Teste" onMenuPress={teste} /> */}
             {/* <StationCard title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " subtitle="Subtitulo Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " onPressPhoto={teste} onPressIcon={teste} /> */}
-            {/* <Information title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " onPressInfo={teste} /> */}
             {/* <ListEmpty message="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " /> */}
-            {/* <ManegePeopleCard title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " email="Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste " showEdit onPressEdit={teste} onPressDelete={teste}/> */}
-            <ModalImage isOpen onClose={teste} />
+            <ManegePeopleCard title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " email="Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste " showInfo onPressEdit={teste} onPressDelete={teste}/>
+            {/* <ModalImage isOpen onClose={teste} /> */}
         </View>
     )
 }
