@@ -5,6 +5,7 @@ import { HeaderApp } from "../../components/HeaderApp";
 import { StationCard } from "../../components/StationCard";
 import { Information } from "../../components/Information";
 import { ListEmpty } from "../../components/ListEmpty";
+import { ManegePeopleCard } from "../../components/ManegePeopleCard";
 
 export function Test(){
 
@@ -18,7 +19,8 @@ export function Test(){
             {/* <HeaderApp title="Teste" onMenuPress={teste} /> */}
             {/* <StationCard title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " subtitle="Subtitulo Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " onPressPhoto={teste} onPressIcon={teste} /> */}
             {/* <Information title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " onPressInfo={teste} /> */}
-            <ListEmpty message="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " />
+            {/* <ListEmpty message="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " /> */}
+            <ManegePeopleCard title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " email="Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste " showEdit onPressEdit={teste} onPressDelete={teste}/>
         </View>
     )
 }
