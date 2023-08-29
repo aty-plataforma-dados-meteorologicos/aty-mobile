@@ -20,12 +20,14 @@ type Props = {
     onPressInfo?: () => void
 }
 
-export function ManegePeopleCard({ title, email, showConfirm, showEdit, showInfo, showDelete, onPressEdit, onPressConfirm, onPressDelete, onPressInfo } : Props){
+export function ManegeInformationCard({ title, email, showConfirm, showEdit, showInfo, showDelete, onPressEdit, onPressConfirm, onPressDelete, onPressInfo } : Props){
     return(
         <Container>
             <TitleContainer>
                 <Title numberOfLines={1} ellipsizeMode="tail">{title}</Title>
-                <Email numberOfLines={1} ellipsizeMode="tail">{email}</Email>
+                {email &&
+                    <Email numberOfLines={1} ellipsizeMode="tail">{email}</Email>
+                }
             </TitleContainer>
             <Icon>
                 {showConfirm &&

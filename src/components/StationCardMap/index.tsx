@@ -1,8 +1,9 @@
 import React from "react"
-import { Container, ContainerOne, ContainerTitle, ContainerTwo, Icon, ListSensor, Photo, Subtitle, Title, TitleSensor } from "./styles"
+import { Button, Container, ContainerOne, ContainerPhoto, ContainerThree, ContainerTitle, ContainerTwo, Icon, Photo, Subtitle, Title, TitleSensor, VerticalScrollView } from "./styles"
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome"
 import { faStar } from "@fortawesome/free-solid-svg-icons"
 import { Text, View } from "react-native";
+import { ManegeInformationCard } from "../ManegeInformationCard";
 
 const DATA = [
     {
@@ -15,12 +16,6 @@ const DATA = [
     }
 ]
 
-const Item = (title : any) => (
-    <View>
-        <Text>{title}</Text>
-    </View>
-);
-
 
 export function StationCardMap(){
 
@@ -29,7 +24,9 @@ export function StationCardMap(){
     return(
         <Container>
             <ContainerOne>
-                <Photo source={require('../../assets/aty.png')}></Photo>
+                <ContainerPhoto>
+                    <Photo source={require('../../assets/aty.png')}></Photo>
+                </ContainerPhoto>
                 <ContainerTitle>
                     <Title>Estações Meteorológicas</Title>
                     <Subtitle>Latitude - Longitude - Altura</Subtitle>
@@ -39,11 +36,22 @@ export function StationCardMap(){
                 </Icon>
             </ContainerOne>
             <ContainerTwo>
-                <ListSensor
-                    data={DATA}
-                    renderItem={({item} : {item : any}) => <Item title={item.nome} />}
-                />
+                <VerticalScrollView>
+                    <ManegeInformationCard title="Sensor 1" showInfo />
+                    <ManegeInformationCard title="Sensor 1" showInfo />
+                    <ManegeInformationCard title="Sensor 1" showInfo />
+                    <ManegeInformationCard title="Sensor 1" showInfo />
+                    <ManegeInformationCard title="Sensor 1" showInfo />
+                    <ManegeInformationCard title="Sensor 1" showInfo />
+                    <ManegeInformationCard title="Sensor 1" showInfo />
+                    <ManegeInformationCard title="Sensor 1" showInfo />
+                </VerticalScrollView>
             </ContainerTwo>
+            <ContainerThree>
+                <Button>
+                    <Title>Acessar Estação</Title>
+                </Button>
+            </ContainerThree>
         </Container>
     )
 }

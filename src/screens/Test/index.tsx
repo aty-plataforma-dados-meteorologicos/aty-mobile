@@ -4,7 +4,7 @@ import { Input } from "../../components/Input";
 import { HeaderApp } from "../../components/HeaderApp";
 import { StationCard } from "../../components/StationCardList";
 import { ListEmpty } from "../../components/ListEmpty";
-import { ManegePeopleCard } from "../../components/ManegeInformationCard";
+import { ManegeInformationCard } from "../../components/ManegeInformationCard";
 import { ModalImage } from "../../components/ModalImage";
 import { StationCardMap } from "../../components/StationCardMap";
 
@@ -20,7 +20,7 @@ export function Test(){
             {/* <HeaderApp title="Teste" onMenuPress={teste} /> */}
             {/* <StationCard title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " subtitle="Subtitulo Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " onPressPhoto={teste} onPressIcon={teste} /> */}
             {/* <ListEmpty message="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " /> */}
-            {/* <ManegePeopleCard title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " email="Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste " showInfo onPressEdit={teste} onPressDelete={teste}/> */}
+            {/* <ManegeInformationCard title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " email="Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste " showInfo onPressEdit={teste} onPressDelete={teste}/> */}
             {/* <ModalImage isOpen onClose={teste} /> */}
             <StationCardMap />
         </View>
