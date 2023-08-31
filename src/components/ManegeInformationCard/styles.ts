@@ -1,12 +1,18 @@
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
 
-export const Container = styled.View`
+interface ContainerProps {
+    hideBackground?: boolean;
+}
+
+export const Container = styled.View<ContainerProps>`
     width: 350px;
     height: 45px;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: ${({theme}) => theme.COLORS.SHAPE_SECUNDARIA};
+    ${({ theme, hideBackground }) => !hideBackground && css`
+        background-color: ${theme.COLORS.SHAPE_SECUNDARIA};
+    `}
     border-radius: 10px;
 `
 

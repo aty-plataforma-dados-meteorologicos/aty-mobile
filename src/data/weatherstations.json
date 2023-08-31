@@ -1,0 +1,5085 @@
+[
+    {
+        "id": 1,
+        "name": "Estação 1",
+        "latitude": -33.488272,
+        "longitude": -40.282775,
+        "alturaAMS": 754,
+        "photo": null,
+        "isFavorite": false,
+        "isPrivate": true,
+        "accessValid": true,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -19.985145432951107,
+                "valorMaximo": 21.60276128695972,
+                "acuracia": 4.03,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -3.3561278465967384,
+                "valorMaximo": 75.69163563981752,
+                "acuracia": 1.73,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -3.4998488754697945,
+                "valorMaximo": 25.17487894549263,
+                "acuracia": 2.2,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -16.93959266105384,
+                "valorMaximo": 92.08609040163174,
+                "acuracia": 1.66,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -10.940291878414772,
+                "valorMaximo": 37.72739674264804,
+                "acuracia": 2.36,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -17.94480531005339,
+                "valorMaximo": 97.92104596610639,
+                "acuracia": 4.64,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -1.5684667641083294,
+                "valorMaximo": 39.26379756675168,
+                "acuracia": 1.9,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -14.300371251279426,
+                "valorMaximo": 96.68525057266946,
+                "acuracia": 3.31,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -15.179014247354456,
+                "valorMaximo": 56.331538836856936,
+                "acuracia": 4.62,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -18.03583962208332,
+                "valorMaximo": 29.45729099654453,
+                "acuracia": 3.01,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -15.86305900346455,
+                "valorMaximo": 47.56286218507991,
+                "acuracia": 2.23,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 12,
+                "name": "Sensor 12",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -9.504672347518984,
+                "valorMaximo": 55.523893716354706,
+                "acuracia": 0.13,
+                "tipoSensor": "Pressão"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Estação 2",
+        "latitude": -31.117194,
+        "longitude": -58.429058,
+        "alturaAMS": 978,
+        "photo": null,
+        "isFavorite": true,
+        "isPrivate": false,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -5.281881877020421,
+                "valorMaximo": 59.39634019886226,
+                "acuracia": 3.23,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -17.611060932845277,
+                "valorMaximo": 48.96648820361698,
+                "acuracia": 3.21,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -12.643998343756763,
+                "valorMaximo": 86.4321494910354,
+                "acuracia": 1.05,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -5.641321778426567,
+                "valorMaximo": 94.94738505108111,
+                "acuracia": 1.61,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -14.383507700332835,
+                "valorMaximo": 66.40945676593357,
+                "acuracia": 1.08,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -8.4196120861149,
+                "valorMaximo": 26.347348530104135,
+                "acuracia": 0.67,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -19.032955358241566,
+                "valorMaximo": 95.96478783868395,
+                "acuracia": 3.34,
+                "tipoSensor": "Temperatura"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Estação 3",
+        "latitude": -9.440147,
+        "longitude": -74.794173,
+        "alturaAMS": 999,
+        "photo": null,
+        "isFavorite": true,
+        "isPrivate": false,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -16.437250848516552,
+                "valorMaximo": 85.12691120576369,
+                "acuracia": 1.21,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -5.911359243694623,
+                "valorMaximo": 72.83694704910143,
+                "acuracia": 4.86,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -10.625673797781106,
+                "valorMaximo": 27.21068736620083,
+                "acuracia": 3.8,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -10.736554669789548,
+                "valorMaximo": 59.43632276481872,
+                "acuracia": 3.42,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -10.059749797524173,
+                "valorMaximo": 67.01296878693779,
+                "acuracia": 4.62,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -8.122187934376669,
+                "valorMaximo": 22.96421124600526,
+                "acuracia": 2.97,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -0.7811028791670758,
+                "valorMaximo": 98.0089441109545,
+                "acuracia": 3.45,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -6.938972837427729,
+                "valorMaximo": 81.41677298905016,
+                "acuracia": 4.44,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -11.031694233973887,
+                "valorMaximo": 62.33547962180631,
+                "acuracia": 3.5,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -5.459519623996673,
+                "valorMaximo": 73.96595393175645,
+                "acuracia": 4.24,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -4.960362558928322,
+                "valorMaximo": 91.6890940921259,
+                "acuracia": 1.27,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 12,
+                "name": "Sensor 12",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -6.6121782994493135,
+                "valorMaximo": 53.45761713489616,
+                "acuracia": 0.41,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 13,
+                "name": "Sensor 13",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -10.618905238222126,
+                "valorMaximo": 39.23475977255351,
+                "acuracia": 1.85,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 14,
+                "name": "Sensor 14",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -2.094588893253878,
+                "valorMaximo": 84.25588508339486,
+                "acuracia": 0.29,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 15,
+                "name": "Sensor 15",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -16.09061578845732,
+                "valorMaximo": 90.1969839346517,
+                "acuracia": 2.46,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 16,
+                "name": "Sensor 16",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -13.409302866310924,
+                "valorMaximo": 79.16228691077667,
+                "acuracia": 3.46,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 17,
+                "name": "Sensor 17",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -9.828940350019126,
+                "valorMaximo": 26.62213393701989,
+                "acuracia": 2.15,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 18,
+                "name": "Sensor 18",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -12.069151218659487,
+                "valorMaximo": 45.449337356950664,
+                "acuracia": 1.85,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 19,
+                "name": "Sensor 19",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -19.213127696790778,
+                "valorMaximo": 70.25111116307008,
+                "acuracia": 1.26,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 20,
+                "name": "Sensor 20",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -16.22863850607625,
+                "valorMaximo": 66.50495335657433,
+                "acuracia": 4.69,
+                "tipoSensor": "Velocidade do Vento"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Estação 4",
+        "latitude": -21.520178,
+        "longitude": -63.939564,
+        "alturaAMS": 594,
+        "photo": null,
+        "isFavorite": false,
+        "isPrivate": true,
+        "accessValid": true,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -1.5110646514528696,
+                "valorMaximo": 33.10324260283605,
+                "acuracia": 1.06,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -2.097545974103543,
+                "valorMaximo": 33.603628433017995,
+                "acuracia": 0.4,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -16.338446459340823,
+                "valorMaximo": 21.555223117444413,
+                "acuracia": 2.23,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -9.046521387132145,
+                "valorMaximo": 65.04401579777104,
+                "acuracia": 4.44,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -11.419141207681726,
+                "valorMaximo": 28.645080105784693,
+                "acuracia": 1.44,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -9.143945920040357,
+                "valorMaximo": 39.1465241956095,
+                "acuracia": 2.78,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -3.114448085820353,
+                "valorMaximo": 29.608652302207908,
+                "acuracia": 2.97,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -9.372413687629482,
+                "valorMaximo": 42.48504978642461,
+                "acuracia": 0.44,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -5.665832588416018,
+                "valorMaximo": 49.29394413308629,
+                "acuracia": 1.18,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -19.562967288606977,
+                "valorMaximo": 29.55698087115146,
+                "acuracia": 4.57,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -18.863338035581346,
+                "valorMaximo": 67.18901731818141,
+                "acuracia": 0.86,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 12,
+                "name": "Sensor 12",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -5.931297588428105,
+                "valorMaximo": 82.28787012262686,
+                "acuracia": 2.37,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 13,
+                "name": "Sensor 13",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -17.93693530724711,
+                "valorMaximo": 84.27510954401961,
+                "acuracia": 2.04,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 14,
+                "name": "Sensor 14",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -6.261080751495978,
+                "valorMaximo": 32.53300515681755,
+                "acuracia": 1.19,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 15,
+                "name": "Sensor 15",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -10.345527759458111,
+                "valorMaximo": 44.97094105781406,
+                "acuracia": 0.92,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 16,
+                "name": "Sensor 16",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -12.481063841599717,
+                "valorMaximo": 58.09780517600238,
+                "acuracia": 1.5,
+                "tipoSensor": "Precipitação"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Estação 5",
+        "latitude": -10.056159,
+        "longitude": -33.803737,
+        "alturaAMS": 839,
+        "photo": null,
+        "isFavorite": false,
+        "isPrivate": false,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -11.281282286113337,
+                "valorMaximo": 56.00978202456406,
+                "acuracia": 2.17,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -2.200432538992885,
+                "valorMaximo": 84.28113757366303,
+                "acuracia": 0.55,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -7.278179413125898,
+                "valorMaximo": 78.89146683121137,
+                "acuracia": 0.78,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -1.0833288605745786,
+                "valorMaximo": 97.01565150920976,
+                "acuracia": 1.15,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -14.377117498621207,
+                "valorMaximo": 25.9953108134211,
+                "acuracia": 4.73,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -2.8572723877236754,
+                "valorMaximo": 21.45767592216555,
+                "acuracia": 1.94,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -15.449197103121136,
+                "valorMaximo": 68.358811790826,
+                "acuracia": 4.48,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -4.2186518554884245,
+                "valorMaximo": 39.085953889571066,
+                "acuracia": 0.77,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -1.8398667368077497,
+                "valorMaximo": 30.744576702141416,
+                "acuracia": 3.51,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -15.976576388761712,
+                "valorMaximo": 40.37220289772175,
+                "acuracia": 4.34,
+                "tipoSensor": "Velocidade do Vento"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Estação 6",
+        "latitude": -31.889815,
+        "longitude": -41.697592,
+        "alturaAMS": 798,
+        "photo": null,
+        "isFavorite": false,
+        "isPrivate": true,
+        "accessValid": true,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -3.983358325728819,
+                "valorMaximo": 69.38097588774922,
+                "acuracia": 3.31,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -2.870110484978415,
+                "valorMaximo": 68.71864811060655,
+                "acuracia": 0.42,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -10.359356919196493,
+                "valorMaximo": 57.666123121550825,
+                "acuracia": 2.74,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -19.723507371062425,
+                "valorMaximo": 74.28843076585598,
+                "acuracia": 2.85,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -9.697030050257391,
+                "valorMaximo": 46.7904270381845,
+                "acuracia": 0.22,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -14.920660913352346,
+                "valorMaximo": 46.57079488097817,
+                "acuracia": 2.51,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -10.170972696613376,
+                "valorMaximo": 84.6594662156304,
+                "acuracia": 0.39,
+                "tipoSensor": "Temperatura"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Estação 7",
+        "latitude": -16.878167,
+        "longitude": -65.626727,
+        "alturaAMS": 896,
+        "photo": null,
+        "isFavorite": false,
+        "isPrivate": true,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -9.744548638230908,
+                "valorMaximo": 21.5303744095116,
+                "acuracia": 4.44,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -12.332728405908135,
+                "valorMaximo": 25.574508463085568,
+                "acuracia": 1.3,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -18.35945568891454,
+                "valorMaximo": 52.42508309409379,
+                "acuracia": 0.92,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -13.081001768716389,
+                "valorMaximo": 92.53032358203528,
+                "acuracia": 0.5,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -19.79475130952967,
+                "valorMaximo": 58.04387921998118,
+                "acuracia": 0.9,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -4.434918328556947,
+                "valorMaximo": 76.4903577344553,
+                "acuracia": 4.77,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -6.071555460782816,
+                "valorMaximo": 41.50631892233772,
+                "acuracia": 2.1,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -14.74040494309813,
+                "valorMaximo": 32.912442173277185,
+                "acuracia": 2.4,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -5.061837346562715,
+                "valorMaximo": 94.14713581463073,
+                "acuracia": 2.22,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -19.01759873321077,
+                "valorMaximo": 46.70092650148354,
+                "acuracia": 4.99,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -17.17982939143106,
+                "valorMaximo": 74.36411803570424,
+                "acuracia": 1.77,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 12,
+                "name": "Sensor 12",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -7.857577242834932,
+                "valorMaximo": 26.087726985716717,
+                "acuracia": 0.41,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 13,
+                "name": "Sensor 13",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -15.798792341832065,
+                "valorMaximo": 58.30258619894481,
+                "acuracia": 1.68,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 14,
+                "name": "Sensor 14",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -12.427970367295826,
+                "valorMaximo": 60.96862657166927,
+                "acuracia": 4.14,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 15,
+                "name": "Sensor 15",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -4.464784731414333,
+                "valorMaximo": 93.14642421787119,
+                "acuracia": 4.3,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 16,
+                "name": "Sensor 16",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -19.116290749195855,
+                "valorMaximo": 85.45033828514107,
+                "acuracia": 2.05,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 17,
+                "name": "Sensor 17",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -5.138734839592736,
+                "valorMaximo": 85.76466796014834,
+                "acuracia": 2.2,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 18,
+                "name": "Sensor 18",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -2.883479767151723,
+                "valorMaximo": 44.66174127616781,
+                "acuracia": 1.32,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 19,
+                "name": "Sensor 19",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -4.611770918042497,
+                "valorMaximo": 66.77270159777245,
+                "acuracia": 1.43,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 20,
+                "name": "Sensor 20",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -7.944619068220277,
+                "valorMaximo": 54.19664307715059,
+                "acuracia": 1.64,
+                "tipoSensor": "Precipitação"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Estação 8",
+        "latitude": 1.690562,
+        "longitude": -42.253178,
+        "alturaAMS": 1098,
+        "photo": null,
+        "isFavorite": true,
+        "isPrivate": false,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -4.839993030367705,
+                "valorMaximo": 72.46458733766866,
+                "acuracia": 1.54,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -9.65849377177572,
+                "valorMaximo": 75.4867339637738,
+                "acuracia": 3.72,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -0.859494973426262,
+                "valorMaximo": 41.80965347268065,
+                "acuracia": 0.59,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -16.24814467458484,
+                "valorMaximo": 56.554782290913934,
+                "acuracia": 1.92,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -18.381870280956328,
+                "valorMaximo": 28.17057821291734,
+                "acuracia": 2.18,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -11.369222570069496,
+                "valorMaximo": 41.39540313299168,
+                "acuracia": 1.98,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -16.82437263262958,
+                "valorMaximo": 53.544227829717094,
+                "acuracia": 4.71,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -14.23124608942624,
+                "valorMaximo": 86.78685187784093,
+                "acuracia": 3.55,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -6.741845100494828,
+                "valorMaximo": 85.9746906446026,
+                "acuracia": 0.31,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -17.8192751502443,
+                "valorMaximo": 70.57277543881533,
+                "acuracia": 0.97,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -19.37016590548643,
+                "valorMaximo": 55.42654526046074,
+                "acuracia": 0.24,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 12,
+                "name": "Sensor 12",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -16.052804470112303,
+                "valorMaximo": 36.958039684953086,
+                "acuracia": 0.33,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 13,
+                "name": "Sensor 13",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -19.904498820773696,
+                "valorMaximo": 20.15291877484403,
+                "acuracia": 0.37,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 14,
+                "name": "Sensor 14",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -13.344934959747965,
+                "valorMaximo": 82.07169149675228,
+                "acuracia": 0.34,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 15,
+                "name": "Sensor 15",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -1.5959193701002192,
+                "valorMaximo": 52.03453311724567,
+                "acuracia": 3.48,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 16,
+                "name": "Sensor 16",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -0.7138081688306812,
+                "valorMaximo": 39.35434461318293,
+                "acuracia": 3.12,
+                "tipoSensor": "Pressão"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "name": "Estação 9",
+        "latitude": 3.474345,
+        "longitude": -43.306352,
+        "alturaAMS": 307,
+        "photo": null,
+        "isFavorite": false,
+        "isPrivate": true,
+        "accessValid": true,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -4.1358357404523005,
+                "valorMaximo": 72.85169278371414,
+                "acuracia": 3.31,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -10.224910951322299,
+                "valorMaximo": 88.24471776931014,
+                "acuracia": 1.25,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -16.037940052185157,
+                "valorMaximo": 63.7278466141496,
+                "acuracia": 1.58,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -9.526192059912205,
+                "valorMaximo": 29.759007665422263,
+                "acuracia": 3.28,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -1.8691751219252133,
+                "valorMaximo": 88.76329993668801,
+                "acuracia": 0.59,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -17.112917949995925,
+                "valorMaximo": 50.027512115098844,
+                "acuracia": 4.82,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -17.187585193207408,
+                "valorMaximo": 65.0624206251797,
+                "acuracia": 1.1,
+                "tipoSensor": "Pressão"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Estação 10",
+        "latitude": -21.676298,
+        "longitude": -58.882508,
+        "alturaAMS": 1460,
+        "photo": null,
+        "isFavorite": true,
+        "isPrivate": false,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -4.320953204080629,
+                "valorMaximo": 50.19204581812993,
+                "acuracia": 1.28,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -3.856777835683996,
+                "valorMaximo": 34.677949782726536,
+                "acuracia": 0.36,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -5.288559082789796,
+                "valorMaximo": 42.51199447876975,
+                "acuracia": 3.82,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -13.835667748786065,
+                "valorMaximo": 76.98312596580197,
+                "acuracia": 1.11,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -13.865252418375265,
+                "valorMaximo": 56.77349420580295,
+                "acuracia": 4.07,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -5.793936761134596,
+                "valorMaximo": 32.86039248696578,
+                "acuracia": 3.1,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -15.951388354006212,
+                "valorMaximo": 85.69868343705568,
+                "acuracia": 1.92,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -10.881187358194186,
+                "valorMaximo": 34.67058676237084,
+                "acuracia": 4.27,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -16.175294766800537,
+                "valorMaximo": 94.92011375045766,
+                "acuracia": 1.62,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -16.800974086551367,
+                "valorMaximo": 69.3296059999148,
+                "acuracia": 1.07,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -12.67471230526288,
+                "valorMaximo": 91.26826426927803,
+                "acuracia": 3.61,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 12,
+                "name": "Sensor 12",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -7.998114314136744,
+                "valorMaximo": 75.31469548319876,
+                "acuracia": 3.54,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 13,
+                "name": "Sensor 13",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -10.921126704012089,
+                "valorMaximo": 81.33050373760366,
+                "acuracia": 4.16,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 14,
+                "name": "Sensor 14",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -15.868005269002234,
+                "valorMaximo": 26.029220857669408,
+                "acuracia": 4.08,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 15,
+                "name": "Sensor 15",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -10.416442768474635,
+                "valorMaximo": 23.082907742845222,
+                "acuracia": 3.09,
+                "tipoSensor": "Pressão"
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "name": "Estação 11",
+        "latitude": -31.97337,
+        "longitude": -57.026558,
+        "alturaAMS": 1214,
+        "photo": null,
+        "isFavorite": false,
+        "isPrivate": false,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -0.554764188319897,
+                "valorMaximo": 83.48424233965994,
+                "acuracia": 2.04,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -16.561252896049265,
+                "valorMaximo": 34.6763815563359,
+                "acuracia": 4.44,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -6.148102755771303,
+                "valorMaximo": 84.23446600840832,
+                "acuracia": 0.19,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -15.594478381768083,
+                "valorMaximo": 53.76956886590734,
+                "acuracia": 1.69,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -4.153655590638017,
+                "valorMaximo": 44.56790671927756,
+                "acuracia": 3.44,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -7.71202094666635,
+                "valorMaximo": 50.11870305885314,
+                "acuracia": 2.9,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -12.323871998590654,
+                "valorMaximo": 83.77929341420418,
+                "acuracia": 0.46,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -19.954387388967714,
+                "valorMaximo": 55.12144032994661,
+                "acuracia": 4.06,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -1.5232757605171123,
+                "valorMaximo": 46.71673788314088,
+                "acuracia": 2.5,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -10.422647709885123,
+                "valorMaximo": 61.390674266528876,
+                "acuracia": 4.77,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -9.30075591632789,
+                "valorMaximo": 33.011340640382215,
+                "acuracia": 0.28,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 12,
+                "name": "Sensor 12",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -16.40890852544592,
+                "valorMaximo": 35.68058162268958,
+                "acuracia": 1.83,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 13,
+                "name": "Sensor 13",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -19.01888024373023,
+                "valorMaximo": 63.90210616679034,
+                "acuracia": 3.77,
+                "tipoSensor": "Precipitação"
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "name": "Estação 12",
+        "latitude": -33.738339,
+        "longitude": -72.146303,
+        "alturaAMS": 905,
+        "photo": null,
+        "isFavorite": false,
+        "isPrivate": true,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -5.095970041597562,
+                "valorMaximo": 67.01672298773777,
+                "acuracia": 4.07,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -10.665147503352282,
+                "valorMaximo": 68.87052334970724,
+                "acuracia": 3.81,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -8.721717622435548,
+                "valorMaximo": 63.71669880950853,
+                "acuracia": 3.58,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -6.784302329503209,
+                "valorMaximo": 68.81044428568592,
+                "acuracia": 4.48,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -15.092631916323842,
+                "valorMaximo": 98.81955486186762,
+                "acuracia": 3.4,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -9.758056617035981,
+                "valorMaximo": 51.256984300480724,
+                "acuracia": 3.29,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -17.861159476453548,
+                "valorMaximo": 93.56416217797435,
+                "acuracia": 4.98,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -17.307471281479017,
+                "valorMaximo": 72.77508230771427,
+                "acuracia": 4.17,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -5.195628491891124,
+                "valorMaximo": 20.35651064743286,
+                "acuracia": 2.6,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -6.975373438234886,
+                "valorMaximo": 35.62268676744296,
+                "acuracia": 3.58,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -14.540183723217366,
+                "valorMaximo": 53.179643118815896,
+                "acuracia": 0.22,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 12,
+                "name": "Sensor 12",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -2.7499401084665607,
+                "valorMaximo": 76.0358367607693,
+                "acuracia": 0.37,
+                "tipoSensor": "Pressão"
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "name": "Estação 13",
+        "latitude": -31.519322,
+        "longitude": -42.30424,
+        "alturaAMS": 1094,
+        "photo": null,
+        "isFavorite": true,
+        "isPrivate": true,
+        "accessValid": true,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -12.185049926294496,
+                "valorMaximo": 50.39063837844811,
+                "acuracia": 3.59,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -2.2097129299751614,
+                "valorMaximo": 78.18760016004975,
+                "acuracia": 3.42,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -12.654351716738365,
+                "valorMaximo": 38.42280745297943,
+                "acuracia": 1.95,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -8.744084752940218,
+                "valorMaximo": 68.54198453641587,
+                "acuracia": 1.67,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -9.878349641825073,
+                "valorMaximo": 42.174913593727,
+                "acuracia": 4.04,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -8.467415925720916,
+                "valorMaximo": 55.68738635369819,
+                "acuracia": 0.81,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -18.434361714636452,
+                "valorMaximo": 52.64260335915729,
+                "acuracia": 3.78,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -10.344000562208716,
+                "valorMaximo": 85.87352092103883,
+                "acuracia": 3.38,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -13.161763479900026,
+                "valorMaximo": 91.3720821546845,
+                "acuracia": 2.74,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -17.751319088175876,
+                "valorMaximo": 78.03984297178698,
+                "acuracia": 1.33,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -9.342826981159025,
+                "valorMaximo": 45.89622474261745,
+                "acuracia": 1.54,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 12,
+                "name": "Sensor 12",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -12.089975603175972,
+                "valorMaximo": 50.866112171904774,
+                "acuracia": 2.15,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 13,
+                "name": "Sensor 13",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -13.602300466502356,
+                "valorMaximo": 25.081652559274843,
+                "acuracia": 4.92,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 14,
+                "name": "Sensor 14",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -13.277100398837092,
+                "valorMaximo": 28.737034493885023,
+                "acuracia": 4.24,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 15,
+                "name": "Sensor 15",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -2.242067567413155,
+                "valorMaximo": 58.082137611795915,
+                "acuracia": 5.0,
+                "tipoSensor": "Pressão"
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "name": "Estação 14",
+        "latitude": -34.156606,
+        "longitude": -48.582965,
+        "alturaAMS": 893,
+        "photo": null,
+        "isFavorite": true,
+        "isPrivate": false,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -2.588521815664688,
+                "valorMaximo": 95.4920875105477,
+                "acuracia": 2.03,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -15.583936415882116,
+                "valorMaximo": 77.80723940080031,
+                "acuracia": 2.39,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -14.192096183379848,
+                "valorMaximo": 60.524094320088786,
+                "acuracia": 0.89,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -7.356495441780087,
+                "valorMaximo": 51.637474875476826,
+                "acuracia": 4.87,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -0.5131787463997775,
+                "valorMaximo": 59.89924706758319,
+                "acuracia": 4.41,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -9.88736739705066,
+                "valorMaximo": 52.97644366927286,
+                "acuracia": 3.73,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -7.49902881512989,
+                "valorMaximo": 24.83734529395571,
+                "acuracia": 1.94,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -12.201774149953447,
+                "valorMaximo": 34.84542030447932,
+                "acuracia": 3.07,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -1.797979187377031,
+                "valorMaximo": 75.39805009531207,
+                "acuracia": 4.57,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -12.322670548047016,
+                "valorMaximo": 53.44893987533786,
+                "acuracia": 2.15,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -16.73363748743109,
+                "valorMaximo": 92.85277622176733,
+                "acuracia": 4.05,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 12,
+                "name": "Sensor 12",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -4.931535361052301,
+                "valorMaximo": 41.2770209108923,
+                "acuracia": 4.17,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 13,
+                "name": "Sensor 13",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -0.39081580891328827,
+                "valorMaximo": 23.444395841424182,
+                "acuracia": 2.36,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 14,
+                "name": "Sensor 14",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -8.25885753978916,
+                "valorMaximo": 26.978751471431064,
+                "acuracia": 0.44,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 15,
+                "name": "Sensor 15",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -13.887574317863283,
+                "valorMaximo": 57.57361635525218,
+                "acuracia": 4.66,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 16,
+                "name": "Sensor 16",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -1.6948764314687104,
+                "valorMaximo": 46.95021644300344,
+                "acuracia": 2.72,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 17,
+                "name": "Sensor 17",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -15.350832762500229,
+                "valorMaximo": 83.7287459976277,
+                "acuracia": 3.68,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 18,
+                "name": "Sensor 18",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -4.4509379264367315,
+                "valorMaximo": 62.97959959039857,
+                "acuracia": 4.7,
+                "tipoSensor": "Precipitação"
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "name": "Estação 15",
+        "latitude": -4.105751,
+        "longitude": -47.561561,
+        "alturaAMS": 104,
+        "photo": null,
+        "isFavorite": true,
+        "isPrivate": true,
+        "accessValid": true,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -0.6433615825401304,
+                "valorMaximo": 53.888323891884085,
+                "acuracia": 4.93,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -10.30960096961473,
+                "valorMaximo": 31.749502152380717,
+                "acuracia": 2.22,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -12.357552667855629,
+                "valorMaximo": 78.27075727881731,
+                "acuracia": 0.88,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -2.857230430906803,
+                "valorMaximo": 20.596964313658148,
+                "acuracia": 3.81,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -5.497223339422536,
+                "valorMaximo": 42.197934540707244,
+                "acuracia": 3.93,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -10.156692193872118,
+                "valorMaximo": 46.465222616356755,
+                "acuracia": 1.24,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -0.38118537488837134,
+                "valorMaximo": 56.29870802552199,
+                "acuracia": 3.53,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -4.491150051124588,
+                "valorMaximo": 55.65086428598715,
+                "acuracia": 0.33,
+                "tipoSensor": "Velocidade do Vento"
+            }
+        ]
+    },
+    {
+        "id": 16,
+        "name": "Estação 16",
+        "latitude": -17.300677,
+        "longitude": -60.648153,
+        "alturaAMS": 1424,
+        "photo": null,
+        "isFavorite": true,
+        "isPrivate": true,
+        "accessValid": true,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -15.0230021133736,
+                "valorMaximo": 78.64105998549934,
+                "acuracia": 1.67,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -9.092403707556178,
+                "valorMaximo": 51.04031082402672,
+                "acuracia": 4.69,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -6.3336376565009935,
+                "valorMaximo": 56.15976157656704,
+                "acuracia": 0.68,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -6.169035615094259,
+                "valorMaximo": 61.305392572905824,
+                "acuracia": 0.75,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -0.025223728005823176,
+                "valorMaximo": 23.988368282676397,
+                "acuracia": 1.68,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -0.16347569535754403,
+                "valorMaximo": 85.55881921140443,
+                "acuracia": 4.4,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -2.0464797999031887,
+                "valorMaximo": 29.538890245824287,
+                "acuracia": 1.1,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -11.78976310885281,
+                "valorMaximo": 52.65625195731546,
+                "acuracia": 2.51,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -11.020804566161397,
+                "valorMaximo": 32.37982799098391,
+                "acuracia": 2.9,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -15.404460032655962,
+                "valorMaximo": 55.70468731755106,
+                "acuracia": 1.9,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -8.844633970405278,
+                "valorMaximo": 74.64560813505642,
+                "acuracia": 4.2,
+                "tipoSensor": "Precipitação"
+            }
+        ]
+    },
+    {
+        "id": 17,
+        "name": "Estação 17",
+        "latitude": -12.14056,
+        "longitude": -51.540763,
+        "alturaAMS": 1493,
+        "photo": null,
+        "isFavorite": false,
+        "isPrivate": true,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -2.4039500441674413,
+                "valorMaximo": 22.991223120637862,
+                "acuracia": 1.46,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -13.36594174287507,
+                "valorMaximo": 38.38099754226238,
+                "acuracia": 4.1,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -11.436499408869272,
+                "valorMaximo": 54.493155042992456,
+                "acuracia": 2.94,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -8.130322659850556,
+                "valorMaximo": 45.04174532126236,
+                "acuracia": 1.49,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -3.9963587123286075,
+                "valorMaximo": 94.21405020918232,
+                "acuracia": 4.79,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -1.338277489279406,
+                "valorMaximo": 25.958248763867555,
+                "acuracia": 3.28,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -11.963624062956633,
+                "valorMaximo": 64.70545243178572,
+                "acuracia": 3.68,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -6.766155069851102,
+                "valorMaximo": 44.046813145548775,
+                "acuracia": 0.42,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -17.31623330032569,
+                "valorMaximo": 54.9307494148005,
+                "acuracia": 4.95,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -18.83930643263985,
+                "valorMaximo": 63.32601788065897,
+                "acuracia": 0.29,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -17.796994137572963,
+                "valorMaximo": 99.43271472866834,
+                "acuracia": 2.21,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 12,
+                "name": "Sensor 12",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -9.916745858385788,
+                "valorMaximo": 83.3954797113346,
+                "acuracia": 0.99,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 13,
+                "name": "Sensor 13",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -0.4709861182220152,
+                "valorMaximo": 79.87782919825521,
+                "acuracia": 2.99,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 14,
+                "name": "Sensor 14",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -18.46259418537568,
+                "valorMaximo": 94.90368747346045,
+                "acuracia": 3.2,
+                "tipoSensor": "Precipitação"
+            }
+        ]
+    },
+    {
+        "id": 18,
+        "name": "Estação 18",
+        "latitude": 2.458471,
+        "longitude": -59.10452,
+        "alturaAMS": 626,
+        "photo": null,
+        "isFavorite": false,
+        "isPrivate": false,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -18.691427657398116,
+                "valorMaximo": 94.47229907367094,
+                "acuracia": 1.58,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -9.378647528652726,
+                "valorMaximo": 41.504560344308686,
+                "acuracia": 3.54,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -15.108600498085638,
+                "valorMaximo": 40.80982799078561,
+                "acuracia": 3.77,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -1.9076818358979892,
+                "valorMaximo": 79.36493122991456,
+                "acuracia": 4.89,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -7.5000977560007005,
+                "valorMaximo": 86.44137519585729,
+                "acuracia": 3.92,
+                "tipoSensor": "Precipitação"
+            }
+        ]
+    },
+    {
+        "id": 19,
+        "name": "Estação 19",
+        "latitude": -9.952784,
+        "longitude": -50.696831,
+        "alturaAMS": 467,
+        "photo": null,
+        "isFavorite": false,
+        "isPrivate": false,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -9.756578433273738,
+                "valorMaximo": 98.53294644475011,
+                "acuracia": 1.56,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -16.466913811647938,
+                "valorMaximo": 72.93719595090064,
+                "acuracia": 0.74,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -19.354491127833583,
+                "valorMaximo": 26.128531124561427,
+                "acuracia": 4.81,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -15.260496597054512,
+                "valorMaximo": 72.98944139310436,
+                "acuracia": 2.64,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -6.383363029648301,
+                "valorMaximo": 84.78455635005587,
+                "acuracia": 3.84,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -0.7535826386474014,
+                "valorMaximo": 45.29937997076557,
+                "acuracia": 2.14,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -8.313062323480086,
+                "valorMaximo": 91.1220150420594,
+                "acuracia": 1.18,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -4.682844705500459,
+                "valorMaximo": 81.29115491670927,
+                "acuracia": 3.74,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -1.4607342532060663,
+                "valorMaximo": 67.1052917144994,
+                "acuracia": 4.13,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -11.349525029926495,
+                "valorMaximo": 97.43999698235784,
+                "acuracia": 4.75,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -0.09541750948963212,
+                "valorMaximo": 57.73465680346598,
+                "acuracia": 0.29,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 12,
+                "name": "Sensor 12",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -9.906444627272489,
+                "valorMaximo": 95.69162967571394,
+                "acuracia": 4.4,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 13,
+                "name": "Sensor 13",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -11.023024947380275,
+                "valorMaximo": 55.70117134901054,
+                "acuracia": 4.38,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 14,
+                "name": "Sensor 14",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -6.052251200275446,
+                "valorMaximo": 82.56420316925922,
+                "acuracia": 4.95,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 15,
+                "name": "Sensor 15",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -11.771803098265943,
+                "valorMaximo": 49.34617025860199,
+                "acuracia": 2.97,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 16,
+                "name": "Sensor 16",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -9.968122529453481,
+                "valorMaximo": 32.47884492865371,
+                "acuracia": 4.98,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 17,
+                "name": "Sensor 17",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -3.422035015663308,
+                "valorMaximo": 68.89687179523901,
+                "acuracia": 1.51,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 18,
+                "name": "Sensor 18",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -15.85308461062268,
+                "valorMaximo": 62.79261265228392,
+                "acuracia": 2.83,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 19,
+                "name": "Sensor 19",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -11.298367758701062,
+                "valorMaximo": 53.869524977006364,
+                "acuracia": 1.92,
+                "tipoSensor": "Precipitação"
+            }
+        ]
+    },
+    {
+        "id": 20,
+        "name": "Estação 20",
+        "latitude": -11.590946,
+        "longitude": -32.973602,
+        "alturaAMS": 936,
+        "photo": null,
+        "isFavorite": true,
+        "isPrivate": false,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -3.403810452699158,
+                "valorMaximo": 44.044092370176536,
+                "acuracia": 3.76,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -15.902740440147198,
+                "valorMaximo": 37.16843902378962,
+                "acuracia": 2.3,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -5.567387274772329,
+                "valorMaximo": 36.916122074269005,
+                "acuracia": 2.2,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -16.0321264652627,
+                "valorMaximo": 40.901110914428436,
+                "acuracia": 0.35,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -3.5196461360585687,
+                "valorMaximo": 22.50962069750787,
+                "acuracia": 1.89,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -11.645477836299216,
+                "valorMaximo": 57.79124229342116,
+                "acuracia": 0.62,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -16.595337973580552,
+                "valorMaximo": 60.22625055333509,
+                "acuracia": 2.89,
+                "tipoSensor": "Precipitação"
+            }
+        ]
+    },
+    {
+        "id": 21,
+        "name": "Estação 21",
+        "latitude": -17.455786,
+        "longitude": -62.922072,
+        "alturaAMS": 198,
+        "photo": null,
+        "isFavorite": false,
+        "isPrivate": true,
+        "accessValid": true,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -11.756524266126505,
+                "valorMaximo": 50.28251923301749,
+                "acuracia": 1.98,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -14.000967359462845,
+                "valorMaximo": 38.15112034604439,
+                "acuracia": 3.05,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -0.01842619846040705,
+                "valorMaximo": 55.548968216904754,
+                "acuracia": 2.52,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -12.24170309914469,
+                "valorMaximo": 29.507601842172065,
+                "acuracia": 4.91,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -11.478610513966807,
+                "valorMaximo": 21.037084591629693,
+                "acuracia": 2.08,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -18.922444488898893,
+                "valorMaximo": 87.21837085169486,
+                "acuracia": 3.59,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -5.147723686691361,
+                "valorMaximo": 76.66664613890663,
+                "acuracia": 3.42,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -0.6767470047418414,
+                "valorMaximo": 56.90059756683591,
+                "acuracia": 3.91,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -8.929038762632837,
+                "valorMaximo": 53.04638438694429,
+                "acuracia": 2.15,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -19.601837357708188,
+                "valorMaximo": 92.11148578188194,
+                "acuracia": 2.61,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -6.58757978965399,
+                "valorMaximo": 34.09123037178276,
+                "acuracia": 4.42,
+                "tipoSensor": "Precipitação"
+            }
+        ]
+    },
+    {
+        "id": 22,
+        "name": "Estação 22",
+        "latitude": -29.874461,
+        "longitude": -33.389025,
+        "alturaAMS": 408,
+        "photo": null,
+        "isFavorite": true,
+        "isPrivate": true,
+        "accessValid": true,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -17.48310017425461,
+                "valorMaximo": 45.88244239427277,
+                "acuracia": 0.42,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -13.311506644549523,
+                "valorMaximo": 72.69181444098035,
+                "acuracia": 3.35,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -3.5559738346490555,
+                "valorMaximo": 56.389331423531736,
+                "acuracia": 1.25,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -18.18299953688858,
+                "valorMaximo": 84.72452850596498,
+                "acuracia": 2.7,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -19.53889927316021,
+                "valorMaximo": 56.951918467372906,
+                "acuracia": 0.31,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -11.393100164294642,
+                "valorMaximo": 89.14921824616754,
+                "acuracia": 3.03,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -0.7991916554976193,
+                "valorMaximo": 77.66139682687029,
+                "acuracia": 0.95,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -8.243419377386466,
+                "valorMaximo": 51.62068538551481,
+                "acuracia": 2.62,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -7.342412216397776,
+                "valorMaximo": 72.55632810419232,
+                "acuracia": 3.36,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -13.468998588379941,
+                "valorMaximo": 79.83874172581582,
+                "acuracia": 2.86,
+                "tipoSensor": "Velocidade do Vento"
+            }
+        ]
+    },
+    {
+        "id": 23,
+        "name": "Estação 23",
+        "latitude": -23.209722,
+        "longitude": -31.06916,
+        "alturaAMS": 1132,
+        "photo": null,
+        "isFavorite": true,
+        "isPrivate": false,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -6.205909835053411,
+                "valorMaximo": 27.626816289890634,
+                "acuracia": 4.21,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -17.448929720820473,
+                "valorMaximo": 44.639889262750884,
+                "acuracia": 4.86,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -19.52360707707219,
+                "valorMaximo": 79.14457489364351,
+                "acuracia": 4.11,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -4.251548742654068,
+                "valorMaximo": 52.71304382932661,
+                "acuracia": 4.82,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -17.841206970728813,
+                "valorMaximo": 38.72686915421006,
+                "acuracia": 3.76,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -13.89421631946548,
+                "valorMaximo": 67.16242305854254,
+                "acuracia": 0.45,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -15.080842073594082,
+                "valorMaximo": 47.452100249125586,
+                "acuracia": 3.68,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -8.914969702257752,
+                "valorMaximo": 97.6389236340096,
+                "acuracia": 4.3,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -4.870089032035178,
+                "valorMaximo": 91.21596636671669,
+                "acuracia": 1.24,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -17.826800742682163,
+                "valorMaximo": 96.75046501791522,
+                "acuracia": 4.51,
+                "tipoSensor": "Velocidade do Vento"
+            }
+        ]
+    },
+    {
+        "id": 24,
+        "name": "Estação 24",
+        "latitude": -10.425718,
+        "longitude": -70.144018,
+        "alturaAMS": 1432,
+        "photo": null,
+        "isFavorite": false,
+        "isPrivate": false,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -15.697265500881485,
+                "valorMaximo": 93.88008814846536,
+                "acuracia": 1.13,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -18.20226577482677,
+                "valorMaximo": 87.99647799609069,
+                "acuracia": 0.24,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -11.690783911738336,
+                "valorMaximo": 41.299056943245816,
+                "acuracia": 4.13,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -1.8401376683979223,
+                "valorMaximo": 38.698925619890844,
+                "acuracia": 0.6,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -9.477373762243523,
+                "valorMaximo": 25.63768575205866,
+                "acuracia": 2.14,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -10.655108397882385,
+                "valorMaximo": 74.05995956467484,
+                "acuracia": 4.32,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -4.360799412617716,
+                "valorMaximo": 38.443070297195014,
+                "acuracia": 0.48,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -7.6443380293143885,
+                "valorMaximo": 44.53376682178696,
+                "acuracia": 2.51,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -19.276233907584782,
+                "valorMaximo": 68.96952102629794,
+                "acuracia": 1.52,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -16.73601792937202,
+                "valorMaximo": 83.75288282020524,
+                "acuracia": 3.64,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -1.2440653510362694,
+                "valorMaximo": 61.28906984956089,
+                "acuracia": 1.76,
+                "tipoSensor": "Pressão"
+            }
+        ]
+    },
+    {
+        "id": 25,
+        "name": "Estação 25",
+        "latitude": -30.626292,
+        "longitude": -73.996492,
+        "alturaAMS": 223,
+        "photo": null,
+        "isFavorite": false,
+        "isPrivate": false,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -7.945613116093702,
+                "valorMaximo": 67.63180834067293,
+                "acuracia": 3.02,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -0.7801530630181048,
+                "valorMaximo": 74.483664899128,
+                "acuracia": 3.54,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -4.863084629594329,
+                "valorMaximo": 24.18055898978843,
+                "acuracia": 3.47,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -2.3014854811991654,
+                "valorMaximo": 31.559223040123328,
+                "acuracia": 3.64,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -10.152595655215187,
+                "valorMaximo": 26.423920201614575,
+                "acuracia": 2.52,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -18.490218351578353,
+                "valorMaximo": 44.58118014924568,
+                "acuracia": 0.43,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -8.476889628064942,
+                "valorMaximo": 32.44100094286816,
+                "acuracia": 1.01,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -0.7838237455430352,
+                "valorMaximo": 23.763049696356468,
+                "acuracia": 2.65,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -16.736853002933945,
+                "valorMaximo": 55.92013937055417,
+                "acuracia": 0.69,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -15.945084520798169,
+                "valorMaximo": 50.854921912513774,
+                "acuracia": 3.3,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -6.9567168737171095,
+                "valorMaximo": 96.17996528878537,
+                "acuracia": 2.83,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 12,
+                "name": "Sensor 12",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -0.3795188784252055,
+                "valorMaximo": 74.27392372522148,
+                "acuracia": 3.16,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 13,
+                "name": "Sensor 13",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -11.85690267903166,
+                "valorMaximo": 85.16734702815812,
+                "acuracia": 4.58,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 14,
+                "name": "Sensor 14",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -3.075996227516189,
+                "valorMaximo": 62.942715576326805,
+                "acuracia": 1.14,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 15,
+                "name": "Sensor 15",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -8.353504487041194,
+                "valorMaximo": 74.35599283006161,
+                "acuracia": 3.12,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 16,
+                "name": "Sensor 16",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -3.3489310326313806,
+                "valorMaximo": 38.52406804292486,
+                "acuracia": 2.88,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 17,
+                "name": "Sensor 17",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -19.943990503420807,
+                "valorMaximo": 98.96276971108891,
+                "acuracia": 2.19,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 18,
+                "name": "Sensor 18",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -17.884692523170642,
+                "valorMaximo": 26.880321856192282,
+                "acuracia": 3.97,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 19,
+                "name": "Sensor 19",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -5.002484596760217,
+                "valorMaximo": 98.10051036905814,
+                "acuracia": 3.56,
+                "tipoSensor": "Temperatura"
+            }
+        ]
+    },
+    {
+        "id": 26,
+        "name": "Estação 26",
+        "latitude": -15.225225,
+        "longitude": -46.5515,
+        "alturaAMS": 1400,
+        "photo": null,
+        "isFavorite": false,
+        "isPrivate": false,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -11.12259451753978,
+                "valorMaximo": 43.26445087675112,
+                "acuracia": 0.62,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -16.781189376219405,
+                "valorMaximo": 48.64952380476039,
+                "acuracia": 1.25,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -7.389311527519329,
+                "valorMaximo": 99.90835516892469,
+                "acuracia": 3.13,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -6.475057917480569,
+                "valorMaximo": 38.350031004428246,
+                "acuracia": 4.22,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -2.978334989885262,
+                "valorMaximo": 60.06597113118542,
+                "acuracia": 2.62,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -5.2624133537437885,
+                "valorMaximo": 79.30161717688242,
+                "acuracia": 0.29,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -3.8152343022758046,
+                "valorMaximo": 52.31873225717468,
+                "acuracia": 1.96,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -2.9468380571044364,
+                "valorMaximo": 40.34942818678833,
+                "acuracia": 3.58,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -7.446850208345527,
+                "valorMaximo": 90.45519777284342,
+                "acuracia": 0.96,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -8.516208287685895,
+                "valorMaximo": 52.30627202731698,
+                "acuracia": 1.85,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -9.887997725983569,
+                "valorMaximo": 90.91911828220609,
+                "acuracia": 4.44,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 12,
+                "name": "Sensor 12",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -1.2807851226815892,
+                "valorMaximo": 35.82847787086279,
+                "acuracia": 0.79,
+                "tipoSensor": "Temperatura"
+            }
+        ]
+    },
+    {
+        "id": 27,
+        "name": "Estação 27",
+        "latitude": 1.247906,
+        "longitude": -44.313537,
+        "alturaAMS": 162,
+        "photo": null,
+        "isFavorite": true,
+        "isPrivate": false,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -3.837540864311169,
+                "valorMaximo": 81.45996754955878,
+                "acuracia": 2.95,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -5.0512528821032525,
+                "valorMaximo": 70.8172408055617,
+                "acuracia": 2.15,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -11.230656757149315,
+                "valorMaximo": 43.7161621186398,
+                "acuracia": 1.69,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -6.432420752438283,
+                "valorMaximo": 81.17298843082742,
+                "acuracia": 3.82,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -9.201261743797627,
+                "valorMaximo": 22.234066620449102,
+                "acuracia": 1.38,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -18.12383793935168,
+                "valorMaximo": 77.50451427567943,
+                "acuracia": 3.06,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -2.733045528802439,
+                "valorMaximo": 69.40358864354712,
+                "acuracia": 0.47,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -1.20564944664833,
+                "valorMaximo": 24.94653488516244,
+                "acuracia": 4.26,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -2.157798261858794,
+                "valorMaximo": 27.176573525766496,
+                "acuracia": 1.75,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -1.7642224054662883,
+                "valorMaximo": 76.5182541376513,
+                "acuracia": 3.47,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -14.269473329336993,
+                "valorMaximo": 55.95919387850087,
+                "acuracia": 2.31,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 12,
+                "name": "Sensor 12",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -7.605109218247767,
+                "valorMaximo": 58.55786361249034,
+                "acuracia": 2.88,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 13,
+                "name": "Sensor 13",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -18.702551147342675,
+                "valorMaximo": 42.561411695102834,
+                "acuracia": 3.56,
+                "tipoSensor": "Temperatura"
+            }
+        ]
+    },
+    {
+        "id": 28,
+        "name": "Estação 28",
+        "latitude": -30.098832,
+        "longitude": -53.938183,
+        "alturaAMS": 1188,
+        "photo": null,
+        "isFavorite": true,
+        "isPrivate": false,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -19.091303234208834,
+                "valorMaximo": 86.84528492967874,
+                "acuracia": 4.1,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -5.951919568205797,
+                "valorMaximo": 49.76673005144321,
+                "acuracia": 3.65,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -4.322272953360011,
+                "valorMaximo": 66.29158640712902,
+                "acuracia": 0.69,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -2.9444737015268103,
+                "valorMaximo": 57.89195870400262,
+                "acuracia": 3.97,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -9.969073539685736,
+                "valorMaximo": 88.14206139266271,
+                "acuracia": 1.91,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -16.85999881847463,
+                "valorMaximo": 76.79192251094572,
+                "acuracia": 2.86,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -8.264993597419899,
+                "valorMaximo": 32.51303262421503,
+                "acuracia": 4.32,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -16.46338931341122,
+                "valorMaximo": 86.87828560534113,
+                "acuracia": 4.57,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -1.2148339499557572,
+                "valorMaximo": 54.211225270079765,
+                "acuracia": 3.66,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -1.3202532774980007,
+                "valorMaximo": 64.61634002494155,
+                "acuracia": 1.96,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -4.048321730376827,
+                "valorMaximo": 24.10462903855059,
+                "acuracia": 1.13,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 12,
+                "name": "Sensor 12",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -13.108876311468977,
+                "valorMaximo": 75.12842176880237,
+                "acuracia": 1.21,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 13,
+                "name": "Sensor 13",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -10.90831369706611,
+                "valorMaximo": 81.56084137370084,
+                "acuracia": 1.02,
+                "tipoSensor": "Pressão"
+            }
+        ]
+    },
+    {
+        "id": 29,
+        "name": "Estação 29",
+        "latitude": -30.849991,
+        "longitude": -55.120049,
+        "alturaAMS": 158,
+        "photo": null,
+        "isFavorite": true,
+        "isPrivate": false,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -2.4900851070341368,
+                "valorMaximo": 68.27950433399715,
+                "acuracia": 1.24,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -6.467540310517867,
+                "valorMaximo": 96.88337031459587,
+                "acuracia": 4.85,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -6.485432986659006,
+                "valorMaximo": 26.903227049379865,
+                "acuracia": 4.81,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -18.92589456855479,
+                "valorMaximo": 93.09079829119452,
+                "acuracia": 3.09,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -11.938623989056074,
+                "valorMaximo": 26.310692458686027,
+                "acuracia": 1.32,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -12.876816305849433,
+                "valorMaximo": 38.567406593958125,
+                "acuracia": 0.92,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -14.725439203372531,
+                "valorMaximo": 77.07604311221742,
+                "acuracia": 4.93,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -19.41220622916776,
+                "valorMaximo": 85.3925456333188,
+                "acuracia": 4.01,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -2.9985740781730215,
+                "valorMaximo": 89.72526451070172,
+                "acuracia": 1.26,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -14.190215784384431,
+                "valorMaximo": 72.80905513168818,
+                "acuracia": 3.8,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -9.171463507401192,
+                "valorMaximo": 29.41483229041171,
+                "acuracia": 3.02,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 12,
+                "name": "Sensor 12",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -0.89490337174934,
+                "valorMaximo": 62.33733975942152,
+                "acuracia": 4.19,
+                "tipoSensor": "Precipitação"
+            }
+        ]
+    },
+    {
+        "id": 30,
+        "name": "Estação 30",
+        "latitude": 3.413656,
+        "longitude": -58.57521,
+        "alturaAMS": 1411,
+        "photo": null,
+        "isFavorite": true,
+        "isPrivate": true,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -1.204465572962384,
+                "valorMaximo": 92.29294972040529,
+                "acuracia": 1.09,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -15.971928731126603,
+                "valorMaximo": 50.385752521151524,
+                "acuracia": 2.02,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -1.9860408545996258,
+                "valorMaximo": 74.86926990630457,
+                "acuracia": 3.95,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -10.65234972234287,
+                "valorMaximo": 98.52112823168245,
+                "acuracia": 1.63,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -11.525356718024222,
+                "valorMaximo": 78.13839421558058,
+                "acuracia": 3.57,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -15.598236176783725,
+                "valorMaximo": 72.98672372859856,
+                "acuracia": 4.28,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -2.0896909117324043,
+                "valorMaximo": 93.02239614934255,
+                "acuracia": 3.61,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -14.197805246659087,
+                "valorMaximo": 82.697086407853,
+                "acuracia": 4.78,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -19.99447281004182,
+                "valorMaximo": 60.049829605551395,
+                "acuracia": 0.27,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -8.435725420775483,
+                "valorMaximo": 21.122715228364672,
+                "acuracia": 2.76,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -15.044184639761804,
+                "valorMaximo": 95.2878698848871,
+                "acuracia": 0.78,
+                "tipoSensor": "Pressão"
+            }
+        ]
+    },
+    {
+        "id": 31,
+        "name": "Estação 31",
+        "latitude": -28.445846,
+        "longitude": -63.961669,
+        "alturaAMS": 487,
+        "photo": null,
+        "isFavorite": true,
+        "isPrivate": false,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -14.118673907948907,
+                "valorMaximo": 80.2866822182037,
+                "acuracia": 4.74,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -2.735187801957167,
+                "valorMaximo": 48.35327991119699,
+                "acuracia": 3.68,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -16.41464376317679,
+                "valorMaximo": 21.836549239601332,
+                "acuracia": 0.11,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -10.79819449699728,
+                "valorMaximo": 93.22734037369165,
+                "acuracia": 4.41,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -15.090670421783765,
+                "valorMaximo": 81.05936183065297,
+                "acuracia": 4.59,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -10.379464464003556,
+                "valorMaximo": 84.78586010914023,
+                "acuracia": 2.73,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -15.662406696102664,
+                "valorMaximo": 74.0300335448611,
+                "acuracia": 3.34,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -4.616002316986542,
+                "valorMaximo": 37.79642735927574,
+                "acuracia": 3.35,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -0.855352835697019,
+                "valorMaximo": 53.682053760064605,
+                "acuracia": 0.64,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -19.866073315479785,
+                "valorMaximo": 69.42380085189652,
+                "acuracia": 3.56,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -5.436953635364926,
+                "valorMaximo": 81.66700563621859,
+                "acuracia": 2.77,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 12,
+                "name": "Sensor 12",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -19.186729884073507,
+                "valorMaximo": 28.2923453665739,
+                "acuracia": 2.04,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 13,
+                "name": "Sensor 13",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -4.935502659900141,
+                "valorMaximo": 85.44545443708624,
+                "acuracia": 0.99,
+                "tipoSensor": "Pressão"
+            }
+        ]
+    },
+    {
+        "id": 32,
+        "name": "Estação 32",
+        "latitude": -1.704577,
+        "longitude": -38.11994,
+        "alturaAMS": 1383,
+        "photo": null,
+        "isFavorite": true,
+        "isPrivate": false,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -17.946220362602652,
+                "valorMaximo": 85.96631460772441,
+                "acuracia": 4.79,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -5.7474881250163,
+                "valorMaximo": 59.961861280219665,
+                "acuracia": 2.61,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -5.482981932205069,
+                "valorMaximo": 49.37235488650177,
+                "acuracia": 0.33,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -4.027485083963702,
+                "valorMaximo": 52.45953619742582,
+                "acuracia": 1.01,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -5.575713195121558,
+                "valorMaximo": 69.53021537093449,
+                "acuracia": 2.47,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -15.081826177260279,
+                "valorMaximo": 30.51742354202161,
+                "acuracia": 4.21,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -4.698136724070084,
+                "valorMaximo": 57.965751982848126,
+                "acuracia": 3.96,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -16.84915632956572,
+                "valorMaximo": 73.95928251005597,
+                "acuracia": 3.59,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -15.612977226977616,
+                "valorMaximo": 76.39800544284793,
+                "acuracia": 2.92,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -8.788565379055953,
+                "valorMaximo": 82.49896963552463,
+                "acuracia": 4.61,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -10.12781585991836,
+                "valorMaximo": 78.12947736411779,
+                "acuracia": 0.43,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 12,
+                "name": "Sensor 12",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -3.8565954803249447,
+                "valorMaximo": 58.85664475781064,
+                "acuracia": 3.65,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 13,
+                "name": "Sensor 13",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -0.5602187553786351,
+                "valorMaximo": 92.90577275393031,
+                "acuracia": 2.11,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 14,
+                "name": "Sensor 14",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -15.419948761722566,
+                "valorMaximo": 50.023063058603505,
+                "acuracia": 3.35,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 15,
+                "name": "Sensor 15",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -11.86249469060752,
+                "valorMaximo": 21.673816170754876,
+                "acuracia": 1.19,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 16,
+                "name": "Sensor 16",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -17.059757957568664,
+                "valorMaximo": 87.26123058180492,
+                "acuracia": 1.21,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 17,
+                "name": "Sensor 17",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -14.270872285110027,
+                "valorMaximo": 67.36262086617052,
+                "acuracia": 1.38,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 18,
+                "name": "Sensor 18",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -4.54753979975532,
+                "valorMaximo": 65.67474079753832,
+                "acuracia": 1.89,
+                "tipoSensor": "Pressão"
+            }
+        ]
+    },
+    {
+        "id": 33,
+        "name": "Estação 33",
+        "latitude": -7.024161,
+        "longitude": -63.402335,
+        "alturaAMS": 1259,
+        "photo": null,
+        "isFavorite": true,
+        "isPrivate": true,
+        "accessValid": true,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -0.3179626552582242,
+                "valorMaximo": 57.88348261455387,
+                "acuracia": 1.68,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -10.781640588201203,
+                "valorMaximo": 82.98764564052118,
+                "acuracia": 4.27,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -8.150219249830107,
+                "valorMaximo": 45.775716261700566,
+                "acuracia": 3.49,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -10.467352597086526,
+                "valorMaximo": 78.33491020045898,
+                "acuracia": 2.43,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -15.826305008323288,
+                "valorMaximo": 41.86479768389107,
+                "acuracia": 4.1,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -1.9693401298648716,
+                "valorMaximo": 21.923666399390413,
+                "acuracia": 3.16,
+                "tipoSensor": "Pressão"
+            }
+        ]
+    },
+    {
+        "id": 34,
+        "name": "Estação 34",
+        "latitude": 2.39165,
+        "longitude": -37.975894,
+        "alturaAMS": 870,
+        "photo": null,
+        "isFavorite": true,
+        "isPrivate": true,
+        "accessValid": true,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -9.783344705838381,
+                "valorMaximo": 74.83388557018185,
+                "acuracia": 0.33,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -18.75957026008593,
+                "valorMaximo": 89.99640734818178,
+                "acuracia": 0.43,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -13.36428200147963,
+                "valorMaximo": 26.31969903383382,
+                "acuracia": 0.3,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -19.942453768442835,
+                "valorMaximo": 47.58551438163064,
+                "acuracia": 1.69,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -16.30419433985712,
+                "valorMaximo": 65.49905250397441,
+                "acuracia": 2.42,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -16.722673178880434,
+                "valorMaximo": 61.5436994549208,
+                "acuracia": 4.98,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -16.2071931040981,
+                "valorMaximo": 42.94285794556708,
+                "acuracia": 4.85,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -13.475726844719587,
+                "valorMaximo": 47.20440711558776,
+                "acuracia": 2.63,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -14.21142737716377,
+                "valorMaximo": 22.62790377194861,
+                "acuracia": 2.58,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -11.407725673456817,
+                "valorMaximo": 54.79203103683189,
+                "acuracia": 1.38,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -5.853302197778003,
+                "valorMaximo": 64.95003967642586,
+                "acuracia": 1.91,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 12,
+                "name": "Sensor 12",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -11.79260829589892,
+                "valorMaximo": 82.37101864720375,
+                "acuracia": 3.64,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 13,
+                "name": "Sensor 13",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -13.434005958815462,
+                "valorMaximo": 29.670601647838673,
+                "acuracia": 3.3,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 14,
+                "name": "Sensor 14",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -11.305829293994547,
+                "valorMaximo": 24.79419211583254,
+                "acuracia": 2.67,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 15,
+                "name": "Sensor 15",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -3.4397755812203314,
+                "valorMaximo": 78.78839187777365,
+                "acuracia": 4.02,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 16,
+                "name": "Sensor 16",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -9.092110122821953,
+                "valorMaximo": 47.7256156881551,
+                "acuracia": 0.78,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 17,
+                "name": "Sensor 17",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -2.882185971771232,
+                "valorMaximo": 54.86402092213584,
+                "acuracia": 3.75,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 18,
+                "name": "Sensor 18",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -14.063964644046878,
+                "valorMaximo": 69.16192058062185,
+                "acuracia": 2.08,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 19,
+                "name": "Sensor 19",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -0.6591921961180454,
+                "valorMaximo": 51.46980684464896,
+                "acuracia": 1.33,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 20,
+                "name": "Sensor 20",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -19.347989418567476,
+                "valorMaximo": 27.486372392674888,
+                "acuracia": 0.55,
+                "tipoSensor": "Precipitação"
+            }
+        ]
+    },
+    {
+        "id": 35,
+        "name": "Estação 35",
+        "latitude": -15.842626,
+        "longitude": -55.492112,
+        "alturaAMS": 694,
+        "photo": null,
+        "isFavorite": false,
+        "isPrivate": false,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -3.8374413454311593,
+                "valorMaximo": 55.51631314057307,
+                "acuracia": 4.03,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -8.901190773303288,
+                "valorMaximo": 34.997985025811076,
+                "acuracia": 3.58,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -3.6676823765699424,
+                "valorMaximo": 35.78216548702747,
+                "acuracia": 4.12,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -3.649400159645161,
+                "valorMaximo": 79.21037446580257,
+                "acuracia": 4.11,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -7.186465685812511,
+                "valorMaximo": 27.41121391604996,
+                "acuracia": 3.61,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -2.2920658620040584,
+                "valorMaximo": 70.97568113496317,
+                "acuracia": 0.96,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -5.473924713696906,
+                "valorMaximo": 83.58262905813864,
+                "acuracia": 4.87,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -1.612551049382546,
+                "valorMaximo": 57.899698087693345,
+                "acuracia": 3.83,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -4.244979262563266,
+                "valorMaximo": 57.47181689866978,
+                "acuracia": 1.7,
+                "tipoSensor": "Temperatura"
+            }
+        ]
+    },
+    {
+        "id": 36,
+        "name": "Estação 36",
+        "latitude": -6.015512,
+        "longitude": -64.212217,
+        "alturaAMS": 948,
+        "photo": null,
+        "isFavorite": false,
+        "isPrivate": false,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -12.776416209920589,
+                "valorMaximo": 42.819241676084246,
+                "acuracia": 1.72,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -8.662122680389153,
+                "valorMaximo": 22.669589641366976,
+                "acuracia": 1.13,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -3.1194520953235347,
+                "valorMaximo": 38.426338670807596,
+                "acuracia": 2.41,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -2.1640464020408885,
+                "valorMaximo": 42.25158717183295,
+                "acuracia": 3.32,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -6.407883168398371,
+                "valorMaximo": 83.42407000791762,
+                "acuracia": 0.5,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -5.160075513941827,
+                "valorMaximo": 24.194086272803563,
+                "acuracia": 4.85,
+                "tipoSensor": "Precipitação"
+            }
+        ]
+    },
+    {
+        "id": 37,
+        "name": "Estação 37",
+        "latitude": 0.123266,
+        "longitude": -58.575519,
+        "alturaAMS": 600,
+        "photo": null,
+        "isFavorite": true,
+        "isPrivate": true,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -4.0988588422878856,
+                "valorMaximo": 25.510536742757807,
+                "acuracia": 4.21,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -17.19912655516605,
+                "valorMaximo": 41.74339538437661,
+                "acuracia": 2.59,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -2.3071326930458085,
+                "valorMaximo": 45.34138898017677,
+                "acuracia": 4.68,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -18.419870706963998,
+                "valorMaximo": 67.69967776770773,
+                "acuracia": 2.82,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -4.052352205163309,
+                "valorMaximo": 26.593782817435823,
+                "acuracia": 4.68,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -6.446315949828287,
+                "valorMaximo": 82.2844110085139,
+                "acuracia": 2.57,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -0.28478363953967545,
+                "valorMaximo": 45.22806837800469,
+                "acuracia": 4.68,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -0.2789776697301285,
+                "valorMaximo": 22.879666577004166,
+                "acuracia": 2.78,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -16.3873658316298,
+                "valorMaximo": 22.807061002938376,
+                "acuracia": 1.09,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -2.598050262985147,
+                "valorMaximo": 60.92863284078527,
+                "acuracia": 0.91,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -14.189876933746586,
+                "valorMaximo": 42.96850710679627,
+                "acuracia": 1.56,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 12,
+                "name": "Sensor 12",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -4.63556730353136,
+                "valorMaximo": 56.81754055808335,
+                "acuracia": 4.27,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 13,
+                "name": "Sensor 13",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -2.010366861501897,
+                "valorMaximo": 43.28685242594199,
+                "acuracia": 1.81,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 14,
+                "name": "Sensor 14",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -4.302684413426183,
+                "valorMaximo": 51.91949207150565,
+                "acuracia": 1.57,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 15,
+                "name": "Sensor 15",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -0.48439998316328925,
+                "valorMaximo": 55.29289407572157,
+                "acuracia": 3.78,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 16,
+                "name": "Sensor 16",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -18.189482065900457,
+                "valorMaximo": 41.09292748388637,
+                "acuracia": 3.97,
+                "tipoSensor": "Temperatura"
+            }
+        ]
+    },
+    {
+        "id": 38,
+        "name": "Estação 38",
+        "latitude": -17.941531,
+        "longitude": -50.524056,
+        "alturaAMS": 522,
+        "photo": null,
+        "isFavorite": true,
+        "isPrivate": false,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -10.310311201050117,
+                "valorMaximo": 90.51473948837734,
+                "acuracia": 3.37,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -13.509027139571979,
+                "valorMaximo": 49.53501287519682,
+                "acuracia": 3.82,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -11.716626407430208,
+                "valorMaximo": 38.15192787374551,
+                "acuracia": 4.06,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -1.819604655184083,
+                "valorMaximo": 80.78733116198744,
+                "acuracia": 0.33,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -12.228156275671221,
+                "valorMaximo": 75.6373335065463,
+                "acuracia": 1.16,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -15.227564770351158,
+                "valorMaximo": 31.825735343253278,
+                "acuracia": 0.23,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -11.972051800805772,
+                "valorMaximo": 70.42026929019656,
+                "acuracia": 1.86,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -3.7268640548782557,
+                "valorMaximo": 79.3477969026251,
+                "acuracia": 4.64,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -17.292314981643145,
+                "valorMaximo": 63.880961343740445,
+                "acuracia": 0.88,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -1.8963967169222684,
+                "valorMaximo": 40.91327705458995,
+                "acuracia": 4.22,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -6.649201436992572,
+                "valorMaximo": 43.60872185657182,
+                "acuracia": 3.7,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 12,
+                "name": "Sensor 12",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -8.426888674319867,
+                "valorMaximo": 61.391426368843966,
+                "acuracia": 4.1,
+                "tipoSensor": "Temperatura"
+            }
+        ]
+    },
+    {
+        "id": 39,
+        "name": "Estação 39",
+        "latitude": -28.239823,
+        "longitude": -63.212218,
+        "alturaAMS": 1437,
+        "photo": null,
+        "isFavorite": true,
+        "isPrivate": true,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -11.567836976062624,
+                "valorMaximo": 23.75207424078947,
+                "acuracia": 4.23,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -1.0238510570422434,
+                "valorMaximo": 25.990421055619734,
+                "acuracia": 4.96,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -3.5519802355969645,
+                "valorMaximo": 76.1047018055217,
+                "acuracia": 3.15,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -6.029904926503919,
+                "valorMaximo": 62.090088758834206,
+                "acuracia": 4.52,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -0.06554879649389989,
+                "valorMaximo": 55.91129976601003,
+                "acuracia": 1.37,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -5.346414862043682,
+                "valorMaximo": 47.72461086643843,
+                "acuracia": 0.95,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -11.653464911295213,
+                "valorMaximo": 32.09478107807204,
+                "acuracia": 3.6,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -9.1346072053589,
+                "valorMaximo": 27.943835861489816,
+                "acuracia": 0.76,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -10.406969645851493,
+                "valorMaximo": 35.926094613247635,
+                "acuracia": 3.06,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -1.6643420760046226,
+                "valorMaximo": 29.080526967208744,
+                "acuracia": 2.45,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -9.377663115802603,
+                "valorMaximo": 98.32642325136045,
+                "acuracia": 3.89,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 12,
+                "name": "Sensor 12",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -15.167573422776545,
+                "valorMaximo": 76.26886001693508,
+                "acuracia": 3.69,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 13,
+                "name": "Sensor 13",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -13.669497382479566,
+                "valorMaximo": 29.630174174403763,
+                "acuracia": 1.25,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 14,
+                "name": "Sensor 14",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -8.743269095456348,
+                "valorMaximo": 31.30265239415791,
+                "acuracia": 3.51,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 15,
+                "name": "Sensor 15",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -19.342483458936922,
+                "valorMaximo": 99.00048646237126,
+                "acuracia": 4.79,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 16,
+                "name": "Sensor 16",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -18.17731032917165,
+                "valorMaximo": 68.31954333226976,
+                "acuracia": 0.13,
+                "tipoSensor": "Temperatura"
+            }
+        ]
+    },
+    {
+        "id": 40,
+        "name": "Estação 40",
+        "latitude": -27.165317,
+        "longitude": -32.713535,
+        "alturaAMS": 1175,
+        "photo": null,
+        "isFavorite": true,
+        "isPrivate": true,
+        "accessValid": false,
+        "sensors": [
+            {
+                "id": 1,
+                "name": "Sensor 1",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -9.793489405167469,
+                "valorMaximo": 84.6279584054719,
+                "acuracia": 1.01,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 2,
+                "name": "Sensor 2",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -17.08602287846018,
+                "valorMaximo": 73.3757748885671,
+                "acuracia": 0.33,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 3,
+                "name": "Sensor 3",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -12.616224288282865,
+                "valorMaximo": 65.87632533146564,
+                "acuracia": 1.37,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 4,
+                "name": "Sensor 4",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -4.418146642965979,
+                "valorMaximo": 54.60002525624236,
+                "acuracia": 1.55,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 5,
+                "name": "Sensor 5",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -1.8108453422166484,
+                "valorMaximo": 42.67744757894888,
+                "acuracia": 4.75,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 6,
+                "name": "Sensor 6",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -15.551806932555706,
+                "valorMaximo": 47.31420713563297,
+                "acuracia": 0.69,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 7,
+                "name": "Sensor 7",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -0.5061670926468267,
+                "valorMaximo": 25.135471882137217,
+                "acuracia": 1.85,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 8,
+                "name": "Sensor 8",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -4.881846544372884,
+                "valorMaximo": 69.70230353889733,
+                "acuracia": 1.32,
+                "tipoSensor": "Velocidade do Vento"
+            },
+            {
+                "id": 9,
+                "name": "Sensor 9",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -19.498009865708706,
+                "valorMaximo": 98.6586870522165,
+                "acuracia": 4.4,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 10,
+                "name": "Sensor 10",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -19.619700195953193,
+                "valorMaximo": 47.19255810198434,
+                "acuracia": 4.75,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 11,
+                "name": "Sensor 11",
+                "unidadeMedida": "m/s",
+                "valorMinimo": -11.890346938502422,
+                "valorMaximo": 67.26674173220098,
+                "acuracia": 2.51,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 12,
+                "name": "Sensor 12",
+                "unidadeMedida": "Pa",
+                "valorMinimo": -3.98972725756796,
+                "valorMaximo": 77.11231892656212,
+                "acuracia": 3.99,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 13,
+                "name": "Sensor 13",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -4.727955098331236,
+                "valorMaximo": 26.63491974350667,
+                "acuracia": 1.82,
+                "tipoSensor": "Temperatura"
+            },
+            {
+                "id": 14,
+                "name": "Sensor 14",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -5.042889454857617,
+                "valorMaximo": 40.27164363219323,
+                "acuracia": 3.69,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 15,
+                "name": "Sensor 15",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -9.883375291509326,
+                "valorMaximo": 71.35246917383805,
+                "acuracia": 4.66,
+                "tipoSensor": "Precipitação"
+            },
+            {
+                "id": 16,
+                "name": "Sensor 16",
+                "unidadeMedida": "mm/h",
+                "valorMinimo": -6.085309292014223,
+                "valorMaximo": 69.37127249481412,
+                "acuracia": 2.68,
+                "tipoSensor": "Pressão"
+            },
+            {
+                "id": 17,
+                "name": "Sensor 17",
+                "unidadeMedida": "Celsius",
+                "valorMinimo": -17.76916463007234,
+                "valorMaximo": 32.88284119989267,
+                "acuracia": 0.85,
+                "tipoSensor": "Pressão"
+            }
+        ]
+    }
+]
