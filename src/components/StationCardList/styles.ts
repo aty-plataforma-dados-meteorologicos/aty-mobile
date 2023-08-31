@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 
 
 export const Container = styled.View`
-    width: 350px;
+    min-width: 370px;
     height: 100px;
     background-color: ${({theme}) => theme.COLORS.SHAPE_SECUNDARIA};
     flex-direction: row;
@@ -38,5 +38,4 @@ export const Subtitle = styled.Text`
 `
 
 export const Icon = styled.TouchableOpacity`
-    margin-right: 5px;
 `

@@ -1,92 +1,123 @@
+import React, { useEffect, useState, useRef } from "react";
 import MapView, { Marker } from "react-native-maps";
-import { Container, MapComp, Pin } from "./styles";
-import { useEffect, useState } from "react";
-import { requestForegroundPermissionsAsync, getCurrentPositionAsync, LocationObject, watchPositionAsync, LocationAccuracy } from 'expo-location'
-import { Text, View, StyleSheet } from "react-native";
+import { requestForegroundPermissionsAsync, getCurrentPositionAsync, LocationObject } from 'expo-location';
+import { Animated, View, StyleSheet } from "react-native";
 import { LoadingModal } from "../../components/ModalLoading";
-import React from "react";
 import { HeaderMap } from "../../components/HeaderMap";
+import { StationCardMap } from "../../components/StationCardMap";
 
+export function Home() {
+  const [location, setLocation] = useState<LocationObject | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+  const [isCardVisible, setIsCardVisible] = useState(false);
 
-export function Home(){
+  const stationCardYPosition = useRef(new Animated.Value(500)).current;
 
-    const [location, setLocation] = useState<LocationObject | null>( null);
-    const [isLoading, setIsLoading] = useState(false);
+  async function requestUserLocationPermission() {
+    setIsLoading(true);
+    const { granted } = await requestForegroundPermissionsAsync();
 
-    const toggleLoading = () => {
-        setIsLoading(!isLoading);
-    };
-
-    async function requestUserLocationPermission(){
-        setIsLoading(true)
-        const { granted } = await requestForegroundPermissionsAsync()
-
-        if(granted){
-            
-            const currentPosition = await getCurrentPositionAsync()
-            console.log(currentPosition)
-            setLocation(currentPosition)
-            setIsLoading(false)
-        }
+    if (granted) {
+      const currentPosition = await getCurrentPositionAsync();
+      setLocation(currentPosition);
+      setIsLoading(false);
     }
+  }
 
-    function onMenuPress(){
-        console.log('Menu Pressionado')
+  const animateCard = () => {
+    Animated.timing(stationCardYPosition, {
+      toValue: openModal ? 0 : 500,
+      duration: 300,
+      useNativeDriver: true,
+    }).start(() => {
+      if (!openModal) {
+        setIsCardVisible(false);
+      }
+    });
+  };
+
+  function teste(){
+    console.log(teste)
+  }
+
+  useEffect(() => {
+    if (openModal) {
+      setIsCardVisible(true);
     }
+    animateCard();
+  }, [openModal]);
 
-    function onLocationPress(){
-        console.log('Localização Pressionado')
-    }
+  useEffect(() => {
+    requestUserLocationPermission();
+  }, []);
 
-    useEffect(() => {
-        requestUserLocationPermission()
-    }, [])
-
-    return(
-        <View style={styles.container}>
-            <LoadingModal isVisible={isLoading} />
-            <View style={styles.headerContainer}>
-                <HeaderMap onMenuPress={onMenuPress} onLocationPress={onLocationPress} />
-            </View>
-            {location &&
-            <MapView
-                userInterfaceStyle='light'
-                // provider="google"
-                initialRegion={{
-                    latitude: location?.coords.latitude || -15.777874,
-                    longitude: location?.coords.longitude || -47.918151,
-                    latitudeDelta: 1,
-                    longitudeDelta: 1
-                }}
-                style={styles.map}
-            >
-                <Marker
-                    coordinate={{
-                        latitude: location?.coords.latitude,
-                        longitude: location?.coords.longitude
-                    }}
-                >
-
-                </Marker>
-           </MapView>}
-           </View>
-    )
+  return (
+    <View style={styles.container}>
+      <LoadingModal isVisible={isLoading} />
+      <View style={styles.headerContainer}>
+        <HeaderMap onMenuPress={teste} onLocationPress={teste}/>
+      </View>
+      {location && (
+        <MapView
+          initialRegion={{
+            latitude: location?.coords.latitude || -15.777874,
+            longitude: location?.coords.longitude || -47.918151,
+            latitudeDelta: 1,
+            longitudeDelta: 1,
+          }}
+          showsUserLocation
+          onPress={() => setOpenModal(false)}
+          style={styles.map}
+        >
+          <Marker
+            coordinate={{
+              latitude: location?.coords.latitude,
+              longitude: location?.coords.longitude,
+            }}
+            onPress={(event) => {
+              event.stopPropagation();
+              setOpenModal(true);
+            }}
+          ></Marker>
+        </MapView>
+      )}
+      <Animated.View
+        style={[
+          styles.stationCardContainer,
+          {
+            transform: [{ translateY: stationCardYPosition }],
+          },
+        ]}
+      >
+        {isCardVisible && <StationCardMap />}
+      </Animated.View>
+    </View>
+  );
 }
 
-export const styles = StyleSheet.create({
-    container : {
-        flex: 1,
-        backgroundColor: '#121214'
-    },
-    map : {
-        flex: 1,
-        width: '100%'
-    },
-    headerContainer: {
-        position: 'absolute', // posição absoluta
-        top: 0, // alinhado ao topo
-        left: 0, // alinhado à esquerda
-        right: 0, // alinhado à direita
-        zIndex: 1, // coloque um zIndex alto para que fique no topo
-      },
-})
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#121214',
+  },
+  map: {
+    flex: 1,
+    width: '100%',
+  },
+  headerContainer: {
+    position: 'absolute',
+    top: 0,
+    left: 1,
+    right: 1,
+    zIndex: 1,
+  },
+  stationCardContainer: {
+    position: 'absolute',
+    bottom: 10,
+    left: 0,
+    right: 0,
+    zIndex: 2,
+    alignItems: "center"
+  },
+});

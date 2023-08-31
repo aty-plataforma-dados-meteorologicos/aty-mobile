@@ -67,8 +67,18 @@ export function Input({titleInput, placeholder, onChangeTeste, keyboardType} : P
     return(
         <Container>
             {titleInput && <Title>{titleInput}</Title>}
-            <InputText placeholder={placeholder} value={maskedText} onChangeText={handleChangeText} keyboardType={keyboardType === 'phone-pad' || keyboardType === 'cpf-cnpj' || keyboardType === 'url' ? 'numeric' : 'default'}>
-            </InputText>
+            <InputText 
+                placeholder={placeholder} 
+                value={maskedText} 
+                onChangeText={handleChangeText} 
+                keyboardType={
+                    keyboardType === 'phone-pad' || keyboardType === 'cpf-cnpj' 
+                        ? 'numeric' 
+                        : keyboardType === 'url'
+                        ? 'url'
+                        : 'default'
+                } 
+            />
         </Container>
     )
 }
