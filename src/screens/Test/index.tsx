@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Input } from "../../components/Input";
 import { HeaderApp } from "../../components/HeaderApp";
@@ -10,8 +10,37 @@ import { StationCardMap } from "../../components/StationCardMap";
 
 export function Test(){
 
-    function teste(teste : string){
-        console.log(teste)
+    const [favorite, setFavorite] = useState(false);
+    const [openPicture, setOpenPicture] = useState(false)
+
+    function teste(){
+        console.log("teste")
+    }
+
+    const sensores = [
+        {
+            id: 1,
+            nome: "Sensor 1"
+        },
+        {
+            id: 2,
+            nome: "Sensor 2"
+        },
+
+    ]
+
+    function pressFavorite(){
+        if(favorite === false){
+            setFavorite(true)
+        } else {
+            setFavorite(false)
+        }
+        console.log(favorite)
+    }
+
+    function pressInfo(id : number){
+        console.log(id)
+        console.log(favorite)
     }
 
     return(
@@ -21,8 +50,21 @@ export function Test(){
             {/* <StationCard title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " subtitle="Subtitulo Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " onPressPhoto={teste} onPressIcon={teste} /> */}
             {/* <ListEmpty message="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " /> */}
             {/* <ManegeInformationCard title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " email="Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste " showInfo onPressEdit={teste} onPressDelete={teste}/> */}
-            {/* <ModalImage isOpen onClose={teste} /> */}
-            <StationCardMap />
+            {/* {openPicture && 
+                <ModalImage isOpen={openPicture} onClose={() => setOpenPicture(false)} />
+            } */}
+            <StationCardMap 
+                title="Estação Meteorológica" 
+                subtitle="Latitude - Longitude - Altura"  
+                titleButton="Acessar Estação"
+                sensors={sensores}
+                // showFavorite
+                // isFavorite={favorite}
+                onPressButton={teste}
+                // onPressFavorite={pressFavorite}
+                onPressImage={() => setOpenPicture(true)}
+                onPressInfo={pressInfo}
+            />
         </View>
     )
 }

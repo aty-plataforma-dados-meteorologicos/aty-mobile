@@ -32,8 +32,8 @@ export default function App() {
 
   return (
     <ThemeProvider theme = {theme}>
-      {/* <Test /> */}
-      <Home />
+      <Test />
+      {/* <Home /> */}
     </ThemeProvider>
   )
 }

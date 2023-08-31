@@ -63,13 +63,24 @@ export const ContainerTwo = styled.View`
 
 export const VerticalScrollView = styled.ScrollView`
   flex-direction: column;
-  max-height: 180px;
+  height: 180px;
   width: 100%;
 `;
 
+export const ContainerSensor = styled.View`
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;  
+`
+
 export const TitleSensor = styled.Text`
+    flex: 1;
     font-family: ${({theme}) => theme.FONT_FAMILY.REGULAR};
-    font-size: ${({theme}) => theme.FONT_SIZE.SM}px;
+    font-size: ${({theme}) => theme.FONT_SIZE.LG}px;
     color: ${({theme}) => theme.COLORS.WHITE};
 `
 
