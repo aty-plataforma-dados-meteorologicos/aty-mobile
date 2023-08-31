@@ -55,7 +55,8 @@ export function Test(){
             } */}
             <StationCardMap 
                 title="Estação Meteorológica" 
-                subtitle="Latitude - Longitude - Altura"  
+                subtitle="Latitude - Longitude - Altura"
+                stationType="Estação Privada"
                 titleButton="Acessar Estação"
                 sensors={sensores}
                 // showFavorite

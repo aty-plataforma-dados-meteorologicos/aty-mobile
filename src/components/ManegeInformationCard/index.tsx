@@ -14,15 +14,16 @@ type Props = {
     showConfirm?: boolean,
     showInfo?: boolean,
     showDelete?: boolean
+    hideBackground?: boolean,
     onPressConfirm?: () => void,
     onPressEdit?: () => void,
     onPressDelete?: () => void,
     onPressInfo?: () => void
 }
 
-export function ManegeInformationCard({ title, email, showConfirm, showEdit, showInfo, showDelete, onPressEdit, onPressConfirm, onPressDelete, onPressInfo } : Props){
+export function ManegeInformationCard({ title, email, showConfirm, showEdit, showInfo, showDelete, hideBackground, onPressEdit, onPressConfirm, onPressDelete, onPressInfo } : Props){
     return(
-        <Container>
+        <Container hideBackground={hideBackground}>
             <TitleContainer>
                 <Title numberOfLines={1} ellipsizeMode="tail">{title}</Title>
                 {email &&

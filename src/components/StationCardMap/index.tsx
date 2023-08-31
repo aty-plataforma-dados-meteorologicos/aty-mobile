@@ -9,6 +9,7 @@ import { ManegeInformationCard } from "../ManegeInformationCard";
 type Props = {
     title: string,
     subtitle: string,
+    stationType: "Estação Pública" | "Estação Privada",
     sensors?: any[],
     imageURL?: string,
     titleButton: 'Acessar Estação' | 'Solicitar Acesso' | 'Acesso Solicitado',
@@ -24,6 +25,7 @@ type Props = {
 export function StationCardMap({
     title,
     subtitle,
+    stationType,
     sensors,
     imageURL,
     titleButton,
@@ -46,6 +48,7 @@ export function StationCardMap({
                 <ContainerTitle>
                     <Title numberOfLines={2} ellipsizeMode="tail">{title}</Title>
                     <Subtitle numberOfLines={2} ellipsizeMode="tail">{subtitle}</Subtitle>
+                    <Subtitle>{stationType}</Subtitle>
                 </ContainerTitle>
                 {showFavorite &&
                     <Icon onPress={onPressFavorite}>
@@ -57,12 +60,11 @@ export function StationCardMap({
                 <VerticalScrollView showsVerticalScrollIndicator={false}>
                     {sensors &&
                         sensors.map((sensor) => (
-                            <ContainerSensor>
-                                <TitleSensor key={sensor.id}>{sensor.nome}</TitleSensor>
-                                <Icon onPress={() => onPressInfo(sensor.id)}>
-                                    <FontAwesomeIcon icon={faCircleInfo} size={20} color="#FFFFFF" />
-                                </Icon>
-                            </ContainerSensor>
+                            <ManegeInformationCard 
+                                title={sensor.name}
+                                hideBackground
+                                showInfo
+                            />
                             
                         ))
                     }
