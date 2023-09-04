@@ -11,7 +11,7 @@ type Props = {
     subtitle: string,
     stationType: "Estação Pública" | "Estação Privada",
     sensors?: any[],
-    imageURL?: string,
+    imageUri?: string,
     titleButton: 'Acessar Estação' | 'Solicitar Acesso' | 'Acesso Solicitado',
     showFavorite?: boolean,
     isFavorite?: boolean,
@@ -27,7 +27,7 @@ export function StationCardMap({
     subtitle,
     stationType,
     sensors,
-    imageURL,
+    imageUri,
     titleButton,
     showFavorite,
     isFavorite,
@@ -43,7 +43,7 @@ export function StationCardMap({
         <Container>
             <ContainerOne>
                 <ContainerPhoto onPress={onPressImage}>
-                    <Photo source={require('../../assets/aty.png')}></Photo>
+                    <Photo source={imageUri ? {uri: imageUri} : require("../../assets/map2.png")}></Photo>
                 </ContainerPhoto>
                 <ContainerTitle>
                     <Title numberOfLines={2} ellipsizeMode="tail">{title}</Title>
@@ -60,10 +60,12 @@ export function StationCardMap({
                 <VerticalScrollView showsVerticalScrollIndicator={false}>
                     {sensors &&
                         sensors.map((sensor) => (
-                            <ManegeInformationCard 
+                            <ManegeInformationCard
+                                key={sensor.id} 
                                 title={sensor.name}
                                 hideBackground
                                 showInfo
+                                // onPressInfo={onPressInfo(sensor.id)}
                             />
                             
                         ))
