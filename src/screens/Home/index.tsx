@@ -6,10 +6,9 @@ import { LoadingModal } from "../../components/ModalLoading";
 import { HeaderMap } from "../../components/HeaderMap";
 import { StationCardMap } from "../../components/StationCardMap";
 import data from "../../data/weatherstations.json"
-import { SvgUri } from 'react-native-svg';
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faLocation } from "@fortawesome/free-solid-svg-icons";
 import { ModalImage } from "../../components/ModalImage";
+import { StationCardSkeleton } from "../../components/StationCardMapSkeleton";
+import { useNavigation } from "@react-navigation/native";
 
 export function Home() {
   const [location, setLocation] = useState<LocationObject | null>(null);
@@ -25,6 +24,7 @@ export function Home() {
   const stationCardYPosition = useRef(new Animated.Value(500)).current;
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const mapRef = useRef<MapView>(null);
+  const navigation = useNavigation()
 
 
   async function requestUserLocationPermission() {
@@ -90,6 +90,10 @@ export function Home() {
     console.log('teste');
   }
 
+  function handleMenu(){
+    (navigation as any).openDrawer()
+  }
+
   function handleFavorite(){
     // Atualizar o valor de isFavorite do weatherStation atual
     const updatedWeatherStation = { ...weatherStation, isFavorite: !weatherStation.isFavorite };
@@ -132,7 +136,7 @@ export function Home() {
     <View style={styles.container}>
       <LoadingModal isVisible={isLoading} />
       <View style={styles.headerContainer}>
-        <HeaderMap onMenuPress={teste} onLocationPress={handleUserLocation} />
+        <HeaderMap onMenuPress={handleMenu} onLocationPress={handleUserLocation} />
       </View>
       {location && (
         <MapView
@@ -175,13 +179,14 @@ export function Home() {
         },
       ]}
     >
-      {isCardVisible && weatherStation && (
+      {isCardVisible && weatherStation ?  (
         <StationCardMap 
           title={weatherStation.name}
           subtitle={`${weatherStation.latitude} / ${weatherStation.longitude} / ${weatherStation.alturaAMS}`}
           stationType={weatherStation.isPrivate ? "Estação Privada" : "Estação Pública"}
           titleButton={weatherStation.isPrivate ? weatherStation.acessValid ? "Acessar Estação" : "Solicitar Acesso" : "Acessar Estação"}
           sensors={weatherStation.sensors}
+          imageUri={weatherStation.image}
           showFavorite={weatherStation.isPrivate ? false : true}
           isFavorite={weatherStation.isFavorite}
           onPressButton={teste}
@@ -189,6 +194,10 @@ export function Home() {
           onPressInfo={teste}
           onPressFavorite={handleFavorite}
         />
+
+        
+      ) : (
+        <StationCardSkeleton />
       )}
     </Animated.View>
       {openPicture && (
@@ -204,8 +213,10 @@ export function Home() {
             event.stopPropagation();
             requestAnimationFrame(() => {
               fadeOut();
-            });
-          }} />
+              });
+            }} 
+            imageUri={weatherStation.image}
+            />
         </Animated.View>
       )}
     </View>

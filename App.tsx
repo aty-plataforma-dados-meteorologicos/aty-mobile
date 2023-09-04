@@ -1,5 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, StatusBar, Text, View } from 'react-native';
 import { Home } from './src/screens/Home/index';
 import MapView from 'react-native-maps';
 import { ThemeProvider } from 'styled-components/native';
@@ -8,6 +7,7 @@ import * as Font from 'expo-font';
 import theme from './src/theme';
 import React from 'react';
 import { Test } from './src/screens/Test';
+import { Routes } from './src/routes';
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -33,7 +33,12 @@ export default function App() {
   return (
     <ThemeProvider theme = {theme}>
       {/* <Test /> */}
-      <Home />
+      {/* <Home /> */}
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor="transparent"
+      />
+      <Routes />
     </ThemeProvider>
   )
 }

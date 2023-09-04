@@ -4,6 +4,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { ModalContainer, CloseIcon, ImagePlaceholder, CloseIconContainer } from './styles';
 
 type Props = {
+  imageUri: string,
   onClose: (event : any) => void;
 };
 
@@ -11,7 +12,7 @@ type Props = {
 // já dentro da estação e na visualização da estação em listas ou pelo pin no mapa. Por padrão a foto será renderizada em 300 x 300 mas pode ser ajustado, 
 // só que manualmente aqui dentro do código.
 
-export function ModalImage({onClose } : Props) {
+export function ModalImage({ onClose, imageUri } : Props) {
   return (
       <ModalContainer>
         <CloseIconContainer>
@@ -20,7 +21,7 @@ export function ModalImage({onClose } : Props) {
             </TouchableOpacity>
         </CloseIconContainer>
         <ImagePlaceholder>
-          <Image source={require('../../assets/aty.png')} style={{width: 300, height: 300}}/>
+          <Image source={{uri: imageUri}} style={{width: 300, height: 300}}/>
         </ImagePlaceholder>
       </ModalContainer>
   );
