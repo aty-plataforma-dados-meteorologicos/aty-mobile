@@ -12,6 +12,7 @@ export function Test(){
 
     const [favorite, setFavorite] = useState(false);
     const [openPicture, setOpenPicture] = useState(false)
+    const [check, setCheck] = useState(false)
 
     function teste(){
         console.log("teste")
@@ -43,17 +44,25 @@ export function Test(){
         console.log(favorite)
     }
 
+    function handleCheck(){
+        if(check == false){
+            setCheck(true)
+        } else {
+            setCheck(false)
+        }
+    }
+
     return(
         <View style={styles.container}>
             {/* <Input titleInput="Testezin" onChangeTeste={text => teste(text)} keyboardType="cpf-cnpj"/> */}
             {/* <HeaderApp title="Teste" onMenuPress={teste} /> */}
             {/* <StationCard title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " subtitle="Subtitulo Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " onPressPhoto={teste} onPressIcon={teste} /> */}
             {/* <ListEmpty message="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " /> */}
-            {/* <ManegeInformationCard title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " email="Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste Email teste " showInfo onPressEdit={teste} onPressDelete={teste}/> */}
+            <ManegeInformationCard title="Sensor 1" showInfo showCheck isCheck={check} onPressCheck={handleCheck}/>
             {/* {openPicture && 
                 <ModalImage isOpen={openPicture} onClose={() => setOpenPicture(false)} />
             } */}
-            <StationCardMap 
+            {/* <StationCardMap 
                 title="Estação Meteorológica" 
                 subtitle="Latitude - Longitude - Altura"
                 stationType="Estação Privada"
@@ -65,7 +74,7 @@ export function Test(){
                 // onPressFavorite={pressFavorite}
                 onPressImage={() => setOpenPicture(true)}
                 onPressInfo={pressInfo}
-            />
+            /> */}
         </View>
     )
 }

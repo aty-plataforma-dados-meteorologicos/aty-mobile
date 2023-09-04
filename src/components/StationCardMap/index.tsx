@@ -73,8 +73,8 @@ export function StationCardMap({
                 </VerticalScrollView>
             </ContainerTwo>
             <ContainerThree>
-                <Button>
-                    <Title onPress={onPressButton}>{titleButton}</Title>
+                <Button onPress={onPressButton}>
+                    <Title>{titleButton}</Title>
                 </Button>
             </ContainerThree>
         </Container>
