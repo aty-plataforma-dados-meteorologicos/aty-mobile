@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Email, Icon, IconWrapper, Title, TitleContainer } from "./styles";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faCheck, faCircleInfo, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faCircleInfo, faEdit, faSquare, faSquareCheck, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 // Esse componente possui todas as funções necessarias nos cards de parceiros, sensores, mantenedores, acesso e etc.
 // Utilile as props para ir adequando o componente da forma que quiser. A principio apenas o Title é necessario para usar o componente.
@@ -13,17 +13,27 @@ type Props = {
     showEdit?: boolean,
     showConfirm?: boolean,
     showInfo?: boolean,
-    showDelete?: boolean
+    showDelete?: boolean,
+    showCheck?: boolean,
+    isCheck?: boolean,
     hideBackground?: boolean,
     onPressConfirm?: () => void,
     onPressEdit?: () => void,
     onPressDelete?: () => void,
-    onPressInfo?: () => void
+    onPressInfo?: () => void,
+    onPressCheck?: () => void
 }
 
-export function ManegeInformationCard({ title, email, showConfirm, showEdit, showInfo, showDelete, hideBackground, onPressEdit, onPressConfirm, onPressDelete, onPressInfo } : Props){
+export function ManegeInformationCard({ title, email, showConfirm, showEdit, showInfo, showDelete, showCheck, isCheck, hideBackground, onPressEdit, onPressConfirm, onPressDelete, onPressInfo, onPressCheck } : Props){
     return(
         <Container hideBackground={hideBackground}>
+            {showCheck &&
+                <Icon>
+                    <IconWrapper onPress={onPressCheck}>
+                        <FontAwesomeIcon icon={isCheck ? faSquareCheck : faSquare} size={25} color="#FFFFFF" />
+                    </IconWrapper>
+                </Icon>
+            }
             <TitleContainer>
                 <Title numberOfLines={1} ellipsizeMode="tail">{title}</Title>
                 {email &&

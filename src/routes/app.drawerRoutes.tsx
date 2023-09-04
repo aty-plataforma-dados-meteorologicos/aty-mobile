@@ -9,7 +9,6 @@ import { Home } from '../screens/Home';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import {
   faHome,
-  faPlus,
   faStar,
   faLock,
   faUser,
@@ -17,6 +16,7 @@ import {
   faBookmark,
   faRightFromBracket
 } from '@fortawesome/free-solid-svg-icons';
+import { Test } from '../screens/Test';
 
 const CustomDrawerContent = (props : any) => {
   return (
@@ -141,6 +141,16 @@ export function DrawerRoutes() {
         component={Home}
         options={{
           drawerLabel: 'Sair',
+          drawerIcon: ({ focused, size }) => (
+            <FontAwesomeIcon icon={faRightFromBracket} size={35} color={focused ? '#1B81F5' : '#FFFFFF'} />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name='Test'
+        component={Test}
+        options={{
+          drawerLabel: 'Teste',
           drawerIcon: ({ focused, size }) => (
             <FontAwesomeIcon icon={faRightFromBracket} size={35} color={focused ? '#1B81F5' : '#FFFFFF'} />
           ),
