@@ -7,6 +7,7 @@ import { ListEmpty } from "../../components/ListEmpty";
 import { ManegeInformationCard } from "../../components/ManegeInformationCard";
 import { ModalImage } from "../../components/ModalImage";
 import { StationCardMap } from "../../components/StationCardMap";
+import { ModalInfoSensor } from "../../components/ModalInfoSensor";
 
 export function Test(){
 
@@ -58,7 +59,7 @@ export function Test(){
 
     return(
         <View style={styles.container}>
-            <Input titleInput="Testezin" placeholder="Digite sua senha" onChangeTeste={text => handleInput(text)} keyboardType="default" secureTextEntry/>
+            {/* <Input titleInput="Testezin" placeholder="Digite sua senha" onChangeTeste={text => handleInput(text)} keyboardType="default" secureTextEntry/> */}
             {/* <HeaderApp title="Teste" onMenuPress={teste} /> */}
             {/* <StationCard title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " subtitle="Subtitulo Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " onPressPhoto={teste} onPressIcon={teste} /> */}
             {/* <ListEmpty message="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " /> */}
@@ -79,6 +80,7 @@ export function Test(){
                 onPressImage={() => setOpenPicture(true)}
                 onPressInfo={pressInfo}
             /> */}
+            <ModalInfoSensor />
         </View>
     )
 }
