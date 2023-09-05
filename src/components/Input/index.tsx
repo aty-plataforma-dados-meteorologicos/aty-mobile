@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { Container, InputText, Title } from "./styles";
+import { Container, EyeIconContainer, InputContainer, InputText, Title } from "./styles";
 import { KeyboardTypeOptions } from "react-native";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 type Props = {
     titleInput?: string,
     placeholder?: string,
     keyboardType?: 'default' | 'phone-pad' | 'cpf-cnpj' | 'url',
+    secureTextEntry?: boolean,
     onChangeTeste: (text: string) => void
 }
 
@@ -13,9 +16,10 @@ type Props = {
 // como default será o de texto. Phone-pad e cpf-cnpj mudam o estilo do teclado para numérico e aplica uma mascara. URL somente muda o estilo
 // do teclado com atalhos para url.
 
-export function Input({titleInput, placeholder, onChangeTeste, keyboardType} : Props){
+export function Input({titleInput, placeholder, onChangeTeste, keyboardType, secureTextEntry=false} : Props){
     const [maskedText, setMaskedText] = useState('');  
     const [unmaskedText, setUnmaskedText] = useState('');
+    const [isPasswordVisible, setIsPasswordVisible] = useState(secureTextEntry);
 
     const applyPhoneMask = (value: string) => {
         let newText = value.replace(/[^\d]/g, '');
@@ -67,6 +71,7 @@ export function Input({titleInput, placeholder, onChangeTeste, keyboardType} : P
     return(
         <Container>
             {titleInput && <Title>{titleInput}</Title>}
+            <InputContainer>
             <InputText 
                 placeholder={placeholder} 
                 value={maskedText} 
@@ -78,7 +83,14 @@ export function Input({titleInput, placeholder, onChangeTeste, keyboardType} : P
                         ? 'url'
                         : 'default'
                 } 
+                secureTextEntry={isPasswordVisible}
             />
+            {secureTextEntry && (
+                    <EyeIconContainer onPress={() => setIsPasswordVisible(!isPasswordVisible)}>
+                        <FontAwesomeIcon icon={isPasswordVisible ? faEyeSlash : faEye} color="#FFF" />
+                    </EyeIconContainer>
+                )}
+            </InputContainer>
         </Container>
     )
 }

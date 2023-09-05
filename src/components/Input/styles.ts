@@ -13,9 +13,7 @@ export const Title = styled.Text`
 export const InputText = styled(TextInput).attrs(({ theme }) => ({
     placeholderTextColor: theme.COLORS.PLACEHOLDER,
   }))`
-    margin-top: 10px;
-    margin-left: 5px;
-    width: 350px;
+    width: 300px;
     height: 50px;
     color: ${({theme}) => theme.COLORS.WHITE};
     font-family: ${({theme}) => theme.FONT_FAMILY.REGULAR};
@@ -23,4 +21,19 @@ export const InputText = styled(TextInput).attrs(({ theme }) => ({
     background-color: ${({theme}) => theme.COLORS.BACKGROUND};
     border-radius: 10px;
     padding: 16px;
+`;
+
+export const InputContainer = styled.View`
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 350px;
+    height: 50px;
+    background-color: ${({theme}) => theme.COLORS.BACKGROUND};
+    border-radius: 10px;
+    padding: 16px;
+`;
+
+export const EyeIconContainer = styled.TouchableOpacity`
 `;
