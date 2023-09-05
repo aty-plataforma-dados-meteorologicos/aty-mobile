@@ -52,13 +52,17 @@ export function Test(){
         }
     }
 
+    function handleInput(text : string){
+        console.log(text)
+    }
+
     return(
         <View style={styles.container}>
-            {/* <Input titleInput="Testezin" onChangeTeste={text => teste(text)} keyboardType="cpf-cnpj"/> */}
+            <Input titleInput="Testezin" placeholder="Digite sua senha" onChangeTeste={text => handleInput(text)} keyboardType="default" secureTextEntry/>
             {/* <HeaderApp title="Teste" onMenuPress={teste} /> */}
             {/* <StationCard title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " subtitle="Subtitulo Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " onPressPhoto={teste} onPressIcon={teste} /> */}
             {/* <ListEmpty message="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " /> */}
-            <ManegeInformationCard title="Sensor 1" showInfo showCheck isCheck={check} onPressCheck={handleCheck}/>
+            {/* <ManegeInformationCard title="Sensor 1" showInfo showCheck isCheck={check} onPressCheck={handleCheck}/> */}
             {/* {openPicture && 
                 <ModalImage isOpen={openPicture} onClose={() => setOpenPicture(false)} />
             } */}
