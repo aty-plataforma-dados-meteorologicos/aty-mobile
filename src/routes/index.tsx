@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { View } from "react-native";
-import { DrawerRoutes } from "./app.drawerRoutes";
+import { DrawerRoutes } from "./app.routes";
 import { useTheme } from "styled-components/native";
 import React from "react";
 

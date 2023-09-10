@@ -17,52 +17,87 @@ import {
   faRightFromBracket
 } from '@fortawesome/free-solid-svg-icons';
 import { Test } from '../screens/Test';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { EntryScreen } from '../screens/EntryScreen';
+import { Login } from '../screens/Login';
+import { Exit } from './exit';
 
-const CustomDrawerContent = (props : any) => {
-  return (
-    <DrawerContentScrollView {...props}>
-      <View style={styles.drawerHeader}>
-        <Image
-          source={require('../assets/aty.png')}
-          style={styles.drawerImage}
-        />
-        <Text style={styles.drawerTitle}>ATY</Text>
-        <Text style={styles.drawerSubtitle}>Plataforma de Gerenciamento de Estações Meteorológicas</Text>
-      </View>
-      <DrawerItemList {...props} />
-    </DrawerContentScrollView>
-  );
-};
 
-const styles = StyleSheet.create({
-  drawerHeader: {
-    alignItems: 'center',
-    padding: 20,
-  },
-  drawerImage: {
-    width: 80,
-    height: 80,
-  },
-  drawerTitle: {
-    marginTop: 20,
-    fontSize: 30,
-    alignItems: "center",
-    justifyContent: "center",
-    color: '#FFFFFF',
-    fontFamily: "Roboto-Bold",
-    marginBottom: 5
-  },
-  drawerSubtitle: {
-    fontSize: 14,
-    color: "#FFFFFF",
-    fontFamily: "Roboto-Medium",
-    textAlign: "center"
-  },
-});
-
-const Drawer = createDrawerNavigator();
 
 export function DrawerRoutes() {
+  const CustomDrawerContent = (props : any) => {
+    return (
+      <DrawerContentScrollView {...props}>
+        <View style={styles.drawerHeader}>
+          <Image
+            source={require('../assets/aty.png')}
+            style={styles.drawerImage}
+          />
+          <Text style={styles.drawerTitle}>ATY</Text>
+          <Text style={styles.drawerSubtitle}>Plataforma de Gerenciamento de Estações Meteorológicas</Text>
+        </View>
+        <DrawerItemList {...props} />
+      </DrawerContentScrollView>
+    );
+  };
+  
+  const styles = StyleSheet.create({
+    drawerHeader: {
+      alignItems: 'center',
+      padding: 20,
+    },
+    drawerImage: {
+      width: 80,
+      height: 80,
+    },
+    drawerTitle: {
+      marginTop: 20,
+      fontSize: 30,
+      alignItems: "center",
+      justifyContent: "center",
+      color: '#FFFFFF',
+      fontFamily: "Roboto-Bold",
+      marginBottom: 5
+    },
+    drawerSubtitle: {
+      fontSize: 14,
+      color: "#FFFFFF",
+      fontFamily: "Roboto-Medium",
+      textAlign: "center"
+    },
+  });
+  
+  const Drawer = createDrawerNavigator();
+  
+  const { Navigator, Screen } = createNativeStackNavigator();
+  
+    function StackNavigator(){
+    return(
+      <Navigator initialRouteName='EntryScreen'>
+            <Screen 
+                name='EntryScreen'
+                component={EntryScreen}
+                options={{ headerShown: false }}
+            />
+            <Screen 
+                name='Login'
+                component={Login}
+                options={{ headerShown: false }}
+            />
+            <Screen 
+                name='Home'
+                component={Home}
+                options={{ headerShown: false }}
+            />
+            <Screen 
+                name='Test'
+                component={Test}
+                options={{ headerShown: false }}
+            />
+      </Navigator>
+    )
+    }
+
   return (
     <Drawer.Navigator
       screenOptions={{
@@ -73,9 +108,20 @@ export function DrawerRoutes() {
         },
         drawerActiveTintColor: '#FFFFFF',
         drawerInactiveTintColor: '#FFFFFF',
+        gestureHandlerProps:{
+          activeOffsetX: -1
+        }
       }}
       drawerContent={(props) => <CustomDrawerContent {...props} />}
+      initialRouteName='Stack'
     >
+      <Drawer.Screen
+        name='Stack'
+        component={StackNavigator}
+        options={{
+          drawerLabel: () => null
+        }}
+      />
       <Drawer.Screen
         name='Home'
         component={Home}
@@ -138,9 +184,9 @@ export function DrawerRoutes() {
       />
       <Drawer.Screen
         name='Exit'
-        component={Home}
+        component={Exit}
         options={{
-          drawerLabel: 'Sair',
+          drawerLabel: ('Sair'),
           drawerIcon: ({ focused, size }) => (
             <FontAwesomeIcon icon={faRightFromBracket} size={35} color={focused ? '#1B81F5' : '#FFFFFF'} />
           ),
