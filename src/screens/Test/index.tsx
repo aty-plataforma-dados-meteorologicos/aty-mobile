@@ -8,6 +8,9 @@ import { ManegeInformationCard } from "../../components/ManegeInformationCard";
 import { ModalImage } from "../../components/ModalImage";
 import { StationCardMap } from "../../components/StationCardMap";
 import { ModalInfoSensor } from "../../components/ModalInfoSensor";
+import { Button } from "../../components/Button";
+import { EntryScreen } from "../EntryScreen";
+import { Login } from "../Login";
 
 export function Test(){
 
@@ -80,7 +83,9 @@ export function Test(){
                 onPressImage={() => setOpenPicture(true)}
                 onPressInfo={pressInfo}
             /> */}
-            <ModalInfoSensor />
+            {/* <ModalInfoSensor /> */}
+            {/* <Button title="Cadastre-se" onPress={teste} color="SECONDARY"/> */}
+            <Login />
         </View>
     )
 }
