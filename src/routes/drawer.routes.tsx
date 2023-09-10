@@ -17,15 +17,11 @@ import {
   faRightFromBracket
 } from '@fortawesome/free-solid-svg-icons';
 import { Test } from '../screens/Test';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { EntryScreen } from '../screens/EntryScreen';
-import { Login } from '../screens/Login';
 import { Exit } from './exit';
 
+import StackRoutes from './stack.routes';
 
-
-export function DrawerRoutes() {
-  const CustomDrawerContent = (props : any) => {
+const CustomDrawerContent = (props : any) => {
     return (
       <DrawerContentScrollView {...props}>
         <View style={styles.drawerHeader}>
@@ -68,35 +64,10 @@ export function DrawerRoutes() {
   });
   
   const Drawer = createDrawerNavigator();
+
+
+export default function DrawerRoutes() {
   
-  const { Navigator, Screen } = createNativeStackNavigator();
-  
-    function StackNavigator(){
-    return(
-      <Navigator initialRouteName='EntryScreen'>
-            <Screen 
-                name='EntryScreen'
-                component={EntryScreen}
-                options={{ headerShown: false }}
-            />
-            <Screen 
-                name='Login'
-                component={Login}
-                options={{ headerShown: false }}
-            />
-            <Screen 
-                name='Home'
-                component={Home}
-                options={{ headerShown: false }}
-            />
-            <Screen 
-                name='Test'
-                component={Test}
-                options={{ headerShown: false }}
-            />
-      </Navigator>
-    )
-    }
 
   return (
     <Drawer.Navigator
@@ -113,15 +84,8 @@ export function DrawerRoutes() {
         }
       }}
       drawerContent={(props) => <CustomDrawerContent {...props} />}
-      initialRouteName='Stack'
+      initialRouteName='Home'
     >
-      <Drawer.Screen
-        name='Stack'
-        component={StackNavigator}
-        options={{
-          drawerLabel: () => null
-        }}
-      />
       <Drawer.Screen
         name='Home'
         component={Home}
@@ -144,7 +108,7 @@ export function DrawerRoutes() {
       />
       <Drawer.Screen
         name='MantainerStations'
-        component={Home}
+        component={StackRoutes}
         options={{
           drawerLabel: 'Minhas Estações',
           drawerIcon: ({ focused, size }) => (
@@ -154,7 +118,7 @@ export function DrawerRoutes() {
       />
       <Drawer.Screen
         name='FavoriteStations'
-        component={Home}
+        component={StackRoutes}
         options={{
           drawerLabel: 'Estações Favoritas',
           drawerIcon: ({ focused, size }) => (
@@ -164,7 +128,7 @@ export function DrawerRoutes() {
       />
       <Drawer.Screen
         name='AcessStations'
-        component={Home}
+        component={StackRoutes}
         options={{
           drawerLabel: 'Estações com Acesso',
           drawerIcon: ({ focused, size }) => (

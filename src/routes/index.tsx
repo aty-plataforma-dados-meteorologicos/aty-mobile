@@ -1,8 +1,8 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { View } from "react-native";
-import { DrawerRoutes } from "./app.routes";
 import { useTheme } from "styled-components/native";
 import React from "react";
+import StackRoutes from "./stack.routes";
 
 export function Routes(){
 
@@ -11,7 +11,7 @@ export function Routes(){
     return(
         <View style={{ flex: 1, backgroundColor: COLORS.SHAPE_SECUNDARIA }}>
             <NavigationContainer>
-                <DrawerRoutes />
+                <StackRoutes />
             </NavigationContainer>
         </View>
     )
