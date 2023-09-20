@@ -156,7 +156,7 @@ export default function DrawerRoutes() {
           ),
         }}
       />
-      <Drawer.Screen
+      {/* <Drawer.Screen
         name='Test'
         component={Test}
         options={{
@@ -165,7 +165,7 @@ export default function DrawerRoutes() {
             <FontAwesomeIcon icon={faRightFromBracket} size={35} color={focused ? '#1B81F5' : '#FFFFFF'} />
           ),
         }}
-      />
+      /> */}
     </Drawer.Navigator>
   );
 }

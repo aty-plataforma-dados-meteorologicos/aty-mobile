@@ -18,7 +18,7 @@ export function Home() {
   const [openModal, setOpenModal] = useState(false);
   const [isCardVisible, setIsCardVisible] = useState(false);
   const [weatherStations, setWeatherStations] = useState<any>();
-  const [weatherStation, setWeatherStation] = useState<any>();
+  const [weatherStation, setWeatherStation] = useState<WeatherStationData>();
   const [favoriteStation, setFavoriteStation] = useState<any>();
   const [openPicture, setOpenPicture] = useState(false);
   const [mapRegion, setMapRegion] = useState<any>(null);
@@ -58,10 +58,9 @@ export function Home() {
   async function getAllWeatherStation(){
     const response = await weatherStationService.getAllWeatherStationsMap()
     const response2 = await weatherStationService.getAllStationFavoritesByUser()
-    console.log( "Todas Estações", response)
-    console.log("Estações Favoritas", response2)
     if(response != null){
       setWeatherStations(response)
+      console.log(response)
     }
   }
 
@@ -162,11 +161,11 @@ export function Home() {
           style={styles.map}
         >
           {weatherStations &&
-            weatherStations.map((station: any) => (
+            weatherStations.map((station: WeatherStationData) => (
               <Marker 
                 coordinate={{
-                  latitude: station.latitude,
-                  longitude: station.longitude,
+                  latitude: parseFloat(station.latitude) ,
+                  longitude: parseFloat(station.longitude),
                 }}
                 onPress={(event) => {
                   event.stopPropagation();

@@ -5,6 +5,7 @@ import TabRoutes from "./tab.routes";
 import DrawerRoutes from "./drawer.routes";
 import { EntryScreen } from "../screens/EntryScreen";
 import { Login } from "../screens/Login";
+import { RegisterUser } from "../screens/RegisterUser";
 
 const Stack = createStackNavigator()
 
@@ -22,6 +23,10 @@ export default function StackRoutes(){
             <Stack.Screen 
                 name="Login"
                 component={Login}
+            />
+            <Stack.Screen 
+                name="RegisterUser"
+                component={RegisterUser}
             />
             <Stack.Screen 
                 name="DrawerRoutes"

@@ -13,7 +13,7 @@ export function EntryScreen(){
     const service = new UserService()
 
     const handleRegister = () => {
-        console.log("Botão de Cadastro")
+        (navigation.navigate as any)('RegisterUser')
     }
 
     const handleLogin = () => {
