@@ -1,3 +1,4 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useEffect } from "react";
@@ -10,7 +11,7 @@ type RootStackParamList = {
   
   type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>;
 
-export function Exit(){
+export async function Exit(){
     const navigation = useNavigation<NavigationProp>();
     navigation.navigate("Home")
 

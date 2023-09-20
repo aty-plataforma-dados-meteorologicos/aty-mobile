@@ -9,6 +9,7 @@ type Props = {
     placeholder?: string,
     keyboardType?: 'default' | 'phone-pad' | 'cpf-cnpj' | 'url',
     secureTextEntry?: boolean,
+    onBlur?: () => void,
     onChangeTeste: (text: string) => void
 }
 
@@ -16,7 +17,7 @@ type Props = {
 // como default será o de texto. Phone-pad e cpf-cnpj mudam o estilo do teclado para numérico e aplica uma mascara. URL somente muda o estilo
 // do teclado com atalhos para url.
 
-export function Input({titleInput, placeholder, onChangeTeste, keyboardType, secureTextEntry=false} : Props){
+export function Input({titleInput, placeholder, onChangeTeste, keyboardType, onBlur, secureTextEntry=false} : Props){
     const [maskedText, setMaskedText] = useState('');  
     const [unmaskedText, setUnmaskedText] = useState('');
     const [isPasswordVisible, setIsPasswordVisible] = useState(secureTextEntry);
@@ -84,6 +85,7 @@ export function Input({titleInput, placeholder, onChangeTeste, keyboardType, sec
                         : 'default'
                 } 
                 secureTextEntry={isPasswordVisible}
+                onBlur={onBlur}
             />
             {secureTextEntry && (
                     <EyeIconContainer onPress={() => setIsPasswordVisible(!isPasswordVisible)}>

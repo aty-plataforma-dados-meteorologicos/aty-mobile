@@ -12,14 +12,14 @@ export const ImageBackground = styled.Image`
 `
 
 export const ContainerPhoto = styled.View`
-    flex: 2;
+    flex: 1;
     align-items: center;
     justify-content: center;
 `
 
 export const Logo = styled.Image`
-    width: 150px;
-    height: 150px;
+    width: 70px;
+    height: 70px;
 `
 
 export const ContainerTitle = styled.View`
@@ -32,7 +32,7 @@ export const Title = styled.Text`
     font-family: ${({theme}) => theme.FONT_FAMILY.BOLD};
     font-size: ${({theme}) => theme.FONT_SIZE.XL}px;
     color: ${({theme}) => theme.COLORS.WHITE};
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 `
 
 export const Subtitle = styled.Text`
@@ -53,7 +53,7 @@ export const ContainerButton = styled.View`
     flex: 1;
     align-items: center;
     justify-items: center;
-    gap: 20px;
+    margin-top: 30px;
 `
 
 export const TitlePassword = styled.Text`

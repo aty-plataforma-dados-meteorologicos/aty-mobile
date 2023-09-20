@@ -13,7 +13,7 @@ export function EntryScreen(){
     const service = new UserService()
 
     const handleRegister = () => {
-        console.log("Botão de Cadastro")
+        (navigation.navigate as any)('RegisterUser')
     }
 
     const handleLogin = () => {
@@ -28,11 +28,11 @@ export function EntryScreen(){
             const isTokenExpired = moment().isAfter(tokenExpiration);
     
             if (!isTokenExpired) {
-              (navigation.navigate as any)('Home');
+              (navigation.navigate as any)('DrawerRoutes');
             } else {
               const isRefreshed = await service.refreshToken();
               if (isRefreshed) {
-                (navigation.navigate as any)('Home');
+                (navigation.navigate as any)('DrawerRoutes');
               }
               // Nada acontece se for false
             }

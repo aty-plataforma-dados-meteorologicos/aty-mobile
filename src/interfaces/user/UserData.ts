@@ -1,10 +1,10 @@
 export interface UserData{
-    id: number;
-    name: string;
-    email: string;
-    password: string;
-    passwordRepeat: string;
+    id?: number;
+    name: string | null;
+    email: string | null;
+    password: string | null;
+    passwordRepeat: string | null;
     role: string;
     type: any;
-    isEnabled: boolean;
+    isEnabled?: boolean;
 }

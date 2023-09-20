@@ -42,12 +42,12 @@ class UserService {
         }
     }
 
-    public async createUser(user : any) : Promise<UserData> {
+    public async createUser(user : any) : Promise<boolean> {
         try {
             const response = await api.post('Users', user);
             if(response.status === 201)
-                return response.data;
-            return {} as UserData;
+                return true;
+            return false;
         } catch (error : any) {
             throw new Error(error)
         }
@@ -86,7 +86,6 @@ class UserService {
             else
                 return false;
         } catch (error : any) {
-            console.error('Error during login:', error);
             throw new Error(error)
         }
     }

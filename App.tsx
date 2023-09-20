@@ -1,13 +1,11 @@
 import { StyleSheet, StatusBar, Text, View } from 'react-native';
-import { Home } from './src/screens/Home/index';
-import MapView from 'react-native-maps';
 import { ThemeProvider } from 'styled-components/native';
 import { useEffect, useState } from 'react';
 import * as Font from 'expo-font';
 import theme from './src/theme';
 import React from 'react';
-import { Test } from './src/screens/Test';
 import { Routes } from './src/routes';
+import 'react-native-gesture-handler';
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);

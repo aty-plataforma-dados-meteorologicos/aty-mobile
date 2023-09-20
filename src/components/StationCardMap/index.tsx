@@ -8,7 +8,7 @@ import { ManegeInformationCard } from "../ManegeInformationCard";
 
 type Props = {
     title: string,
-    subtitle: string,
+    subtitle?: string,
     stationType: "Estação Pública" | "Estação Privada",
     sensors?: any[],
     imageUri?: string,
@@ -24,7 +24,6 @@ type Props = {
 
 export function StationCardMap({
     title,
-    subtitle,
     stationType,
     sensors,
     imageUri,
@@ -43,11 +42,10 @@ export function StationCardMap({
         <Container>
             <ContainerOne>
                 <ContainerPhoto onPress={onPressImage}>
-                    <Photo source={imageUri ? {uri: imageUri} : require("../../assets/map2.png")}></Photo>
+                    <Photo source={imageUri ? {uri: imageUri} : require("../../assets/aty.png")}></Photo>
                 </ContainerPhoto>
                 <ContainerTitle>
                     <Title numberOfLines={2} ellipsizeMode="tail">{title}</Title>
-                    <Subtitle numberOfLines={2} ellipsizeMode="tail">{subtitle}</Subtitle>
                     <Subtitle>{stationType}</Subtitle>
                 </ContainerTitle>
                 {showFavorite &&

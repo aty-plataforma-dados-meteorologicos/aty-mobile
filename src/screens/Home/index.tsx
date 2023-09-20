@@ -9,6 +9,8 @@ import data from "../../data/weatherstations.json"
 import { ModalImage } from "../../components/ModalImage";
 import { StationCardSkeleton } from "../../components/StationCardMapSkeleton";
 import { useNavigation } from "@react-navigation/native";
+import { WeatherStationsService } from "../../services/WeatherStationService";
+import WeatherStationData from "src/interfaces/weatherStation/WeatherStationData";
 
 export function Home() {
   const [location, setLocation] = useState<LocationObject | null>(null);
@@ -16,7 +18,8 @@ export function Home() {
   const [openModal, setOpenModal] = useState(false);
   const [isCardVisible, setIsCardVisible] = useState(false);
   const [weatherStations, setWeatherStations] = useState<any>();
-  const [weatherStation, setWeatherStation] = useState<any>();
+  const [weatherStation, setWeatherStation] = useState<WeatherStationData>();
+  const [favoriteStation, setFavoriteStation] = useState<any>();
   const [openPicture, setOpenPicture] = useState(false);
   const [mapRegion, setMapRegion] = useState<any>(null);
 
@@ -25,6 +28,7 @@ export function Home() {
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const mapRef = useRef<MapView>(null);
   const navigation = useNavigation()
+  const weatherStationService = new WeatherStationsService()
 
 
   async function requestUserLocationPermission() {
@@ -50,6 +54,22 @@ export function Home() {
       mapRef.current?.animateToRegion(region, 500);  // 500ms para a animação
     }
   };
+
+  async function getAllWeatherStation(){
+    const response = await weatherStationService.getAllWeatherStationsMap()
+    const response2 = await weatherStationService.getAllStationFavoritesByUser()
+    if(response != null){
+      setWeatherStations(response)
+      console.log(response)
+    }
+  }
+
+  async function getAllFavoriteWeatherStation(){
+    const response = await weatherStationService.getAllStationFavoritesByUser()
+    if(response != null){
+      setFavoriteStation(response.data)
+    }
+  }
   
 
   const animateCard = () => {
@@ -95,20 +115,7 @@ export function Home() {
   }
 
   function handleFavorite(){
-    // Atualizar o valor de isFavorite do weatherStation atual
-    const updatedWeatherStation = { ...weatherStation, isFavorite: !weatherStation.isFavorite };
-    
-    // Atualizar a lista completa de weatherStations para refletir a mudança
-    const updatedWeatherStations = weatherStations.map((station: any) => {
-      if (station.id === updatedWeatherStation.id) {  // Supondo que cada estação tenha um campo 'id' único
-        return updatedWeatherStation;
-      }
-      return station;
-    });
-    
-    // Atualizar o estado
-    setWeatherStation(updatedWeatherStation);
-    setWeatherStations(updatedWeatherStations);
+    console.log("Teste")
   };
   
 
@@ -129,7 +136,8 @@ export function Home() {
 
   useEffect(() => {
     requestUserLocationPermission();
-    setWeatherStations(data);
+    getAllWeatherStation();
+    getAllFavoriteWeatherStation()
   }, []);
 
   return (
@@ -153,11 +161,11 @@ export function Home() {
           style={styles.map}
         >
           {weatherStations &&
-            weatherStations.map((station: any) => (
+            weatherStations.map((station: WeatherStationData) => (
               <Marker 
                 coordinate={{
-                  latitude: station.latitude,
-                  longitude: station.longitude,
+                  latitude: parseFloat(station.latitude) ,
+                  longitude: parseFloat(station.longitude),
                 }}
                 onPress={(event) => {
                   event.stopPropagation();
@@ -182,13 +190,12 @@ export function Home() {
       {isCardVisible && weatherStation ?  (
         <StationCardMap 
           title={weatherStation.name}
-          subtitle={`${weatherStation.latitude} / ${weatherStation.longitude} / ${weatherStation.alturaAMS}`}
           stationType={weatherStation.isPrivate ? "Estação Privada" : "Estação Pública"}
           titleButton={weatherStation.isPrivate ? weatherStation.acessValid ? "Acessar Estação" : "Solicitar Acesso" : "Acessar Estação"}
           sensors={weatherStation.sensors}
           imageUri={weatherStation.image}
           showFavorite={weatherStation.isPrivate ? false : true}
-          isFavorite={weatherStation.isFavorite}
+          isFavorite={favoriteStation.some((station : any )=> station.id === weatherStation.id)}
           onPressButton={teste}
           onPressImage={() => setOpenPicture(true)}
           onPressInfo={teste}
@@ -215,7 +222,7 @@ export function Home() {
               fadeOut();
               });
             }} 
-            imageUri={weatherStation.image}
+            imageUri={weatherStation.image ? weatherStation.image : null }
             />
         </Animated.View>
       )}

@@ -12,5 +12,7 @@ export default interface WeatherStationData{
     partners: PartnerData[];
     isPrivate: boolean;
     isEnabled: boolean;
+    acessValid: boolean;
+    image: string;
     sensors: SensorData[];
 }
