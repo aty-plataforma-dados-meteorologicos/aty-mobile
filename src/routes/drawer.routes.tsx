@@ -3,6 +3,7 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
+  DrawerItem,
   DrawerItemList,
 } from '@react-navigation/drawer';
 import { Home } from '../screens/Home';
@@ -20,6 +21,8 @@ import { Test } from '../screens/Test';
 import { Exit } from './exit';
 
 import StackRoutes from './stack.routes';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
 
 const CustomDrawerContent = (props : any) => {
     return (
@@ -146,7 +149,7 @@ export default function DrawerRoutes() {
           ),
         }}
       />
-      <Drawer.Screen
+      {/* <Drawer.Screen
         name='Exit'
         component={Exit}
         options={{
@@ -154,8 +157,11 @@ export default function DrawerRoutes() {
           drawerIcon: ({ focused, size }) => (
             <FontAwesomeIcon icon={faRightFromBracket} size={35} color={focused ? '#1B81F5' : '#FFFFFF'} />
           ),
+          drawerItemStyle: {
+            onPress: () => handleLogout()
+          }
         }}
-      />
+      /> */}
       {/* <Drawer.Screen
         name='Test'
         component={Test}

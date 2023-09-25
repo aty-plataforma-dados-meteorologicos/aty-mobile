@@ -5,7 +5,6 @@ import { Animated, View, StyleSheet } from "react-native";
 import { LoadingModal } from "../../components/ModalLoading";
 import { HeaderMap } from "../../components/HeaderMap";
 import { StationCardMap } from "../../components/StationCardMap";
-import data from "../../data/weatherstations.json"
 import { ModalImage } from "../../components/ModalImage";
 import { StationCardSkeleton } from "../../components/StationCardMapSkeleton";
 import { useNavigation } from "@react-navigation/native";
@@ -60,7 +59,6 @@ export function Home() {
     const response2 = await weatherStationService.getAllStationFavoritesByUser()
     if(response != null){
       setWeatherStations(response)
-      console.log(response)
     }
   }
 
