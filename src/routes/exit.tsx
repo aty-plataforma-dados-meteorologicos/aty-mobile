@@ -3,8 +3,9 @@ import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";
 import { useEffect } from "react";
+import { View, Text } from "react-native";
 
-export async function Exit(){
+export function Exit(){
     const navigation = useNavigation();
 
     useEffect(() => {
@@ -12,6 +13,6 @@ export async function Exit(){
       }, []);
 
       return(
-        <> </>
+        <></>
       )
 }

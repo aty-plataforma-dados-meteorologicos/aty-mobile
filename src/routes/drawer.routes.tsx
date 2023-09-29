@@ -3,7 +3,6 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
-  DrawerItem,
   DrawerItemList,
 } from '@react-navigation/drawer';
 import { Home } from '../screens/Home';
@@ -17,12 +16,13 @@ import {
   faBookmark,
   faRightFromBracket
 } from '@fortawesome/free-solid-svg-icons';
+import StackRoutes from './stack.routes';
+import { MyStations } from '../screens/MyStations';
+import { FavoriteStations } from '../screens/FavoriteStations';
+import { StationsWithAcess } from '../screens/StationsWithAcess';
 import { Test } from '../screens/Test';
 import { Exit } from './exit';
-
-import StackRoutes from './stack.routes';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useNavigation } from '@react-navigation/native';
+import { RegisterStation } from '../screens/RegisterStation';
 
 const CustomDrawerContent = (props : any) => {
     return (
@@ -101,7 +101,7 @@ export default function DrawerRoutes() {
       />
       <Drawer.Screen
         name='RegisterStation'
-        component={Home}
+        component={RegisterStation}
         options={{
           drawerLabel: 'Cadastrar Estação',
           drawerIcon: ({ focused, size }) => (
@@ -111,7 +111,7 @@ export default function DrawerRoutes() {
       />
       <Drawer.Screen
         name='MantainerStations'
-        component={StackRoutes}
+        component={MyStations}
         options={{
           drawerLabel: 'Minhas Estações',
           drawerIcon: ({ focused, size }) => (
@@ -121,7 +121,7 @@ export default function DrawerRoutes() {
       />
       <Drawer.Screen
         name='FavoriteStations'
-        component={StackRoutes}
+        component={FavoriteStations}
         options={{
           drawerLabel: 'Estações Favoritas',
           drawerIcon: ({ focused, size }) => (
@@ -131,7 +131,7 @@ export default function DrawerRoutes() {
       />
       <Drawer.Screen
         name='AcessStations'
-        component={StackRoutes}
+        component={StationsWithAcess}
         options={{
           drawerLabel: 'Estações com Acesso',
           drawerIcon: ({ focused, size }) => (
@@ -149,7 +149,7 @@ export default function DrawerRoutes() {
           ),
         }}
       />
-      {/* <Drawer.Screen
+      <Drawer.Screen
         name='Exit'
         component={Exit}
         options={{
@@ -157,12 +157,9 @@ export default function DrawerRoutes() {
           drawerIcon: ({ focused, size }) => (
             <FontAwesomeIcon icon={faRightFromBracket} size={35} color={focused ? '#1B81F5' : '#FFFFFF'} />
           ),
-          drawerItemStyle: {
-            onPress: () => handleLogout()
-          }
         }}
-      /> */}
-      {/* <Drawer.Screen
+      />
+      <Drawer.Screen
         name='Test'
         component={Test}
         options={{
@@ -171,7 +168,7 @@ export default function DrawerRoutes() {
             <FontAwesomeIcon icon={faRightFromBracket} size={35} color={focused ? '#1B81F5' : '#FFFFFF'} />
           ),
         }}
-      /> */}
+      />
     </Drawer.Navigator>
   );
 }

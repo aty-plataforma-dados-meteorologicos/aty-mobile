@@ -7,7 +7,7 @@ import { useNavigation } from "@react-navigation/native";
 import WeatherStationData from "../../interfaces/weatherStation/WeatherStationData";
 import { ListEmpty } from "../../components/ListEmpty";
 
-export function MyStations(){
+export function RegisterStation(){
     const [weatherStations, setWeatherStations] = useState<WeatherStationData[]>();
     const service = new WeatherStationsService();
     const navigate = useNavigation();
@@ -29,7 +29,7 @@ export function MyStations(){
 
     return(
         <Container>
-            <HeaderApp title="Minhas Estações" onMenuPress={handleBack}/>
+            <HeaderApp title="Cadastrar Estação" onMenuPress={handleBack}/>
             <ListContainer>
                 <List
                     data={weatherStations}
