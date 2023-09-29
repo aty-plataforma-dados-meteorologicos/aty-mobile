@@ -2,12 +2,13 @@ import styled from "styled-components/native";
 
 
 export const Container = styled.View`
-    min-width: 370px;
+    width: auto;
     height: 100px;
     background-color: ${({theme}) => theme.COLORS.SHAPE_SECUNDARIA};
     flex-direction: row;
     align-items: center;
     border-radius: 10px;
+    margin-bottom: 10px;
 `
 
 export const PhotoContainer = styled.TouchableHighlight`
