@@ -7,14 +7,14 @@ import { useNavigation } from "@react-navigation/native";
 import WeatherStationData from "../../interfaces/weatherStation/WeatherStationData";
 import { ListEmpty } from "../../components/ListEmpty";
 
-export function MyStations(){
+export function FavoriteStations(){
     const [weatherStations, setWeatherStations] = useState<WeatherStationData[]>();
     const service = new WeatherStationsService();
     const navigate = useNavigation();
 
     async function getAllMantainerStation(){
-        const response = await service.getAllWeatherStationByMantainer()
-        setWeatherStations(response.data) 
+        const response = await service.getAllStationFavoritesByUser()
+        setWeatherStations(response.data)   
     }
 
 
@@ -29,7 +29,7 @@ export function MyStations(){
 
     return(
         <Container>
-            <HeaderApp title="Minhas Estações" onMenuPress={handleBack}/>
+            <HeaderApp title="Estações Favoritas" onMenuPress={handleBack}/>
             <ListContainer>
                 <List
                     data={weatherStations}
@@ -38,8 +38,8 @@ export function MyStations(){
                         <StationCardList
                             onPressPhoto={() => console.log('Photo Pressed!')}
                             onPressIcon={() => console.log('Icon Pressed!')}
-                            title={item.name} // Substitua pelos nomes reais das propriedades
-                            subtitle={item.id} // Substitua pelos nomes reais das propriedades
+                            title={item.name} 
+                            subtitle={item.id}
                         />
                     )}
                     ListEmptyComponent={<ListEmpty message="Você não possui nenhuma estação com acesso" />}

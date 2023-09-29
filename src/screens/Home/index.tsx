@@ -21,8 +21,6 @@ export function Home() {
   const [favoriteStation, setFavoriteStation] = useState<any>();
   const [openPicture, setOpenPicture] = useState(false);
   const [mapRegion, setMapRegion] = useState<any>(null);
-
-
   const stationCardYPosition = useRef(new Animated.Value(500)).current;
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const mapRef = useRef<MapView>(null);
@@ -56,7 +54,6 @@ export function Home() {
 
   async function getAllWeatherStation(){
     const response = await weatherStationService.getAllWeatherStationsMap()
-    const response2 = await weatherStationService.getAllStationFavoritesByUser()
     if(response != null){
       setWeatherStations(response)
     }
@@ -138,6 +135,13 @@ export function Home() {
     getAllFavoriteWeatherStation()
   }, []);
 
+  useEffect(() => {
+    getAllWeatherStation();
+    getAllFavoriteWeatherStation()
+  }, [openModal]);
+
+
+
   return (
     <View style={styles.container}>
       <LoadingModal isVisible={isLoading} />
@@ -193,7 +197,7 @@ export function Home() {
           sensors={weatherStation.sensors}
           imageUri={weatherStation.image}
           showFavorite={weatherStation.isPrivate ? false : true}
-          isFavorite={favoriteStation.some((station : any )=> station.id === weatherStation.id)}
+          isFavorite={favoriteStation ? favoriteStation.some((station : any )=> station.id === weatherStation.id) : false}
           onPressButton={teste}
           onPressImage={() => setOpenPicture(true)}
           onPressInfo={teste}
@@ -220,7 +224,7 @@ export function Home() {
               fadeOut();
               });
             }} 
-            imageUri={weatherStation.image ? weatherStation.image : null }
+            imageUri={weatherStation?.image || "" }
             />
         </Animated.View>
       )}
