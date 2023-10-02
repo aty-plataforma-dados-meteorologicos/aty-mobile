@@ -4,14 +4,17 @@ import { Container, List, ListContainer } from "./styles";
 import { WeatherStationsService } from "../../services/WeatherStationService";
 import { StationCardList } from "../../components/StationCardList";
 import { useNavigation } from "@react-navigation/native";
+import WeatherStationData from "../../interfaces/weatherStation/WeatherStationData";
 import { ListEmpty } from "../../components/ListEmpty";
 
-export function StationsWithAcess(){
-    const [weatherStations, setWeatherStations] = useState([]);
+export function MantainerStations(){
+    const [weatherStations, setWeatherStations] = useState<WeatherStationData[]>();
     const service = new WeatherStationsService();
     const navigate = useNavigation();
 
     async function getAllMantainerStation(){
+        const response = await service.getAllWeatherStationByMantainer()
+        setWeatherStations(response.data) 
     }
 
 
@@ -26,7 +29,7 @@ export function StationsWithAcess(){
 
     return(
         <Container>
-            <HeaderApp title="Estações com Acesso" onMenuPress={handleBack}/>
+            <HeaderApp title="Minhas Estações" onMenuPress={handleBack}/>
             <ListContainer>
                 <List
                     data={weatherStations}
@@ -35,8 +38,8 @@ export function StationsWithAcess(){
                         <StationCardList
                             onPressPhoto={() => console.log('Photo Pressed!')}
                             onPressIcon={() => console.log('Icon Pressed!')}
-                            title={item.name} 
-                            subtitle={item.id}
+                            title={item.name} // Substitua pelos nomes reais das propriedades
+                            subtitle={item.id} // Substitua pelos nomes reais das propriedades
                         />
                     )}
                     ListEmptyComponent={<ListEmpty message="Você não possui nenhuma estação com acesso" />}

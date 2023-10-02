@@ -3,12 +3,11 @@ import { Container, ContainerButton, ContainerInput, ContainerPhoto, ContainerTi
 import { Input } from "../../components/Input";
 import { UserData } from "../../interfaces/user/UserData";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { RadioCheck } from "../../components/RadioCheck";
 import { Button } from "../../components/Button";
 import { Alert } from "react-native";
 import UserService from "../../services/UserService";
 import { useNavigation } from "@react-navigation/native";
-
+import { RadioCheck } from "../../components/RadioCheck";
 
 export function RegisterUser(){
     const [user, setUser] = useState<UserData>({

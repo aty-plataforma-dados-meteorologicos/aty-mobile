@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import MapView, { Marker } from "react-native-maps";
 import { requestForegroundPermissionsAsync, getCurrentPositionAsync, LocationObject } from 'expo-location';
-import { Animated, View, StyleSheet } from "react-native";
+import { Animated, View, StyleSheet, Dimensions, PanResponder } from "react-native";
 import { LoadingModal } from "../../components/ModalLoading";
 import { HeaderMap } from "../../components/HeaderMap";
 import { StationCardMap } from "../../components/StationCardMap";
@@ -10,18 +10,23 @@ import { StationCardSkeleton } from "../../components/StationCardMapSkeleton";
 import { useNavigation } from "@react-navigation/native";
 import { WeatherStationsService } from "../../services/WeatherStationService";
 import WeatherStationData from "src/interfaces/weatherStation/WeatherStationData";
+import { DrawerMenu } from "../../components/DrawerMenu";
 
 export function Home() {
+  const screenWidth = Dimensions.get('window').width;
+  const drawerWidth = screenWidth * 0.7; 
   const [location, setLocation] = useState<LocationObject | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [isCardVisible, setIsCardVisible] = useState(false);
+  const [isDrawerVisible, setIsDrawerVisible] = useState(false);
   const [weatherStations, setWeatherStations] = useState<any>();
   const [weatherStation, setWeatherStation] = useState<WeatherStationData>();
   const [favoriteStation, setFavoriteStation] = useState<any>();
   const [openPicture, setOpenPicture] = useState(false);
   const [mapRegion, setMapRegion] = useState<any>(null);
   const stationCardYPosition = useRef(new Animated.Value(500)).current;
+  const drawerPosition = useRef(new Animated.Value(-drawerWidth)).current;
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const mapRef = useRef<MapView>(null);
   const navigation = useNavigation()
@@ -105,10 +110,45 @@ export function Home() {
     console.log('teste');
   }
 
-  function handleMenu(){
-    (navigation as any).openDrawer()
-  }
+  function handleMenu() {
+    setIsDrawerVisible(true);
+    Animated.timing(drawerPosition, {
+        toValue: 0, 
+        duration: 300, 
+        useNativeDriver: true 
+    }).start();
+}
 
+function closeDrawer() {
+  Animated.timing(drawerPosition, {
+      toValue: -drawerWidth, 
+      duration: 300, 
+      useNativeDriver: true 
+  }).start(() => setIsDrawerVisible(false)); 
+}
+
+const panResponder = PanResponder.create({
+  onStartShouldSetPanResponder: () => true,
+  onMoveShouldSetPanResponder: (evt, gestureState) => {
+    // Permitir o gesto apenas se estiver se movendo da direita para a esquerda
+    return gestureState.dx < 0;
+  },
+  onPanResponderMove: (evt, gestureState) => {
+    if (gestureState.dx < 0) {
+      drawerPosition.setValue(gestureState.dx);
+    }
+  },
+  onPanResponderRelease: (e, gestureState) => {
+    if (gestureState.dx < -50) {
+      closeDrawer();
+    } else {
+      Animated.spring(drawerPosition, {
+        toValue: 0,
+        useNativeDriver: true,   // <-- Atualizado para true
+      }).start();
+    }
+  }
+});
   function handleFavorite(){
     console.log("Teste")
   };
@@ -159,7 +199,11 @@ export function Home() {
           }}
           region={mapRegion} 
           showsUserLocation
-          onPress={() => setOpenModal(false)}
+          onPress={() => {
+            setOpenModal(false);
+            setWeatherStation(undefined);
+            closeDrawer();
+          }}
           style={styles.map}
         >
           {weatherStations &&
@@ -174,7 +218,7 @@ export function Home() {
                   setWeatherStation(station);
                   setOpenModal(true);
                 }}
-                pinColor={openModal ? 'yelow' : 'red'}
+                pinColor={station.id === weatherStation?.id ? '#ffff00' : '#ff0000'}
                 key={station.id}
               />
             ))
@@ -228,6 +272,26 @@ export function Home() {
             />
         </Animated.View>
       )}
+      {isDrawerVisible && (
+        <Animated.View 
+          {...panResponder.panHandlers}
+          style={[
+              {
+                  transform: [{ translateX: drawerPosition }],
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  bottom: 0,
+                  width: drawerWidth,
+                  zIndex: 4,
+              }
+          ]}
+        >
+            <DrawerMenu />
+        </Animated.View>
+      )}
+
+
     </View>
   );
 }

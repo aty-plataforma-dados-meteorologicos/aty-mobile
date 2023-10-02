@@ -18,7 +18,7 @@ export class WeatherStationsService {
 
     public async getAllWeatherStationsMap() : Promise<WeatherStationData> {
         try {
-            const response = await api.get('WeatherStations');
+            const response = await api.get('WeatherStations?pageSize=10000');
             return response.data.data;
         } catch (error : any) {
             return {} as WeatherStationData;
@@ -27,7 +27,7 @@ export class WeatherStationsService {
 
     public async getAllWeatherStationByMantainer() : Promise<WeatherStationResponse>{
         try {
-            const response = await api.get('WeatherStations/Maintainers')
+            const response = await api.get('WeatherStations/Maintainers?pageSize=10000')
             if(response.status === 200)
                 return response.data;
             return {} as WeatherStationResponse;

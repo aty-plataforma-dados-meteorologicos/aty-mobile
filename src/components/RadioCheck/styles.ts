@@ -12,9 +12,8 @@ export const Title = styled.Text`
 
 export const RadioContainer = styled.View`
     flex: 1;
-    align-items: flex-start;
     width: 350px;
-    height: 50px;
+    height: 5%;
     padding: 10px;
     gap: 2px
 `;
@@ -29,6 +28,6 @@ export const Icon = styled.View`
 
 export const RadioTitle = styled.Text`
     font-family: ${({theme}) => theme.FONT_FAMILY.MEDIUM};
-    font-size: ${({theme}) => theme.FONT_SIZE.MD}px;
+    font-size: ${({theme}) => theme.FONT_SIZE.LG}px;
     color: ${({theme}) => theme.COLORS.WHITE};
 `

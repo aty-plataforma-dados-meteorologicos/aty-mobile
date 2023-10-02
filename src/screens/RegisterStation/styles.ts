@@ -5,11 +5,10 @@ export const Container = styled.View`
     background-color: ${({theme}) => theme.COLORS.SHAPE_TERCIARIA};
 `
 
-export const ListContainer = styled.View`
+export const FormContainer = styled.View`
     margin-top: 40px;
     flex: 1;
-    padding: 5px;
+    padding: 15px;
 `
 
-export const List = styled.FlatList`
-`
+

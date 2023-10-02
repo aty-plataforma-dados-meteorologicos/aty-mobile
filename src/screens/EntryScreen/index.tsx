@@ -28,11 +28,11 @@ export function EntryScreen(){
             const isTokenExpired = moment().isAfter(tokenExpiration);
     
             if (!isTokenExpired) {
-              (navigation.navigate as any)('DrawerRoutes');
+              (navigation.navigate as any)('Home');
             } else {
               const isRefreshed = await service.refreshToken();
               if (isRefreshed) {
-                (navigation.navigate as any)('DrawerRoutes');
+                (navigation.navigate as any)('Home');
               }
               // Nada acontece se for false
             }
