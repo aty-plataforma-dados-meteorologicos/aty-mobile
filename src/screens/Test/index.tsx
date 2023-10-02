@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Input } from "../../components/Input";
 import { HeaderApp } from "../../components/HeaderApp";
-import { StationCard } from "../../components/StationCardList";
 import { ListEmpty } from "../../components/ListEmpty";
 import { ManegeInformationCard } from "../../components/ManegeInformationCard";
 import { ModalImage } from "../../components/ModalImage";
@@ -11,6 +10,7 @@ import { ModalInfoSensor } from "../../components/ModalInfoSensor";
 import { Button } from "../../components/Button";
 import { EntryScreen } from "../EntryScreen";
 import { Login } from "../Login";
+import { DrawerMenu } from "../../components/DrawerMenu";
 
 export function Test(){
 
@@ -85,7 +85,8 @@ export function Test(){
             /> */}
             {/* <ModalInfoSensor /> */}
             {/* <Button title="Cadastre-se" onPress={teste} color="SECONDARY"/> */}
-            <Login />
+            {/* <Login /> */}
+            <DrawerMenu />
         </View>
     )
 }

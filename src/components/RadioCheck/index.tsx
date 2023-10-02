@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { Container, Icon, RadioContainer, RadioLine, RadioTitle, Title } from "./styles";
 import { KeyboardTypeOptions } from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faCircle  } from "@fortawesome/free-solid-svg-icons";
+import { faCircle, faSquare  } from "@fortawesome/free-solid-svg-icons";
 import { faCircle as regularCircle } from "@fortawesome/free-regular-svg-icons";
+import { faSquare as regularSquare } from "@fortawesome/free-regular-svg-icons";
 
 type ArrayTextItem = {
     name: string;

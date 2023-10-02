@@ -28,7 +28,7 @@ export function Login(){
             try {
                 const response = await service.login(user)
                 if(response == true){
-                    (navigation.navigate as any)('DrawerRoutes')
+                    (navigation.navigate as any)('Home')
                 }
             } catch (error) {
                 console.log(error)
