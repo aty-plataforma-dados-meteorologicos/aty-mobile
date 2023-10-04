@@ -1,3 +1,4 @@
+
 export default interface SensorData{
     measurementType: number;
     id: number;

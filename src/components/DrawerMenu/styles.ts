@@ -35,11 +35,14 @@ export const SubtitleApp = styled.Text`
     margin-top: 5px;
 `
 
-export const IconsContainer = styled.View`
-    align-items: flex-start;
-    padding: 20px;
-    margin-top: 10px;
-`
+export const IconsContainer = styled.ScrollView.attrs({
+    contentContainerStyle: {
+      alignItems: 'flex-start'
+    }
+  })`
+      margin-bottom: 20px;
+  `;
+  
 
 export const Icon = styled.TouchableOpacity`
     flex-direction: row;
