@@ -34,5 +34,5 @@ export const LoadingText = styled(Text)`
   color: #ffffff;
   margin-top: 5px;
   font-size: 14px;
-  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.MEDIUM};
 `;

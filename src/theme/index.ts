@@ -1,6 +1,8 @@
 export default {
     COLORS : {
         WHITE : '#FFFFFF',
+        BLUE: '#1B81F5',
+        GREEN: '#00B37E',
         BACKGROUND : '#121214',
         SHAPE_PRINCIPAL : '#202024',
         SHAPE_SECUNDARIA : '#29292E',
