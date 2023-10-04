@@ -42,7 +42,7 @@ export function MantainerStations(){
                             subtitle={item.id} // Substitua pelos nomes reais das propriedades
                         />
                     )}
-                    ListEmptyComponent={<ListEmpty message="Você não possui nenhuma estação com acesso" />}
+                    ListEmptyComponent={<ListEmpty message="Você não possui nenhuma estação" />}
                     showsVerticalScrollIndicator={false}
                 />
             </ListContainer>

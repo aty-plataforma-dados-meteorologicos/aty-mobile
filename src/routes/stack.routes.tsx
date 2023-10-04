@@ -11,6 +11,7 @@ import { MantainerStations } from "../screens/MantainerStations";
 import { FavoriteStations } from "../screens/FavoriteStations";
 import { AcessStations } from "../screens/AcessStations";
 import { Exit } from "./exit";
+import { Test } from "../screens/Test";
 
 const Stack = createStackNavigator()
 
@@ -60,6 +61,10 @@ export default function StackRoutes(){
             <Stack.Screen 
                 name="Exit"
                 component={Exit}
+            />
+            <Stack.Screen 
+                name="Test"
+                component={Test}
             />
             {/* <Stack.Screen 
                 name="DrawerRoutes"

@@ -42,7 +42,7 @@ export function FavoriteStations(){
                             subtitle={item.id}
                         />
                     )}
-                    ListEmptyComponent={<ListEmpty message="Você não possui nenhuma estação com acesso" />}
+                    ListEmptyComponent={<ListEmpty message="Você não possui nenhuma estação favoritada" />}
                     showsVerticalScrollIndicator={false}
                 />
             </ListContainer>

@@ -11,6 +11,9 @@ import { useNavigation } from "@react-navigation/native";
 import { WeatherStationsService } from "../../services/WeatherStationService";
 import WeatherStationData from "src/interfaces/weatherStation/WeatherStationData";
 import { DrawerMenu } from "../../components/DrawerMenu";
+import { ModalInfoSensor } from "../../components/ModalInfoSensor";
+import SensorService from "../../services/SensorService";
+import SensorData from "../../interfaces/sensor/SensorData";
 
 export function Home() {
   const screenWidth = Dimensions.get('window').width;
@@ -22,17 +25,20 @@ export function Home() {
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
   const [weatherStations, setWeatherStations] = useState<any>();
   const [weatherStation, setWeatherStation] = useState<WeatherStationData>();
+  const [sensorInformation, setSensorInformation] = useState<SensorData | null>(null);
   const [favoriteStation, setFavoriteStation] = useState<any>();
   const [openPicture, setOpenPicture] = useState(false);
+  const [openInfoSensor, setOpenInfoSensor] = useState(false);
   const [mapRegion, setMapRegion] = useState<any>(null);
   const stationCardYPosition = useRef(new Animated.Value(500)).current;
   const drawerPosition = useRef(new Animated.Value(-drawerWidth)).current;
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const mapRef = useRef<MapView>(null);
-  const navigation = useNavigation()
-  const weatherStationService = new WeatherStationsService()
+  const navigation = useNavigation();
+  const weatherStationService = new WeatherStationsService();
+  const sensorService = new SensorService();
 
-
+  // Requisição da localização
   async function requestUserLocationPermission() {
     setIsLoading(true);
     const { granted } = await requestForegroundPermissionsAsync();
@@ -43,6 +49,7 @@ export function Home() {
     }
   }
 
+  // Função que leva o mapa para a localização do usuário
   function handleUserLocation() {
     if (location) {
       const { latitude, longitude } = location.coords;
@@ -57,6 +64,7 @@ export function Home() {
     }
   };
 
+  // Função que obtem todas as estações
   async function getAllWeatherStation(){
     const response = await weatherStationService.getAllWeatherStationsMap()
     if(response != null){
@@ -64,10 +72,20 @@ export function Home() {
     }
   }
 
+  // Função que obtem todas as estações favoritas
   async function getAllFavoriteWeatherStation(){
     const response = await weatherStationService.getAllStationFavoritesByUser()
     if(response != null){
       setFavoriteStation(response.data)
+    }
+  }
+
+  // Função que obtem dados do sensor e abre o modal
+  async function getSensorInfo(sensorId : string){
+    const response = await sensorService.getSensorById(sensorId);
+    if(response){
+      setSensorInformation(response);
+      setOpenInfoSensor(true);
     }
   }
   
@@ -102,7 +120,10 @@ export function Home() {
         toValue: 0,
         duration: 300,
         useNativeDriver: true,
-      }).start(() => setOpenPicture(false));
+      }).start(() => {
+        setOpenPicture(false)
+        setOpenInfoSensor(false)
+      });
     });
   };
 
@@ -162,12 +183,12 @@ const panResponder = PanResponder.create({
   }, [openModal]);
 
   useEffect(() => {
-    if (openPicture) {
+    if (openPicture || openInfoSensor) {
       fadeIn();
     } else {
       fadeOut();
     }
-  }, [openPicture]);
+  }, [openPicture, openInfoSensor]);
 
   useEffect(() => {
     requestUserLocationPermission();
@@ -188,14 +209,16 @@ const panResponder = PanResponder.create({
       <View style={styles.headerContainer}>
         <HeaderMap onMenuPress={handleMenu} onLocationPress={handleUserLocation} />
       </View>
+
+      {/* Mapa da Aplicação */}
       {location && (
         <MapView
           ref={mapRef}
           initialRegion={{
             latitude: location?.coords.latitude || -15.777874,
             longitude: location?.coords.longitude || -47.918151,
-            latitudeDelta: 0.01,
-            longitudeDelta: 0.01,
+            latitudeDelta: 0.1,
+            longitudeDelta: 0.1,
           }}
           region={mapRegion} 
           showsUserLocation
@@ -218,41 +241,45 @@ const panResponder = PanResponder.create({
                   setWeatherStation(station);
                   setOpenModal(true);
                 }}
-                pinColor={station.id === weatherStation?.id ? '#ffff00' : '#ff0000'}
+                pinColor={station.id === weatherStation?.id ? '#0000ff' : '#ff0000'}
                 key={station.id}
               />
             ))
           }
         </MapView>
       )}
-    <Animated.View
-      style={[
-        styles.stationCardContainer,
-        {
-          transform: [{ translateY: stationCardYPosition }],
-        },
-      ]}
-    >
-      {isCardVisible && weatherStation ?  (
-        <StationCardMap 
-          title={weatherStation.name}
-          stationType={weatherStation.isPrivate ? "Estação Privada" : "Estação Pública"}
-          titleButton={weatherStation.isPrivate ? weatherStation.acessValid ? "Acessar Estação" : "Solicitar Acesso" : "Acessar Estação"}
-          sensors={weatherStation.sensors}
-          imageUri={weatherStation.image}
-          showFavorite={weatherStation.isPrivate ? false : true}
-          isFavorite={favoriteStation ? favoriteStation.some((station : any )=> station.id === weatherStation.id) : false}
-          onPressButton={teste}
-          onPressImage={() => setOpenPicture(true)}
-          onPressInfo={teste}
-          onPressFavorite={handleFavorite}
-        />
+      
+      {/* Card da estação */}
+      <Animated.View
+        style={[
+          styles.stationCardContainer,
+          {
+            transform: [{ translateY: stationCardYPosition }],
+          },
+        ]}
+      >
+        {isCardVisible && weatherStation ?  (
+          <StationCardMap 
+            title={weatherStation.name}
+            stationType={weatherStation.isPrivate ? "Estação Privada" : "Estação Pública"}
+            titleButton={weatherStation.isPrivate ? weatherStation.acessValid ? "Acessar Estação" : "Solicitar Acesso" : "Acessar Estação"}
+            sensors={weatherStation.sensors}
+            imageUri={weatherStation.image}
+            showFavorite={weatherStation.isPrivate ? false : true}
+            isFavorite={favoriteStation ? favoriteStation.some((station : any )=> station.id === weatherStation.id) : false}
+            onPressButton={teste}
+            onPressImage={() => setOpenPicture(true)}
+            onPressInfo={(sensorId) => getSensorInfo(sensorId)}
+            onPressFavorite={handleFavorite}
+          />
 
-        
-      ) : (
-        <StationCardSkeleton />
-      )}
-    </Animated.View>
+          
+        ) : (
+          <StationCardSkeleton />
+        )}
+      </Animated.View>
+
+      {/* Card da visualização da foto */}
       {openPicture && (
         <Animated.View
           style={[
@@ -272,6 +299,31 @@ const panResponder = PanResponder.create({
             />
         </Animated.View>
       )}
+
+      {/* Card da visualização das info do sensor */}
+      {openInfoSensor && sensorInformation && (
+          <Animated.View
+            style={[
+              styles.modalStyle,
+              {
+                opacity: fadeAnim,
+              }
+            ]}
+          >
+              <ModalInfoSensor onClose={(event) => {
+                event.stopPropagation();
+                requestAnimationFrame(() => {
+                    fadeOut()
+                  })
+                }} 
+                sensorInfo={sensorInformation}
+              />
+          </Animated.View>
+        )}
+
+      
+
+      {/* Menu lateral */}
       {isDrawerVisible && (
         <Animated.View 
           {...panResponder.panHandlers}

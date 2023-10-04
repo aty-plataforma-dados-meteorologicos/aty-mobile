@@ -18,7 +18,7 @@ type Props = {
     onPressFavorite?: () => void,
     onPressButton: () => void,
     onPressImage: () => void,
-    onPressInfo : (id : number) => void
+    onPressInfo : (id : string) => void
 }
 
 
@@ -63,7 +63,7 @@ export function StationCardMap({
                                 title={sensor.name}
                                 hideBackground
                                 showInfo
-                                // onPressInfo={onPressInfo(sensor.id)}
+                                onPressInfo={() => onPressInfo(sensor.id)}
                             />
                             
                         ))
