@@ -39,7 +39,7 @@ export function MantainerStations(){
                             onPressPhoto={() => console.log('Photo Pressed!')}
                             onPressIcon={() => console.log('Icon Pressed!')}
                             title={item.name} // Substitua pelos nomes reais das propriedades
-                            subtitle={item.id} // Substitua pelos nomes reais das propriedades
+                            subtitle={item.isPrivate ? "Estação Privada" : "Estação Pública"}
                         />
                     )}
                     ListEmptyComponent={<ListEmpty message="Você não possui nenhuma estação" />}
