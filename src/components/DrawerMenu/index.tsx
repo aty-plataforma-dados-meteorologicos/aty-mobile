@@ -44,10 +44,10 @@ export function DrawerMenu(){
                     <FontAwesomeIcon icon={faRightFromBracket} size={35} color={'#FFFFFF'} />
                     <TitleIcon>Sair</TitleIcon>
                 </Icon>
-                <Icon onPress={() => (navigate.navigate as any)('Test')}>
+                {/* <Icon onPress={() => (navigate.navigate as any)('Test')}>
                     <FontAwesomeIcon icon={faRightFromBracket} size={35} color={'#FFFFFF'} />
                     <TitleIcon>Sair</TitleIcon>
-                </Icon>
+                </Icon> */}
             </IconsContainer>
         </Container>
     )

@@ -39,7 +39,7 @@ export function FavoriteStations(){
                             onPressPhoto={() => console.log('Photo Pressed!')}
                             onPressIcon={() => console.log('Icon Pressed!')}
                             title={item.name} 
-                            subtitle={item.id}
+                            subtitle={item.isPrivate ? "Estação Privada" : "Estação Pública"}
                         />
                     )}
                     ListEmptyComponent={<ListEmpty message="Você não possui nenhuma estação favoritada" />}
