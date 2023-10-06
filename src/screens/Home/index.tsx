@@ -263,8 +263,10 @@ const panResponder = PanResponder.create({
                 }}
                 onPress={(event) => {
                   event.stopPropagation();
-                  setWeatherStation(station);
                   setOpenModal(true);
+                  setTimeout(() => {
+                    setWeatherStation(station);
+                  }, 1000);
                 }}
                 pinColor={station.id === weatherStation?.id ? '#0000ff' : '#ff0000'}
                 key={station.id}
@@ -319,8 +321,7 @@ const panResponder = PanResponder.create({
             requestAnimationFrame(() => {
               fadeOut();
               });
-            }} 
-            imageUri={weatherStation?.image || "" }
+            }}
             />
         </Animated.View>
       )}
