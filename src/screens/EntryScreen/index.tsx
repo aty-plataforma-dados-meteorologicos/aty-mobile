@@ -50,7 +50,7 @@ export function EntryScreen(){
             </ContainerPhoto>
             <ContainerTitle>
                 <Title>Bem-vindos ao ATY</Title>
-                <Subtitle>Uma plataforma de derenciamento de estações meteorológicas</Subtitle>
+                <Subtitle>Uma plataforma de gerenciamento de estações meteorológicas</Subtitle>
             </ContainerTitle>
             <ContainerButton>
                 <Button title="Cadastre-se" color="PRIMARY" onPress={handleRegister} />
