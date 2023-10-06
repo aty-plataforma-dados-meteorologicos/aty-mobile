@@ -169,11 +169,36 @@ const panResponder = PanResponder.create({
       }).start();
     }
   }
-});
-  function handleFavorite(){
-    console.log("Teste")
-  };
-  
+  });
+
+  async function handleFavorite(weatherStation: WeatherStationData) {
+    // Inicializa isFavorite como false por padrão
+    let isFavorite = false;
+
+    // Se favoriteStation não é null e é um array, verifica se weatherStation está na lista
+    if (favoriteStation && Array.isArray(favoriteStation)) {
+        isFavorite = favoriteStation.some((station: WeatherStationData) => station.id === weatherStation.id);
+    }
+
+    try {
+        if (isFavorite) {
+            // Se está na lista, remova
+            const response = await weatherStationService.removeWeatherStationFavorite(weatherStation);
+            if (response) {
+                getAllFavoriteWeatherStation()
+            }
+        } else {
+            // Se não está na lista, adicione
+            const response = await weatherStationService.addWeatherStationFavorite(weatherStation);
+            if (response) {
+                getAllFavoriteWeatherStation()
+            }
+        }
+    } catch (error) {
+        console.error("Erro ao processar a estação favorita:", error);
+    }
+  }
+
 
   useEffect(() => {
     if (openModal) {
@@ -238,8 +263,10 @@ const panResponder = PanResponder.create({
                 }}
                 onPress={(event) => {
                   event.stopPropagation();
-                  setWeatherStation(station);
                   setOpenModal(true);
+                  setTimeout(() => {
+                    setWeatherStation(station);
+                  }, 1000);
                 }}
                 pinColor={station.id === weatherStation?.id ? '#0000ff' : '#ff0000'}
                 key={station.id}
@@ -270,7 +297,7 @@ const panResponder = PanResponder.create({
             onPressButton={teste}
             onPressImage={() => setOpenPicture(true)}
             onPressInfo={(sensorId) => getSensorInfo(sensorId)}
-            onPressFavorite={handleFavorite}
+            onPressFavorite={() => handleFavorite(weatherStation)}
           />
 
           
@@ -294,8 +321,7 @@ const panResponder = PanResponder.create({
             requestAnimationFrame(() => {
               fadeOut();
               });
-            }} 
-            imageUri={weatherStation?.image || "" }
+            }}
             />
         </Animated.View>
       )}

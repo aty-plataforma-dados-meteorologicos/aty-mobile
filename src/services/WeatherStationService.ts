@@ -153,17 +153,6 @@ export class WeatherStationsService {
         }
     }
 
-    public async deleteWeatherStation(id : string) : Promise<Boolean> {
-        try {
-            const response = await api.delete(`WeatherStations/${id}`);
-            if(response.status === 200)
-                return true;
-            return false
-        } catch (error : any) {
-            throw new Error(error)
-        }
-    }
-
     public async deleteMantainer(idStation: string, idMantainer: string) : Promise<Boolean>{
         try{
             const response = await api.delete(`WeatherStations/${idStation}/Maintainers/${idMantainer}`);

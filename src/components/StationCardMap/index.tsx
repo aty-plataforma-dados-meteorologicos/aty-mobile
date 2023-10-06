@@ -5,6 +5,7 @@ import { faCircleInfo, faInfo, faStar } from "@fortawesome/free-solid-svg-icons"
 import { faStar as farStar } from "@fortawesome/free-regular-svg-icons"
 import { Text, View } from "react-native";
 import { ManegeInformationCard } from "../ManegeInformationCard";
+import WeatherStationData from "../../interfaces/weatherStation/WeatherStationData"
 
 type Props = {
     title: string,

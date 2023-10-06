@@ -4,7 +4,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { ModalContainer, CloseIcon, ImagePlaceholder, CloseIconContainer } from './styles';
 
 type Props = {
-  imageUri: string,
+  imageUri?: string,
   onClose: (event : any) => void;
 };
 
@@ -21,7 +21,7 @@ export function ModalImage({ onClose, imageUri } : Props) {
             </TouchableOpacity>
         </CloseIconContainer>
         <ImagePlaceholder>
-          <Image source={{uri: imageUri == null ? require("../../assets/aty.png") : imageUri}} style={{width: 300, height: 300}}/>
+          <Image source={require("../../assets/aty.png")} style={{width: 300, height: 300}}/>
         </ImagePlaceholder>
       </ModalContainer>
   );
