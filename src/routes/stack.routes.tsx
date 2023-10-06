@@ -12,6 +12,7 @@ import { FavoriteStations } from "../screens/FavoriteStations";
 import { AcessStations } from "../screens/AcessStations";
 import { Exit } from "./exit";
 import { Test } from "../screens/Test";
+import { PerfilEdit } from "../screens/PerfilEdit";
 
 const Stack = createStackNavigator()
 
@@ -56,7 +57,7 @@ export default function StackRoutes(){
             />
             <Stack.Screen 
                 name="Profile"
-                component={Home}
+                component={PerfilEdit}
             />
             <Stack.Screen 
                 name="Exit"
