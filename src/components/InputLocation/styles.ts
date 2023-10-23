@@ -13,14 +13,14 @@ export const Title = styled.Text`
 export const InputText = styled(TextInput).attrs(({ theme }) => ({
     placeholderTextColor: theme.COLORS.PLACEHOLDER,
   }))`
-    width: 300px;
+    width: auto;
     height: 50px;
     color: ${({theme}) => theme.COLORS.WHITE};
     font-family: ${({theme}) => theme.FONT_FAMILY.REGULAR};
     font-size: ${({theme}) => theme.FONT_SIZE.SM}px;
     background-color: ${({theme}) => theme.COLORS.BACKGROUND};
     border-radius: 10px;
-    padding: 16px;
+    padding: 5px;
 `;
 
 export const InputContainer = styled.View`
@@ -33,7 +33,4 @@ export const InputContainer = styled.View`
     background-color: ${({theme}) => theme.COLORS.BACKGROUND};
     border-radius: 10px;
     padding: 16px;
-`;
-
-export const EyeIconContainer = styled.TouchableOpacity`
 `;

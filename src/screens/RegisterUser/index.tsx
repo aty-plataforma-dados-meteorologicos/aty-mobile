@@ -64,7 +64,6 @@ export function RegisterUser(){
       
 
     async function handleLogin(){
-        console.log("USUARIO", user)
         setIsLoading(true)
         const validate = validateUser(user)
 
@@ -101,10 +100,10 @@ export function RegisterUser(){
                     <Subtitle>Cadastre-se na plataforma</Subtitle>
                 </ContainerTitle>
                 <ContainerInput>
-                    <Input titleInput="Nome" placeholder="Insira o nome" onChangeTeste={(text) => handleInputChange('name', text)}/>
-                    <Input titleInput="Email" placeholder="Insira o email" onChangeTeste={(text) => handleInputChange('email', text)}/>
-                    <Input titleInput="Senha" placeholder="Insira o senha" onChangeTeste={(text) => handleInputChange('password', text)} onBlur={() => handlePasswordBlur('password')} secureTextEntry/>
-                    <Input titleInput="Repita a senha" placeholder="Insira a senha novamente" onChangeTeste={(text) => handleInputChange('passwordRepeat', text)} onBlur={() => handlePasswordBlur('passwordRepeat')} secureTextEntry/>
+                    <Input titleInput="Nome" placeholder="Insira o nome" onChangeText={(text) => handleInputChange('name', text)}/>
+                    <Input titleInput="Email" placeholder="Insira o email" onChangeText={(text) => handleInputChange('email', text)}/>
+                    <Input titleInput="Senha" placeholder="Insira o senha" onChangeText={(text) => handleInputChange('password', text)} onBlur={() => handlePasswordBlur('password')} secureTextEntry/>
+                    <Input titleInput="Repita a senha" placeholder="Insira a senha novamente" onChangeText={(text) => handleInputChange('passwordRepeat', text)} onBlur={() => handlePasswordBlur('passwordRepeat')} secureTextEntry/>
                     <RadioCheck titleInput="Tipo do Usuário" arrayText={typeUser} onClick={(value) => handleInputChange('type', value)} isCheck={user.type} />
                 </ContainerInput>
                 <ContainerButton>

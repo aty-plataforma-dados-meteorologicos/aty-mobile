@@ -4,8 +4,8 @@ import { Container, List, ListContainer } from "./styles";
 import { WeatherStationsService } from "../../services/WeatherStationService";
 import { StationCardList } from "../../components/StationCardList";
 import { useNavigation } from "@react-navigation/native";
-import WeatherStationData from "../../interfaces/weatherStation/WeatherStationData";
 import { ListEmpty } from "../../components/ListEmpty";
+import WeatherStationData from "../../interfaces/WeatherStation/WeatherStationData";
 
 export function MantainerStations(){
     const [weatherStations, setWeatherStations] = useState<WeatherStationData[]>();
@@ -24,7 +24,6 @@ export function MantainerStations(){
 
     useEffect(() => {
         getAllMantainerStation()
-        console.log(weatherStations)
     }, [])
 
     return(

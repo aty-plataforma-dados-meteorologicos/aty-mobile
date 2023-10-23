@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, EyeIconContainer, InputContainer, InputText, Title } from "./styles";
 import { KeyboardTypeOptions } from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
@@ -7,18 +7,19 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 type Props = {
     titleInput?: string,
     placeholder?: string,
-    keyboardType?: 'default' | 'phone-pad' | 'cpf-cnpj' | 'url',
+    value?: any,
+    keyboardType?: 'default' | 'phone-pad' | 'cpf-cnpj' | 'url' | 'num',
     secureTextEntry?: boolean,
     onBlur?: () => void,
-    onChangeTeste: (text: string) => void
+    onChangeText: (text: string) => void
 }
 
 // Componente de input da aplicação. Pode ser utilizado em todos os input na aplicação mudando apenas o keyboard type. Por padrão o keyboard
 // como default será o de texto. Phone-pad e cpf-cnpj mudam o estilo do teclado para numérico e aplica uma mascara. URL somente muda o estilo
 // do teclado com atalhos para url.
 
-export function Input({titleInput, placeholder, onChangeTeste, keyboardType, onBlur, secureTextEntry=false} : Props){
-    const [maskedText, setMaskedText] = useState('');  
+export function Input({titleInput, placeholder, value, onChangeText, keyboardType, onBlur, secureTextEntry=false} : Props){
+    const [maskedText, setMaskedText] = useState(value || '');  
     const [unmaskedText, setUnmaskedText] = useState('');
     const [isPasswordVisible, setIsPasswordVisible] = useState(secureTextEntry);
 
@@ -66,8 +67,24 @@ export function Input({titleInput, placeholder, onChangeTeste, keyboardType, onB
 
         setMaskedText(maskResult.maskedText);
         setUnmaskedText(maskResult.unmaskedText);
-        onChangeTeste(maskResult.unmaskedText);
+        onChangeText(maskResult.unmaskedText);
     };
+
+    useEffect(() => {
+        if (value) {
+            let maskResult;
+            if (keyboardType === 'phone-pad') {
+                maskResult = applyPhoneMask(value);
+            } else if (keyboardType === 'cpf-cnpj') {
+                maskResult = applyCpfCnpjMask(value);
+            } else {
+                maskResult = { maskedText: value, unmaskedText: value };
+            }
+
+            setMaskedText(maskResult.maskedText);
+            setUnmaskedText(maskResult.unmaskedText);
+        }
+    }, []);
 
     return(
         <Container>
@@ -79,10 +96,12 @@ export function Input({titleInput, placeholder, onChangeTeste, keyboardType, onB
                 onChangeText={handleChangeText} 
                 keyboardType={
                     keyboardType === 'phone-pad' || keyboardType === 'cpf-cnpj' 
-                        ? 'numeric' 
-                        : keyboardType === 'url'
+                    ? 'numeric' 
+                    : keyboardType === 'url'
                         ? 'url'
-                        : 'default'
+                        : keyboardType === 'num'
+                            ? 'numeric'
+                            : 'default'
                 } 
                 secureTextEntry={isPasswordVisible}
                 onBlur={onBlur}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { Input } from "../../components/Input";
 import { HeaderApp } from "../../components/HeaderApp";
 import { ListEmpty } from "../../components/ListEmpty";
@@ -11,6 +11,9 @@ import { Button } from "../../components/Button";
 import { EntryScreen } from "../EntryScreen";
 import { Login } from "../Login";
 import { DrawerMenu } from "../../components/DrawerMenu";
+import { ModalPartners } from "../../components/ModalPartners";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { ModalLocation } from "../../components/ModalLocation";
 
 export function Test(){
 
@@ -62,7 +65,7 @@ export function Test(){
 
     return(
         <View style={styles.container}>
-            {/* <Input titleInput="Testezin" placeholder="Digite sua senha" onChangeTeste={text => handleInput(text)} keyboardType="default" secureTextEntry/> */}
+            {/* <Input titleInput="Testezin" placeholder="Digite sua senha" onChangeText={text => handleInput(text)} keyboardType="default" secureTextEntry/> */}
             {/* <HeaderApp title="Teste" onMenuPress={teste} /> */}
             {/* <StationCard title="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " subtitle="Subtitulo Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " onPressPhoto={teste} onPressIcon={teste} /> */}
             {/* <ListEmpty message="Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste Teste " /> */}
@@ -86,7 +89,10 @@ export function Test(){
             {/* <ModalInfoSensor /> */}
             {/* <Button title="Cadastre-se" onPress={teste} color="SECONDARY"/> */}
             {/* <Login /> */}
-            <DrawerMenu />
+            {/* <DrawerMenu /> */}
+            <TouchableOpacity onPress={() => setFavorite(true)}><Text>Abrir modal</Text></TouchableOpacity>
+            {/* <ModalPartners onSubmit={(data) => console.log(data)} showModal={favorite} onCloseModal={() => setFavorite(false)} /> */}
+            <ModalLocation showModal={favorite} onCloseModal={() => setFavorite(false)} />
         </View>
     )
 }
@@ -98,8 +104,4 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    component : {
-      flex: 1,
-      width: '100%'
-    } 
   })

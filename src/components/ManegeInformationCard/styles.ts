@@ -5,7 +5,7 @@ interface ContainerProps {
 }
 
 export const Container = styled.View<ContainerProps>`
-    width: 350px;
+    width: auto;
     height: 45px;
     flex-direction: row;
     align-items: center;
@@ -14,6 +14,7 @@ export const Container = styled.View<ContainerProps>`
         background-color: ${theme.COLORS.SHAPE_SECUNDARIA};
     `}
     border-radius: 10px;
+    margin-right: 10px;
 `
 
 export const TitleContainer = styled.View`
