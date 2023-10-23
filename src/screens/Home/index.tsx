@@ -238,6 +238,7 @@ const panResponder = PanResponder.create({
       {/* Mapa da Aplicação */}
       {location && (
         <MapView
+          provider="google"
           ref={mapRef}
           initialRegion={{
             latitude: location?.coords.latitude || -15.777874,

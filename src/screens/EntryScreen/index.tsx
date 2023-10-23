@@ -3,21 +3,22 @@ import { Container, ContainerButton, ContainerPhoto, ContainerTitle, ImageBackgr
 import { Button } from "../../components/Button";
 import { useNavigation } from "@react-navigation/native";
 import UserService from "../../services/UserService";
+import { StackType } from "../../interfaces/routes/routs";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import moment from "moment";
 
 
 export function EntryScreen(){
 
-    const navigation = useNavigation()
+    const navigation = useNavigation<StackType>()
     const service = new UserService()
 
     const handleRegister = () => {
-        (navigation.navigate as any)('RegisterUser')
+        navigation.navigate('RegisterUser')
     }
 
     const handleLogin = () => {
-        (navigation.navigate as any)('Login')
+        navigation.navigate('Login')
     }
 
     useEffect(() => {
@@ -28,13 +29,12 @@ export function EntryScreen(){
             const isTokenExpired = moment().isAfter(tokenExpiration);
     
             if (!isTokenExpired) {
-              (navigation.navigate as any)('Home');
+              navigation.navigate('Home');
             } else {
               const isRefreshed = await service.refreshToken();
               if (isRefreshed) {
-                (navigation.navigate as any)('Home');
+                navigation.navigate('Home');
               }
-              // Nada acontece se for false
             }
           }
         };
@@ -50,7 +50,7 @@ export function EntryScreen(){
             </ContainerPhoto>
             <ContainerTitle>
                 <Title>Bem-vindos ao ATY</Title>
-                <Subtitle>Uma plataforma de derenciamento de estações meteorológicas</Subtitle>
+                <Subtitle>Uma plataforma de gerenciamento de estações meteorológicas</Subtitle>
             </ContainerTitle>
             <ContainerButton>
                 <Button title="Cadastre-se" color="PRIMARY" onPress={handleRegister} />

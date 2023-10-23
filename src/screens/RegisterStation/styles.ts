@@ -28,15 +28,31 @@ export const ButtonMap = styled.TouchableOpacity`
     justify-content: center;
 `
 
-export const SensorContainer = styled.ScrollView`
+export const SensorPartnerContainer = styled.ScrollView`
     flex: 1;
     height: 155px;
 `
 
-export const TitleSensorContainer = styled.Text`
+export const TitlePartnerSensorContainer = styled.Text`
     font-family: ${({theme}) => theme.FONT_FAMILY.MEDIUM};
     font-size: ${({theme}) => theme.FONT_SIZE.MD}px;
     color: ${({theme}) => theme.COLORS.WHITE};
+`
+
+export const PartnerHeader = styled.View`
+    flex-direction: row;
+    gap: 10px;
+`
+
+export const NoPartner = styled.Text`
+    font-family: ${({theme}) => theme.FONT_FAMILY.MEDIUM};
+    font-size: ${({theme}) => theme.FONT_SIZE.MD}px;
+    color: ${({theme}) => theme.COLORS.WHITE};
+`
+
+export const ContainerButtons = styled.View`
+    align-items: center;
+    gap: 20px;
 `
 
 

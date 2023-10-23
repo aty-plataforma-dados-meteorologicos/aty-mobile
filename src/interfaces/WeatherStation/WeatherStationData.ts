@@ -8,7 +8,7 @@ export default interface WeatherStationData{
     name: string;
     latitude: string;
     longitude: string;
-    altitudeMSL: number;
+    altitudeMSL: string;
     partners: PartnerData[];
     isPrivate: boolean;
     isEnabled: boolean;

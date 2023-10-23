@@ -59,8 +59,8 @@ export function Login(){
                     <Subtitle>Insira seu email e senha para entrar</Subtitle>
                 </ContainerTitle>
                 <ContainerInput>
-                    <Input placeholder="Email" onChangeTeste={(text : string) => setEmail(text)} />
-                    <Input placeholder="Senha" onChangeTeste={(text : string) => setPassword(text)} secureTextEntry/>
+                    <Input placeholder="Email" onChangeText={(text : string) => setEmail(text)} />
+                    <Input placeholder="Senha" onChangeText={(text : string) => setPassword(text)} secureTextEntry/>
                 </ContainerInput>
                 <ContainerButton>
                     <Button title="Entrar" color="PRIMARY" onPress={handleLogin} isLoading={isLoading} />

@@ -2,7 +2,7 @@
   "expo": {
     "name": "aty-mobile",
     "slug": "aty-mobile",
-    "version": "1.0.0",
+    "version": "1.0.4",
     "orientation": "portrait",
     "icon": "./src/assets/aty.png",
     "userInterfaceStyle": "light",
@@ -23,7 +23,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.victorcarrim.atymobile"
+      "package": "com.victorcarrim.atymobile",
+      "versionCode": 4
     },
     "web": {
       "favicon": "./assets/favicon.png"

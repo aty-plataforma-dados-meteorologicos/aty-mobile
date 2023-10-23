@@ -3,7 +3,7 @@ export default interface PartnerData{
     cpfOrCnpj: string;
     email: string;
     phone: string;
-    site: boolean;
+    site: string;
     notes: string;
     isPublicData: boolean;
 }
