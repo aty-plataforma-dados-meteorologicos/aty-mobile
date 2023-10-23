@@ -5,7 +5,7 @@ type Props = {
     titleInput?: string,
     placeholder?: string,
     onBlur?: () => void,
-    value?: string
+    value?: any
     onChangeText: (text: string) => void
 }
 
@@ -19,6 +19,7 @@ export function InputLocation({titleInput, placeholder, value, onChangeText, onB
                 placeholder={placeholder}
                 onChangeText={(value) => onChangeText(value)}
                 onBlur={onBlur}
+                value={value}
             />
             </InputContainer>
         </Container>

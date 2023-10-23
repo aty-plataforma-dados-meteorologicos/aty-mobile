@@ -7,7 +7,7 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 type Props = {
     titleInput?: string,
     placeholder?: string,
-    value?: string,
+    value?: any,
     keyboardType?: 'default' | 'phone-pad' | 'cpf-cnpj' | 'url' | 'num',
     secureTextEntry?: boolean,
     onBlur?: () => void,

@@ -16,7 +16,6 @@ type Props = {
 }
 
 export function ModalPartners({ partner, showModal, onSubmit, onCloseModal } : Props){
-    console.log(partner)
     const defaultPartnerData: PartnerData = {
         name: "",
         cpfOrCnpj: "",

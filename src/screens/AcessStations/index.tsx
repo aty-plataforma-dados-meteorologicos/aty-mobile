@@ -21,7 +21,6 @@ export function AcessStations(){
 
     useEffect(() => {
         getAllMantainerStation()
-        console.log(weatherStations)
     }, [])
 
     return(

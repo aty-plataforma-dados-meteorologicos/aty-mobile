@@ -13,7 +13,7 @@ export const Title = styled.Text`
 export const InputText = styled(TextInput).attrs(({ theme }) => ({
     placeholderTextColor: theme.COLORS.PLACEHOLDER,
   }))`
-    width: 130px;
+    width: auto;
     height: 50px;
     color: ${({theme}) => theme.COLORS.WHITE};
     font-family: ${({theme}) => theme.FONT_FAMILY.REGULAR};
@@ -28,7 +28,7 @@ export const InputContainer = styled.View`
     align-items: center;
     margin-top: 10px;
     margin-left: 5px;
-    width: 145px;
+    width: auto;
     height: 50px;
     background-color: ${({theme}) => theme.COLORS.BACKGROUND};
     border-radius: 10px;

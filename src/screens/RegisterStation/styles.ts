@@ -15,6 +15,7 @@ export const FormContainer = styled.View`
 export const LocationContainer = styled.View`
     flex: 1;
     flex-direction: row;
+    justify-content: space-between;
 `
 
 export const ButtonMap = styled.TouchableOpacity`
@@ -55,4 +56,12 @@ export const ContainerButtons = styled.View`
     gap: 20px;
 `
 
-
+export const ContainerModalSensor = styled.View`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center; 
+`;

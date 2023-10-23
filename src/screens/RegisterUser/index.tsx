@@ -64,7 +64,6 @@ export function RegisterUser(){
       
 
     async function handleLogin(){
-        console.log("USUARIO", user)
         setIsLoading(true)
         const validate = validateUser(user)
 
