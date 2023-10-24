@@ -255,7 +255,7 @@ export function RegisterStation(){
                     }
                     <ContainerButtons>
                         <Button title="Adicionar Foto" onPress={() => console.log("Cliclou foto")} color="SECONDARY" />
-                        <Button title="Cadastrar Estação" onPress={() => console.log(weatherStation)} color="PRIMARY" />
+                        <Button title="Cadastrar Estação" onPress={() => RegisterStation(weatherStation)} color="PRIMARY" />
                     </ContainerButtons>
                 </FormContainer>
             </KeyboardAwareScrollView>
