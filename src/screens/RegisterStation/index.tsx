@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { HeaderApp } from "../../components/HeaderApp";
-import { ButtonMap, Container, ContainerButtons, ContainerModalSensor, FormContainer, LocationContainer, NoPartner, PartnerHeader, SensorPartnerContainer, TitlePartnerSensorContainer } from "./styles";
+import { ButtonMap, Container, ContainerButtons, ContainerModalSensor, FormContainer, Image, LocationContainer, NoPartner, PartnerHeader, SensorPartnerContainer, TitlePartnerSensorContainer } from "./styles";
 import { WeatherStationsService } from "../../services/WeatherStationService";
 import { useNavigation } from "@react-navigation/native";
 import { Input } from "../../components/Input";
@@ -11,7 +11,7 @@ import { ManegeInformationCard } from "../../components/ManegeInformationCard";
 import SensorData from "../../interfaces/sensor/SensorData";
 import { InputLocation } from "../../components/InputLocation";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faLocationDot, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faLocationDot, faPlus, faTrash, faX } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "../../components/Button";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { StackType } from "../../interfaces/routes/routs";
@@ -20,6 +20,7 @@ import PartnerData from "../../interfaces/partner/PartnerData";
 import { ModalInfoSensor } from "../../components/ModalSensor";
 import { ModalLocation } from "../../components/ModalLocation";
 import WeatherStationData from "../../interfaces/WeatherStation/WeatherStationData";
+import { ModalImagePicker } from "../../components/ModalImagePicker";
 
 export function RegisterStation(){
     const initialWeatherStation: WeatherStationData = {
@@ -46,6 +47,7 @@ export function RegisterStation(){
     const [showModal, setShowModal] = useState(false);
     const [showModalSensor, setShowModalSensor] = useState(false);
     const [showModalLocation, setShowModalLocation] = useState(false);
+    const [showModalImage, setShowModalImage] = useState(false);
     const [partner, setPartner] = useState<PartnerData>();
     const [editingPartnerIndex, setEditingPartnerIndex] = useState<number | null>(null);
     const serviceSensor = new SensorService();
@@ -159,6 +161,19 @@ export function RegisterStation(){
             Alert.alert("Atenção", "Os campos Nome, Latitude, Longitude, Altitude a nível do mar e Sensores devem ser preenchidos.");
         }
     }
+
+    function chunkArray(myArray : any, chunk_size : any){
+        let index = 0;
+        let arrayLength = myArray.length;
+        let tempArray = [];
+        
+        for (index = 0; index < arrayLength; index += chunk_size) {
+            let chunk = myArray.slice(index, index+chunk_size);
+            tempArray.push(chunk);
+        }
+    
+        return tempArray;
+    }
       
 
     useEffect(() => {
@@ -205,47 +220,54 @@ export function RegisterStation(){
 
                     <TitlePartnerSensorContainer>Sensores</TitlePartnerSensorContainer>
                     { sensors && sensors.length > 0 && (
-                        <SensorPartnerContainer showsVerticalScrollIndicator>
-                            { sensors.map((sensor) => {
-                                const isCheck = weatherStation.sensors.findIndex((s : any) => s.id === sensor.id) !== -1;
-                                return (
-                                    <ManegeInformationCard 
-                                        key={sensor.id}
-                                        title={sensor.name} 
-                                        hideBackground 
-                                        onPressCheck={() => handlePressCheck(sensor)}
-                                        showCheck 
-                                        showInfo
-                                        onPressInfo={() => handleOpenModalSensor(sensor)} 
-                                        isCheck={isCheck}
-                                    />
-                                );
-                            })}
+                        <SensorPartnerContainer showsHorizontalScrollIndicator={true} horizontal={true} >
+                            {chunkArray(sensors, 3).map((sensorGroup, groupIndex) => (
+                                <View key={groupIndex} style={{ flexDirection: 'column', width: 300 }}>
+                                    {sensorGroup.map((sensor : any) => {
+                                        const isCheck = weatherStation.sensors.findIndex((s : any) => s.id === sensor.id) !== -1;
+                                        return (
+                                            <ManegeInformationCard 
+                                                key={sensor.id}
+                                                title={sensor.name} 
+                                                hideBackground 
+                                                onPressCheck={() => handlePressCheck(sensor)}
+                                                showCheck 
+                                                showInfo
+                                                onPressInfo={() => handleOpenModalSensor(sensor)} 
+                                                isCheck={isCheck}
+                                            />
+                                        );
+                                    })}
+                                </View>
+                            ))}
                         </SensorPartnerContainer>
                     )}
+
+
                     <PartnerHeader>
                         <TitlePartnerSensorContainer>Parceiros</TitlePartnerSensorContainer>
                         <TouchableOpacity onPress={() => setShowModal(true)}>
                             <FontAwesomeIcon icon={faPlus} color="#00FF00" size={20} />
                         </TouchableOpacity>
                     </PartnerHeader>
-                    
                     {
                         weatherStation && weatherStation.partners && weatherStation.partners.length > 0 ? (
-                            <SensorPartnerContainer showsVerticalScrollIndicator>
-                                { weatherStation.partners.map((partner : any, index : any) => {
-                                    return (
-                                        <ManegeInformationCard 
-                                            key={index}
-                                            title={partner.name} 
-                                            hideBackground 
-                                            showEdit 
-                                            showDelete
-                                            onPressEdit={() => handleEditPartner(partner, index)}
-                                            onPressDelete={() => handleDeletePartner(index)}
-                                        />
-                                    );
-                                })}
+                            <SensorPartnerContainer showsVerticalScrollIndicator={false} horizontal={true}>
+                                {chunkArray(weatherStation.partners, 3).map((partnerGroup, groupIndex) => (
+                                    <View key={groupIndex} style={{ flexDirection: 'column', width: 300 }}>
+                                        {partnerGroup.map((partner : any, index : any) => (
+                                            <ManegeInformationCard 
+                                                key={index}
+                                                title={partner.name} 
+                                                hideBackground 
+                                                showEdit 
+                                                showDelete
+                                                onPressEdit={() => handleEditPartner(partner, index)}
+                                                onPressDelete={() => handleDeletePartner(index)}
+                                            />
+                                        ))}
+                                    </View>
+                                ))}
                             </SensorPartnerContainer>
                         ) : (
                             <SensorPartnerContainer contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}>
@@ -253,8 +275,23 @@ export function RegisterStation(){
                             </SensorPartnerContainer>
                         )
                     }
+                    
+                    {
+                        weatherStation && weatherStation.image && (
+                            <>
+                            <PartnerHeader>
+                                <TitlePartnerSensorContainer>Foto</TitlePartnerSensorContainer>
+                                <TouchableOpacity onPress={() => {const updatedWeatherStation = { ...weatherStation, image: undefined }; setWeatherStation(updatedWeatherStation);}}>
+                                    <FontAwesomeIcon icon={faTrash} color="red" size={20} />
+                                </TouchableOpacity>
+                            </PartnerHeader>
+                            <Image source={{ uri: weatherStation.image }}/>
+                            </>
+                        )
+                    }
+
                     <ContainerButtons>
-                        <Button title="Adicionar Foto" onPress={() => console.log("Cliclou foto")} color="SECONDARY" />
+                        <Button title={weatherStation.image ? "Adicionar nova foto" : "Adicionar Foto"} onPress={() => setShowModalImage(true)} color="SECONDARY" />
                         <Button title="Cadastrar Estação" onPress={() => RegisterStation(weatherStation)} color="PRIMARY" />
                     </ContainerButtons>
                 </FormContainer>
@@ -293,6 +330,20 @@ export function RegisterStation(){
                         }}
                         onCloseModal={() => {setShowModalLocation(false)}}
                     />
+            }
+            
+            {showModalImage &&
+                <ModalImagePicker
+                    showModal={showModalImage}
+                    onClose={() => {setShowModalImage(false)}}
+                    onSubmit={(data) => {
+                        setWeatherStation((prev: any) => ({
+                            ...prev,
+                            image: data
+                        }));
+                        setShowModalImage(false)
+                    }}
+                />
             }
 
         </Container>

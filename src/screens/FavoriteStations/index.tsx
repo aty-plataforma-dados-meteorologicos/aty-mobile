@@ -30,20 +30,21 @@ export function FavoriteStations(){
         <Container>
             <HeaderApp title="Estações Favoritas" onMenuPress={handleBack}/>
             <ListContainer>
-                <List
-                    data={weatherStations}
-                    keyExtractor={(item : any) => item.id.toString()}
-                    renderItem={({item} : any) => (
-                        <StationCardList
-                            onPressPhoto={() => console.log('Photo Pressed!')}
-                            onPressIcon={() => console.log('Icon Pressed!')}
-                            title={item.name} 
-                            subtitle={item.isPrivate ? "Estação Privada" : "Estação Pública"}
-                        />
-                    )}
-                    ListEmptyComponent={<ListEmpty message="Você não possui nenhuma estação favoritada" />}
-                    showsVerticalScrollIndicator={false}
-                />
+                {
+                    weatherStations && weatherStations.length > 0 ? (
+                        weatherStations.map(item => (
+                            <StationCardList
+                                key={item.id}
+                                onPressPhoto={() => console.log('Photo Pressed!')}
+                                onPressIcon={() => console.log('Icon Pressed!')}
+                                title={item.name || "Estação sem nome"}
+                                subtitle={item.isPrivate ? "Estação Privada" : "Estação Pública"}
+                            />
+                        ))
+                    ) : (
+                        <ListEmpty message="Você não possui nenhuma estação favoritada" />
+                    )
+                }
             </ListContainer>
         </Container>
     )

@@ -27,20 +27,21 @@ export function AcessStations(){
         <Container>
             <HeaderApp title="Estações com Acesso" onMenuPress={handleBack}/>
             <ListContainer>
-                <List
-                    data={weatherStations}
-                    keyExtractor={(item : any) => item.id.toString()}
-                    renderItem={({item} : any) => (
-                        <StationCardList
-                            onPressPhoto={() => console.log('Photo Pressed!')}
-                            onPressIcon={() => console.log('Icon Pressed!')}
-                            title={item.name} 
-                            subtitle={item.isPrivate ? "Estação Privada" : "Estação Pública"}
-                        />
-                    )}
-                    ListEmptyComponent={<ListEmpty message="Você não possui nenhuma estação com acesso" />}
-                    showsVerticalScrollIndicator={false}
-                />
+                {
+                    weatherStations && weatherStations.length > 0 ? (
+                        weatherStations.map(item => (
+                            <StationCardList
+                                key={item.id}
+                                onPressPhoto={() => console.log('Photo Pressed!')}
+                                onPressIcon={() => console.log('Icon Pressed!')}
+                                title={item.name}
+                                subtitle={item.isPrivate ? "Estação Privada" : "Estação Pública"}
+                            />
+                        ))
+                    ) : (
+                        <ListEmpty message="Você não possui nenhuma estação com acesso" />
+                    )
+                }
             </ListContainer>
         </Container>
     )

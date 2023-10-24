@@ -14,6 +14,7 @@ import { DrawerMenu } from "../../components/DrawerMenu";
 import { ModalPartners } from "../../components/ModalPartners";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { ModalLocation } from "../../components/ModalLocation";
+import { ModalImagePicker } from "../../components/ModalImagePicker";
 
 export function Test(){
 
@@ -92,7 +93,8 @@ export function Test(){
             {/* <DrawerMenu /> */}
             <TouchableOpacity onPress={() => setFavorite(true)}><Text>Abrir modal</Text></TouchableOpacity>
             {/* <ModalPartners onSubmit={(data) => console.log(data)} showModal={favorite} onCloseModal={() => setFavorite(false)} /> */}
-            <ModalLocation showModal={favorite} onCloseModal={() => setFavorite(false)} />
+            {/* <ModalLocation showModal={favorite} onCloseModal={() => setFavorite(false)} /> */}
+            {/* <ModalImagePicker showModal={favorite} onClose={() => setFavorite(false)} /> */}
         </View>
     )
 }

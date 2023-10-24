@@ -30,10 +30,9 @@ export default function App() {
 
   return (
     <ThemeProvider theme = {theme}>
-      {/* <Test /> */}
-      {/* <Home /> */}
       <StatusBar
-        barStyle="dark-content"
+        barStyle="default"
+        translucent
         backgroundColor="transparent"
       />
       <Routes />

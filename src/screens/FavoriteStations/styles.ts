@@ -5,9 +5,8 @@ export const Container = styled.View`
     background-color: ${({theme}) => theme.COLORS.SHAPE_TERCIARIA};
 `
 
-export const ListContainer = styled.View`
+export const ListContainer = styled.ScrollView`
     flex: 1;
-    margin-top: 40px;
     padding: 5px;
 `
 
