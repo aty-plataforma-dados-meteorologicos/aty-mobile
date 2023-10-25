@@ -5,18 +5,23 @@ import { WeatherStationsService } from "../../services/WeatherStationService";
 import { StationCardList } from "../../components/StationCardList";
 import { useNavigation } from "@react-navigation/native";
 import { ListEmpty } from "../../components/ListEmpty";
+import { StackType } from "../../interfaces/routes/routs";
 
 export function AcessStations(){
     const [weatherStations, setWeatherStations] = useState([]);
     const service = new WeatherStationsService();
-    const navigate = useNavigation();
+    const navigate = useNavigation<StackType>();
 
     async function getAllMantainerStation(){
     }
 
 
     function handleBack(){
-        (navigate.navigate as any)('Home')
+        navigate.navigate('Home')
+    }
+
+    function handleStation(id: string){
+        navigate.navigate('Station', { stationId: id })
     }
 
     useEffect(() => {
@@ -33,7 +38,7 @@ export function AcessStations(){
                             <StationCardList
                                 key={item.id}
                                 onPressPhoto={() => console.log('Photo Pressed!')}
-                                onPressIcon={() => console.log('Icon Pressed!')}
+                                onPressIcon={() => handleStation(item.id || '1')}
                                 title={item.name}
                                 subtitle={item.isPrivate ? "Estação Privada" : "Estação Pública"}
                             />

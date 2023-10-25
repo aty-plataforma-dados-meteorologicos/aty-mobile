@@ -23,6 +23,11 @@ export function MantainerStations(){
         navigate.navigate('Home')
     }
 
+    function handleStation(id: string){
+        navigate.navigate('Station', { stationId: id })
+    }
+
+
     useEffect(() => {
         getAllMantainerStation()
     }, [])
@@ -37,7 +42,7 @@ export function MantainerStations(){
                             <StationCardList
                                 key={item.id}
                                 onPressPhoto={() => console.log('Photo Pressed!')}
-                                onPressIcon={() => console.log('Icon Pressed!')}
+                                onPressIcon={() => handleStation(item.id || '1')}
                                 title={item.name || "Estação sem nome"}
                                 subtitle={item.isPrivate ? "Estação Privada" : "Estação Pública"}
                             />
