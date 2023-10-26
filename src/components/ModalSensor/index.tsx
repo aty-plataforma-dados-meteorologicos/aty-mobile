@@ -57,8 +57,8 @@ export function ModalInfoSensor({ onClose, sensorInfo, showModal } : Props){
                     </CloseButton>   
                 </Header>
                 <BodyModalContent>
-                    <InfosSensor>Medida Máxima: {sensorInfo.maximum}</InfosSensor>
-                    <InfosSensor>Medida Minima: {sensorInfo.minimum}</InfosSensor>
+                    <InfosSensor>Medida Máxima: {sensorInfo.maximum}{sensorInfo.measurementUnit}</InfosSensor>
+                    <InfosSensor>Medida Minima: {sensorInfo.minimum}{sensorInfo.measurementUnit}</InfosSensor>
                     <InfosSensor>Acurácia: {sensorInfo.accuracy}</InfosSensor>
                     <InfosSensor>Unidade de Medida: {sensorInfo.measurementUnit}</InfosSensor>
                     <InfosSensor>Tipo: {measurementTypeMapping[sensorInfo.measurementType]}</InfosSensor>

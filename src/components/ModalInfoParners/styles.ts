@@ -49,7 +49,7 @@ export const BodyModalContent = styled.View`
     align-items: center;
 `
 
-export const InfosSensor = styled.Text`
+export const InfoPartner = styled.Text`
   color: ${({theme}) => theme.COLORS.WHITE};
   font-family: ${({theme}) => theme.FONT_FAMILY.REGULAR};
   font-size: ${({theme}) => theme.FONT_SIZE.MD}px;

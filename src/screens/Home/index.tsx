@@ -13,7 +13,8 @@ import { DrawerMenu } from "../../components/DrawerMenu";
 import { ModalInfoSensor } from "../../components/ModalInfoSensor";
 import SensorService from "../../services/SensorService";
 import SensorData from "../../interfaces/sensor/SensorData";
-import WeatherStationData from "../../interfaces/WeatherStation/WeatherStationData";
+import WeatherStationData from "../../interfaces/weatherStation/WeatherStationData";
+import { StackType } from "../../interfaces/routes/routs";
 
 export function Home() {
   const screenWidth = Dimensions.get('window').width;
@@ -34,7 +35,7 @@ export function Home() {
   const drawerPosition = useRef(new Animated.Value(-drawerWidth)).current;
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const mapRef = useRef<MapView>(null);
-  const navigation = useNavigation();
+  const navigation = useNavigation<StackType>();
   const weatherStationService = new WeatherStationsService();
   const sensorService = new SensorService();
 
@@ -199,6 +200,10 @@ const panResponder = PanResponder.create({
     }
   }
 
+  function handleGoToStation(stationId: string) {
+    navigation.navigate('Station', { stationId: stationId })
+  }
+
 
   useEffect(() => {
     if (openModal) {
@@ -293,7 +298,7 @@ const panResponder = PanResponder.create({
             imageUri={weatherStation.image}
             showFavorite={weatherStation.isPrivate ? false : true}
             isFavorite={favoriteStation ? favoriteStation.some((station : any )=> station.id === weatherStation.id) : false}
-            onPressButton={teste}
+            onPressButton={() => handleGoToStation(weatherStation.id || '1')}
             onPressImage={() => setOpenPicture(true)}
             onPressInfo={(sensorId) => getSensorInfo(sensorId)}
             onPressFavorite={() => handleFavorite(weatherStation)}

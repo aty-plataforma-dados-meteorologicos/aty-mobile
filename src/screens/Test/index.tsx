@@ -93,7 +93,7 @@ export function Test(){
             {/* <DrawerMenu /> */}
             <TouchableOpacity onPress={() => setFavorite(true)}><Text>Abrir modal</Text></TouchableOpacity>
             {/* <ModalPartners onSubmit={(data) => console.log(data)} showModal={favorite} onCloseModal={() => setFavorite(false)} /> */}
-            {/* <ModalLocation showModal={favorite} onCloseModal={() => setFavorite(false)} /> */}
+            <ModalLocation showModal={favorite} onCloseModal={() => setFavorite(false)} />
             {/* <ModalImagePicker showModal={favorite} onClose={() => setFavorite(false)} /> */}
         </View>
     )

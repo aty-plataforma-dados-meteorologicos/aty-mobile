@@ -19,8 +19,7 @@ export function PanoramStation({ stationId } : Props){
 
     async function getStation(){
         const response = await service.getWeatherStationById(stationId || '1')
-        setWeatherStation(response) 
-        console.log(response)
+        setWeatherStation(response)
     }
 
     function handleBack(){
