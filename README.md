@@ -22,7 +22,7 @@ Para o gerenciamento pessoal, será proporcionado ao usuário uma interface na q
 
 ## Tecnologias
 
-O backend do projeto será desenvolvido utilizando a bliblioteca [React Native](https://reactnative.dev/docs/getting-started) da Meta, tendo o [Typescript](https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html) como linguagem de programação. A estilização da aplicação será utilizando o [Styled Components](https://styled-components.com/docs/basics#getting-started), uma biblioteca de estilizações de componentes em React. A comunicação da aplicação com a API REST será realizado pelo [Axios](https://axios-http.com/docs/intro), um cliente http baseado em promisse para navegadores e node.js.
+O mobile do projeto será desenvolvido utilizando a biblioteca [React Native](https://reactnative.dev/docs/getting-started) da Meta, tendo o [Typescript](https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html) como linguagem de programação. A estilização da aplicação será utilizando o [Styled Components](https://styled-components.com/docs/basics#getting-started), uma biblioteca de estilizações de componentes em React. A comunicação da aplicação com a API REST será realizado pelo [Axios](https://axios-http.com/docs/intro), um cliente http baseado em promisse para navegadores e node.js.
 
 ## O Repositório
 
