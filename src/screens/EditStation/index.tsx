@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { HeaderApp } from "../../components/HeaderApp";
-import { Container, ContainerButtons, ContainerModalSensor, Image, ImageContainer, ItemContainer, ListContainer, PartnerContainer, PartnerHeader, SensorPartnerContainer, TitleItem, TitlePartnerSensorContainer } from "./styles";
+import { Container, ContainerButtons, Image, ImageContainer, ItemContainer, ListContainer, PartnerContainer, PartnerHeader, SensorPartnerContainer, TitleItem, TitlePartnerSensorContainer } from "./styles";
 import { WeatherStationsService } from "../../services/WeatherStationService";
 import { useNavigation } from "@react-navigation/native";
 import { ListEmpty } from "../../components/ListEmpty";
 import { StackType } from "../../interfaces/routes/routs";
 import WeatherStationData from "../../interfaces/weatherStation/WeatherStationData";
-import { MapInformation } from "../../components/MapInformation";
 import { ManegeInformationCard } from "../../components/ManegeInformationCard";
-import SensorData from "../../interfaces/sensor/SensorData";
-import { ModalInfoSensor } from "../../components/ModalSensor";
-import { ModalInfoPartner } from "../../components/ModalInfoParners";
 import PartnerData from "../../interfaces/partner/PartnerData";
 import { Input } from "../../components/Input";
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -20,7 +16,8 @@ import { Alert, View } from "react-native";
 import { ModalPartners } from "../../components/ModalPartners";
 import { Button } from "../../components/Button";
 import { ModalImagePicker } from "../../components/ModalImagePicker";
-import { get } from "react-native/Libraries/TurboModule/TurboModuleRegistry";
+import MantainerData from "../../interfaces/weatherStation/MantainerData";
+import { ModalMantainer } from "../../components/ModalMantainer";
 
 type Props = {
     stationId?: string;
@@ -28,9 +25,11 @@ type Props = {
 
 export function EditStation({ stationId } : Props){
     const [weatherStation, setWeatherStation] = useState<WeatherStationData>();
+    const [mantainer, setMantainer] = useState<MantainerData[]>();
     const [originalWeatherStation, setOriginalWeatherStation] = useState<WeatherStationData>();
     const [showModalPartner, setShowModalPartner] = useState(false);
     const [showModalImage, setShowModalImage] = useState(false);
+    const [showModalMantainer, setShowModalMantainer] = useState(false);
     const [partner, setPartner] = useState()
     const service = new WeatherStationsService();
     const navigate = useNavigation<StackType>();
@@ -39,7 +38,11 @@ export function EditStation({ stationId } : Props){
         const response = await service.getWeatherStationById(stationId || '1')
         setWeatherStation(response) 
         setOriginalWeatherStation(response)
-        console.log(response)
+    }
+
+    async function getMaintainers(){
+        const response = await service.getAllMaintainersByWeatherStationId(stationId || '1')
+        setMantainer(response.data)
     }
 
     function handleBack(){
@@ -115,6 +118,7 @@ export function EditStation({ stationId } : Props){
 
     useEffect(() => {
         getStation()
+        getMaintainers()
     }, [])
 
     return(
@@ -166,6 +170,40 @@ export function EditStation({ stationId } : Props){
                 </ItemContainer>
 
                 <ItemContainer>
+                    <PartnerHeader>
+                        <TitlePartnerSensorContainer>Mantenedores</TitlePartnerSensorContainer>
+                        <TouchableOpacity onPress={() => setShowModalMantainer(true)}>
+                            <FontAwesomeIcon icon={faPlus} color="#00FF00" size={20} />
+                        </TouchableOpacity>
+                    </PartnerHeader>
+                    {
+                        mantainer && mantainer.length > 0 ? (
+                            <PartnerContainer showsVerticalScrollIndicator={false} horizontal={true}>
+                                {chunkArray(mantainer, 3).map((mantainerGroup, groupIndex) => (
+                                    <View key={groupIndex} style={{ flexDirection: 'column', width: 300 }}>
+                                        {mantainerGroup.map((mantainer: any) => (
+                                            <ManegeInformationCard 
+                                                key={mantainer.id}
+                                                title={mantainer.applicationUserName} 
+                                                hideBackground 
+                                                showEdit 
+                                                showDelete
+                                                onPressEdit={() => {setPartner(mantainer); setShowModalPartner(true)}}
+                                                onPressDelete={() => handleDeletePartner(mantainer.id)}
+                                            />
+                                        ))}
+                                    </View>
+                                ))}
+                            </PartnerContainer>
+                        ) : (
+                            <PartnerContainer contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}>
+                                <ListEmpty message="Nenhum parceiro cadastrado" />
+                            </PartnerContainer>
+                        )
+                    }
+                </ItemContainer>
+
+                <ItemContainer>
                     <TitleItem>Foto</TitleItem>
                     <ImageContainer>
                         <Image source={weatherStation?.image ? {uri: weatherStation.image} : require('../../assets/aty.png')} />
@@ -196,6 +234,14 @@ export function EditStation({ stationId } : Props){
                         }));
                         setShowModalImage(false)
                     }}
+                />
+            }
+
+            {
+                showModalMantainer &&
+                <ModalMantainer
+                    showModal={showModalMantainer}
+                    onClose={() => {setShowModalMantainer(false)}}
                 />
             }
 

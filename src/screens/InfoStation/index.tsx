@@ -21,6 +21,7 @@ export function InfoStation({ stationId } : Props){
     const [weatherStation, setWeatherStation] = useState<WeatherStationData>();
     const [showModalSensor, setShowModalSensor] = useState(false);
     const [showModalPartner, setShowModalPartner] = useState(false);
+    const [showMap, setShowMap] = useState(false);
     const [sensor, setSensor] = useState<SensorData>({
         measurementType: 0, 
         id: 0,              
@@ -45,8 +46,8 @@ export function InfoStation({ stationId } : Props){
 
     async function getStation(){
         const response = await service.getWeatherStationById(stationId || '1')
-        setWeatherStation(response) 
-        console.log(response)
+        setWeatherStation(response)
+        setShowMap(true)
     }
 
     function handleBack(){
@@ -74,7 +75,10 @@ export function InfoStation({ stationId } : Props){
             <ListContainer>
                 <ItemContainer>
                     <TitleItem>Localização</TitleItem>
-                    <MapInformation latitude={weatherStation?.latitude} longitude={weatherStation?.longitude} altura={weatherStation?.altitudeMSL}/>
+                    {
+                        showMap && (
+                            <MapInformation latitude={weatherStation.latitude} longitude={weatherStation.longitude} altura={weatherStation?.altitudeMSL}/>
+                    )}
                 </ItemContainer>
                 <ItemContainer>
                     <TitleItem>Sensores</TitleItem>
@@ -98,17 +102,17 @@ export function InfoStation({ stationId } : Props){
                     {weatherStation && weatherStation.partners.length == 0 ? (
                         <ListEmpty message="Nenhum parceiro cadastrado" />
     
-) : (
-    weatherStation?.partners.map((partner : any) => (
-        <ManegeInformationCard 
-            key={partner.id}
-            title={partner.name} 
-            hideBackground
-            showInfo
-            onPressInfo={() => handleOpenModalPartner(partner)} 
-        />
-    ))
-)}
+                    ) : (
+                        weatherStation?.partners.map((partner : any) => (
+                            <ManegeInformationCard 
+                                key={partner.id}
+                                title={partner.name} 
+                                hideBackground
+                                showInfo
+                                onPressInfo={() => handleOpenModalPartner(partner)} 
+                            />
+                        ))
+                    )}
 
                     </SensorPartnerContainer>
                 </ItemContainer>

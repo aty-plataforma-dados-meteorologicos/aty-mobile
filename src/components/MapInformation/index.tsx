@@ -16,12 +16,11 @@ export function MapInformation({ latitude, longitude, altura } : Props){
                 <Header>
                     <Title>{latitude} / {longitude} / {altura} metros</Title>
                 </Header>
-                {latitude && longitude && (
                     <MapView
                     provider="google"
                     initialRegion={{
-                        latitude: latitude,
-                        longitude: longitude,
+                        latitude: parseFloat(latitude),
+                        longitude: parseFloat(longitude),
                         latitudeDelta: 0.3,
                         longitudeDelta: 0.3
                     }}
@@ -29,14 +28,13 @@ export function MapInformation({ latitude, longitude, altura } : Props){
                     >
                         <Marker
                         coordinate={{
-                            latitude: latitude,
-                            longitude: longitude,
+                            latitude: parseFloat(latitude),
+                            longitude: parseFloat(longitude),
                           }}
                         />
 
                     
                     </MapView>
-                )}
                 
             </ModalView>
     )
