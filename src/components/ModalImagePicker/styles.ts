@@ -4,19 +4,17 @@ export const Container = styled.Modal`
 `
 
 export const ModalView = styled.View`
-    flex: 1;
     margin-top: 20px;
     padding: 10px;
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 100%;
     background-color: ${({theme}) => theme.COLORS.SHAPE_SECUNDARIA};
     border-radius: 30px;
-    align-items: center;
-    justify-items: center;
 `
 
 export const Header = styled.View`
     margin-top: 30px;
+    margin-bottom: 30px;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -41,6 +39,12 @@ export const BodyModalScroll = styled.ScrollView`
 `
 
 export const BodyModalContent = styled.View`
-    gap: 20px;
+    gap: 10px;
     align-items: center;
+`
+
+export const Image = styled.Image`
+    width: 100%;
+    height: 60%;
+    border-radius: 30px;
 `

@@ -6,7 +6,7 @@ export const Container = styled.View`
 `
 
 export const FormContainer = styled.View`
-    margin-top: 40px;
+    margin-top: 10px;
     flex: 1;
     padding: 10px;
     gap: 20px;
@@ -35,7 +35,7 @@ export const SensorPartnerContainer = styled.ScrollView`
 `
 
 export const TitlePartnerSensorContainer = styled.Text`
-    font-family: ${({theme}) => theme.FONT_FAMILY.MEDIUM};
+    font-family: ${({theme}) => theme.FONT_FAMILY.BOLD};
     font-size: ${({theme}) => theme.FONT_SIZE.MD}px;
     color: ${({theme}) => theme.COLORS.WHITE};
 `
@@ -65,3 +65,9 @@ export const ContainerModalSensor = styled.View`
   justify-content: center;
   align-items: center; 
 `;
+
+export const Image = styled.Image`
+    width: 300px;
+    height: 300px;
+    border-radius: 30px;
+`

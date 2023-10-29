@@ -1,7 +1,9 @@
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
-type StackNavigation = {
-    Station: undefined;
+export type StackNavigation = {
+    Station: {
+      stationId: string;
+    };
     EntryScreen: undefined;
     Login: undefined;
     RegisterUser: undefined;

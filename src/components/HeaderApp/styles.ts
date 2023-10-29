@@ -7,6 +7,7 @@ export const Container = styled.View`
     align-items: center;
     justify-content: space-between;
     paddingHorizontal: 20px;
+    margin-bottom: 20px;
 `
 
 export const TitleContainer = styled.View`
@@ -20,6 +21,7 @@ export const Title = styled.Text`
     font-size: ${({theme}) => theme.FONT_SIZE.LG}px;
     font-family: ${({theme}) => theme.FONT_FAMILY.MEDIUM};
     color: ${({theme}) => theme.COLORS.WHITE};
+    text-align: center;
 `
 
 export const BackContainer = styled.View`

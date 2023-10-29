@@ -1,22 +1,26 @@
 import styled from "styled-components/native";
 
 export const Container = styled.Modal`
+    flex: 1;
+    align-content: center;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
 `
 
 export const ModalView = styled.View`
-    flex: 1;
-    margin-top: 20px;
     padding: 10px;
-    width: auto;
+    width: 350px;
     height: auto;
-    background-color: ${({theme}) => theme.COLORS.SHAPE_SECUNDARIA};
+    background-color: ${({theme}) => theme.COLORS.PLACEHOLDER};
     border-radius: 30px;
-    align-items: center;
-    justify-items: center;
+    align-self: center;
+    margin-top: 200px;
 `
 
 export const Header = styled.View`
-    margin-top: 30px;
+    margin-top: 10px;
+    margin-bottom: 30px;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -41,6 +45,13 @@ export const BodyModalScroll = styled.ScrollView`
 `
 
 export const BodyModalContent = styled.View`
-    gap: 20px;
+    gap: 10px;
     align-items: center;
+`
+
+export const InfoPartner = styled.Text`
+  color: ${({theme}) => theme.COLORS.WHITE};
+  font-family: ${({theme}) => theme.FONT_FAMILY.REGULAR};
+  font-size: ${({theme}) => theme.FONT_SIZE.MD}px;
+  padding: 5px;  
 `

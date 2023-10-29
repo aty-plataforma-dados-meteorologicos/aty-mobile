@@ -8,7 +8,14 @@ export const Container = styled.View`
 export const ListContainer = styled.ScrollView`
     flex: 1;
     padding: 5px;
+    gap: 20px;
 `
 
-export const List = styled.FlatList`
+export const Sensor = styled.View`
+    margin-top: 10px;
+`
+
+export const ContainerList = styled.View`
+    margin-top: 10px;
+    height: 40px;
 `

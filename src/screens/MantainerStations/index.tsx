@@ -6,11 +6,12 @@ import { StationCardList } from "../../components/StationCardList";
 import { useNavigation } from "@react-navigation/native";
 import { ListEmpty } from "../../components/ListEmpty";
 import WeatherStationData from "../../interfaces/WeatherStation/WeatherStationData";
+import { StackType } from "../../interfaces/routes/routs";
 
 export function MantainerStations(){
     const [weatherStations, setWeatherStations] = useState<WeatherStationData[]>();
     const service = new WeatherStationsService();
-    const navigate = useNavigation();
+    const navigate = useNavigation<StackType>();
 
     async function getAllMantainerStation(){
         const response = await service.getAllWeatherStationByMantainer()
@@ -19,8 +20,16 @@ export function MantainerStations(){
 
 
     function handleBack(){
-        (navigate.navigate as any)('Home')
+        navigate.reset({
+            index: 0,
+            routes: [{name: 'Home'}]
+        })
     }
+
+    function handleStation(id: string){
+        navigate.navigate('Station', { stationId: id })
+    }
+
 
     useEffect(() => {
         getAllMantainerStation()
@@ -30,20 +39,21 @@ export function MantainerStations(){
         <Container>
             <HeaderApp title="Minhas Estações" onMenuPress={handleBack}/>
             <ListContainer>
-                <List
-                    data={weatherStations}
-                    keyExtractor={(item : any) => item.id.toString()}
-                    renderItem={({item} : any) => (
-                        <StationCardList
-                            onPressPhoto={() => console.log('Photo Pressed!')}
-                            onPressIcon={() => console.log('Icon Pressed!')}
-                            title={item.name} // Substitua pelos nomes reais das propriedades
-                            subtitle={item.isPrivate ? "Estação Privada" : "Estação Pública"}
-                        />
-                    )}
-                    ListEmptyComponent={<ListEmpty message="Você não possui nenhuma estação" />}
-                    showsVerticalScrollIndicator={false}
-                />
+                {
+                    weatherStations && weatherStations.length > 0 ? (
+                        weatherStations.map(item => (
+                            <StationCardList
+                                key={item.id}
+                                onPressPhoto={() => console.log('Photo Pressed!')}
+                                onPressIcon={() => handleStation(item.id || '1')}
+                                title={item.name || "Estação sem nome"}
+                                subtitle={item.isPrivate ? "Estação Privada" : "Estação Pública"}
+                            />
+                        ))
+                    ) : (
+                        <ListEmpty message="Você não possui nenhuma estação" />
+                    )
+                }
             </ListContainer>
         </Container>
     )

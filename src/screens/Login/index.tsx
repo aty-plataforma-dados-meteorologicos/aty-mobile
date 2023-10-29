@@ -8,6 +8,7 @@ import { UserData } from "../../interfaces/user/UserData";
 import { text } from "stream/consumers";
 import UserService from "../../services/UserService";
 import { useNavigation } from "@react-navigation/native";
+import { StackType } from "../../interfaces/routes/routs";
 
 
 
@@ -17,7 +18,7 @@ export function Login(){
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     const service = new UserService()
-    const navigation = useNavigation()
+    const navigation = useNavigation<StackType>()
 
     async function handleLogin() {
             const user = {
@@ -28,7 +29,10 @@ export function Login(){
             try {
                 const response = await service.login(user)
                 if(response == true){
-                    (navigation.navigate as any)('Home')
+                    navigation.reset({
+                        index: 0,
+                        routes: [{name: 'Home'}]
+                    })
                 }
             } catch (error) {
                 console.log(error)

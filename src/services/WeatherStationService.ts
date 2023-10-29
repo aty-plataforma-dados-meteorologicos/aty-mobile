@@ -1,10 +1,10 @@
 
 
 import WeatherStationMaintainerResponse from "../interfaces/weatherStation/WeatherStationMatainerRespnse";
-import WeatherStationData from "../interfaces/weatherStation/WeatherStationData";
-import WeatherStationResponse from "../interfaces/weatherStation/WeatherStationResponse";
 import api from "./Api";
 import WeatherStationSensorData from "../interfaces/weatherStation/WeatherStationSensorData";
+import WeatherStationData from "src/interfaces/WeatherStation/WeatherStationData";
+import WeatherStationResponse from "src/interfaces/WeatherStation/WeatherStationResponse";
 
 export class WeatherStationsService {
     public async getAllWeatherStations() : Promise<WeatherStationResponse> {
@@ -84,7 +84,7 @@ export class WeatherStationsService {
 
     public async getAllStationFavoritesByUser() : Promise<WeatherStationResponse> {
         try {
-            const response = await api.get('WeatherStations/Favorites');
+            const response = await api.get('WeatherStations/Favorites?pageSize=10000');
             if(response.status === 200)
                 return response.data;
 

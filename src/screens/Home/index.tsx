@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import MapView, { Marker } from "react-native-maps";
 import { requestForegroundPermissionsAsync, getCurrentPositionAsync, LocationObject } from 'expo-location';
-import { Animated, View, StyleSheet, Dimensions, PanResponder } from "react-native";
+import { Animated, View, StyleSheet, Dimensions, PanResponder, SafeAreaView } from "react-native";
 import { LoadingModal } from "../../components/ModalLoading";
 import { HeaderMap } from "../../components/HeaderMap";
 import { StationCardMap } from "../../components/StationCardMap";
@@ -9,11 +9,12 @@ import { ModalImage } from "../../components/ModalImage";
 import { StationCardSkeleton } from "../../components/StationCardMapSkeleton";
 import { useNavigation } from "@react-navigation/native";
 import { WeatherStationsService } from "../../services/WeatherStationService";
-import WeatherStationData from "src/interfaces/weatherStation/WeatherStationData";
 import { DrawerMenu } from "../../components/DrawerMenu";
 import { ModalInfoSensor } from "../../components/ModalInfoSensor";
 import SensorService from "../../services/SensorService";
 import SensorData from "../../interfaces/sensor/SensorData";
+import WeatherStationData from "../../interfaces/weatherStation/WeatherStationData";
+import { StackType } from "../../interfaces/routes/routs";
 
 export function Home() {
   const screenWidth = Dimensions.get('window').width;
@@ -34,9 +35,10 @@ export function Home() {
   const drawerPosition = useRef(new Animated.Value(-drawerWidth)).current;
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const mapRef = useRef<MapView>(null);
-  const navigation = useNavigation();
+  const navigation = useNavigation<StackType>();
   const weatherStationService = new WeatherStationsService();
   const sensorService = new SensorService();
+
 
   // Requisição da localização
   async function requestUserLocationPermission() {
@@ -199,6 +201,10 @@ const panResponder = PanResponder.create({
     }
   }
 
+  function handleGoToStation(stationId: string) {
+    navigation.navigate('Station', { stationId: stationId })
+  }
+
 
   useEffect(() => {
     if (openModal) {
@@ -259,17 +265,15 @@ const panResponder = PanResponder.create({
             weatherStations.map((station: WeatherStationData) => (
               <Marker 
                 coordinate={{
-                  latitude: parseFloat(station.latitude) ,
-                  longitude: parseFloat(station.longitude),
+                  latitude: parseFloat(station?.latitude || '0'),
+                  longitude: parseFloat(station?.longitude || '0'),
                 }}
                 onPress={(event) => {
                   event.stopPropagation();
                   setOpenModal(true);
-                  setTimeout(() => {
-                    setWeatherStation(station);
-                  }, 1000);
+                  setWeatherStation(station);
                 }}
-                pinColor={station.id === weatherStation?.id ? '#0000ff' : '#ff0000'}
+                pinColor={station.id === weatherStation?.id ? "#0000FF" : "#FF0000"}
                 key={station.id}
               />
             ))
@@ -288,14 +292,14 @@ const panResponder = PanResponder.create({
       >
         {isCardVisible && weatherStation ?  (
           <StationCardMap 
-            title={weatherStation.name}
+            title={weatherStation.name || "Estação Meteorológica"}
             stationType={weatherStation.isPrivate ? "Estação Privada" : "Estação Pública"}
             titleButton={weatherStation.isPrivate ? weatherStation.acessValid ? "Acessar Estação" : "Solicitar Acesso" : "Acessar Estação"}
             sensors={weatherStation.sensors}
             imageUri={weatherStation.image}
             showFavorite={weatherStation.isPrivate ? false : true}
             isFavorite={favoriteStation ? favoriteStation.some((station : any )=> station.id === weatherStation.id) : false}
-            onPressButton={teste}
+            onPressButton={() => handleGoToStation(weatherStation.id || '1')}
             onPressImage={() => setOpenPicture(true)}
             onPressInfo={(sensorId) => getSensorInfo(sensorId)}
             onPressFavorite={() => handleFavorite(weatherStation)}
