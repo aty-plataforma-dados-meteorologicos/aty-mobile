@@ -8,11 +8,12 @@ import { Button } from "../Button";
 
 type Props = {
     onClose: (event : any) => void
+    onSubmit: (text: string) => void
     showModal: boolean;
 }
 
 
-export function ModalMantainer({ onClose, showModal } : Props){
+export function ModalMantainer({ onClose, onSubmit, showModal } : Props){
     const [email, setEmail] = useState<string>("");
 
     return(
@@ -30,7 +31,7 @@ export function ModalMantainer({ onClose, showModal } : Props){
                 </Header>
                 <BodyModalContent>
                     <Input placeholder="Insira o email" onChangeText={(text) => setEmail(text)} />
-                    <Button title="Adicionar" onPress={() => {console.log(email)}} color="PRIMARY" />
+                    <Button title="Adicionar" onPress={() => {onSubmit(email)}} color="PRIMARY" />
                 </BodyModalContent>
             </ModalView>
         </Container>

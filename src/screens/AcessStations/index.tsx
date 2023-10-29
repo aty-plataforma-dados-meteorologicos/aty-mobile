@@ -17,7 +17,10 @@ export function AcessStations(){
 
 
     function handleBack(){
-        navigate.navigate('Home')
+        navigate.reset({
+            index: 0,
+            routes: [{name: 'Home'}]
+        })
     }
 
     function handleStation(id: string){

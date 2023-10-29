@@ -12,7 +12,7 @@ export const ModalView = styled.View`
     padding: 10px;
     width: 350px;
     height: auto;
-    background-color: ${({theme}) => theme.COLORS.PLACEHOLDER};
+    background-color: ${({theme}) => theme.COLORS.SHAPE_SECUNDARIA};
     border-radius: 30px;
     align-self: center;
     margin-top: 200px;

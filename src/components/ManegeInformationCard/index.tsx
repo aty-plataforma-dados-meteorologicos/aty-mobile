@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Email, Icon, IconWrapper, Title, TitleContainer } from "./styles";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faCheck, faCircleInfo, faEdit, faSquare, faSquareCheck, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faCircleInfo, faEdit, faMinus, faPlay, faPlus, faSquare, faSquareCheck, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 // Esse componente possui todas as funções necessarias nos cards de parceiros, sensores, mantenedores, acesso e etc.
 // Utilile as props para ir adequando o componente da forma que quiser. A principio apenas o Title é necessario para usar o componente.
@@ -15,16 +15,19 @@ type Props = {
     showInfo?: boolean,
     showDelete?: boolean,
     showCheck?: boolean,
+    showArrow?: boolean,
     isCheck?: boolean,
     hideBackground?: boolean,
+    isArrow?: boolean,
     onPressConfirm?: () => void,
     onPressEdit?: () => void,
     onPressDelete?: () => void,
     onPressInfo?: () => void,
     onPressCheck?: () => void
+    onPressArrow?: () => void
 }
 
-export function ManegeInformationCard({ title, email, showConfirm, showEdit, showInfo, showDelete, showCheck, isCheck, hideBackground, onPressEdit, onPressConfirm, onPressDelete, onPressInfo, onPressCheck } : Props){
+export function ManegeInformationCard({ title, email, showConfirm, showEdit, showInfo, showDelete, showCheck, showArrow, isArrow, isCheck, hideBackground, onPressEdit, onPressConfirm, onPressDelete, onPressInfo, onPressCheck, onPressArrow } : Props){
     return(
         <Container hideBackground={hideBackground}>
             {showCheck &&
@@ -59,6 +62,11 @@ export function ManegeInformationCard({ title, email, showConfirm, showEdit, sho
                 {showDelete &&
                     <IconWrapper onPress={onPressDelete}>
                         <FontAwesomeIcon icon={faTrash} size={25} color="#FFFFFF" />
+                    </IconWrapper>
+                }
+                {showArrow &&
+                    <IconWrapper onPress={onPressArrow}>
+                        <FontAwesomeIcon icon={isArrow ? faPlus : faMinus} size={25} color="#FFFFFF" />
                     </IconWrapper>
                 }
             </Icon>

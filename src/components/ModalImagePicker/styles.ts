@@ -8,7 +8,7 @@ export const ModalView = styled.View`
     padding: 10px;
     width: 100%;
     height: 100%;
-    background-color: ${({theme}) => theme.COLORS.PLACEHOLDER};
+    background-color: ${({theme}) => theme.COLORS.SHAPE_SECUNDARIA};
     border-radius: 30px;
 `
 

@@ -59,10 +59,6 @@ export function RegisterStation(){
         setSensors(response.data)
     }
 
-    function handleTeste(text : string){
-        console.log(text)
-    }
-
     function handleBack(){
         navigate.navigate('Home')
     }

@@ -9,6 +9,7 @@ import { StackNavigation, StackType } from "../interfaces/routes/routs";
 import { WeatherStationsService } from "../services/WeatherStationService";
 import { InfoStation } from "../screens/InfoStation";
 import { EditStation } from "../screens/EditStation";
+import { ManegeAcessStation } from "../screens/ManegeAcessStation";
 
 
 const Tab = createBottomTabNavigator()
@@ -86,27 +87,28 @@ export default function TabRoutes({ route }: { route: RouteProp<StackNavigation>
             {isMaintainer && (
                 <>
                     <Tab.Screen
-                    name="Edit"
-                    options={{
-                        title: "Editar",
-                        tabBarIcon: ({ focused }) => (
-                            <FontAwesomeIcon icon={faPen} size={30} color={focused ? '#1B81F5' : 'white'} />
-                        )
-                    }}
-                >
-                    {() => <EditStation stationId={stationId} />}
-                </Tab.Screen>
+                        name="Edit"
+                        options={{
+                            title: "Editar",
+                            tabBarIcon: ({ focused }) => (
+                                <FontAwesomeIcon icon={faPen} size={30} color={focused ? '#1B81F5' : 'white'} />
+                            )
+                        }}
+                    >
+                        {() => <EditStation stationId={stationId} />}
+                    </Tab.Screen>
 
                     <Tab.Screen
                         name="Acess"
-                        component={Test}
                         options={{
                             title: "Acessos",
                             tabBarIcon: ({ focused }) => (
                                 <FontAwesomeIcon icon={faUserLock} size={30} color={focused ? '#1B81F5' : 'white'} />
                             )
                         }}
-                    />
+                    >
+                        {() => <ManegeAcessStation stationId={stationId} />}
+                    </Tab.Screen>
                 </>
             )}
 

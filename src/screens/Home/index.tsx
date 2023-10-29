@@ -39,6 +39,7 @@ export function Home() {
   const weatherStationService = new WeatherStationsService();
   const sensorService = new SensorService();
 
+
   // Requisição da localização
   async function requestUserLocationPermission() {
     setIsLoading(true);
@@ -272,7 +273,7 @@ const panResponder = PanResponder.create({
                   setOpenModal(true);
                   setWeatherStation(station);
                 }}
-                pinColor={station.id === weatherStation?.id ? 'blue' : 'red'}
+                pinColor={station.id === weatherStation?.id ? "#0000FF" : "#FF0000"}
                 key={station.id}
               />
             ))

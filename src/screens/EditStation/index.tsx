@@ -24,7 +24,18 @@ type Props = {
 }
 
 export function EditStation({ stationId } : Props){
-    const [weatherStation, setWeatherStation] = useState<WeatherStationData>();
+    const [weatherStation, setWeatherStation] = useState<WeatherStationData>(
+        {
+            id: '0',
+            name: '',
+            latitude: '',
+            longitude: '',
+            altitudeMSL: '',
+            partners: [],
+            image: '',
+            sensors: [],
+        }
+    );
     const [mantainer, setMantainer] = useState<MantainerData[]>();
     const [originalWeatherStation, setOriginalWeatherStation] = useState<WeatherStationData>();
     const [showModalPartner, setShowModalPartner] = useState(false);
@@ -114,6 +125,36 @@ export function EditStation({ stationId } : Props){
     function hasStationChanged(): boolean {
         return JSON.stringify(weatherStation) !== JSON.stringify(originalWeatherStation);
     }
+
+    async function handleAddMantainer(email : string){
+        try {
+            const response = await service.addWeatherStationMainteiner(weatherStation, email);
+            if(response){
+                setShowModalMantainer(false)
+                alert("Mantenedor adicionado com sucesso")
+                getMaintainers()
+                getStation()
+            } else{
+                alert("Mantenedor não encontrado")
+            }
+        } catch (error) {
+            alert("Erro ao adicionar mantenedor")
+        }
+        
+    }
+
+    async function handleDeleteMantainer(mantainerId : number){
+        try {
+            const response = await service.deleteMantainer(weatherStation.id, mantainerId);
+            if(response){
+                alert("Mantenedor removido com sucesso")
+                getMaintainers()
+                getStation()
+            }
+        } catch (error) {
+            alert("Erro ao remover mantenedor")
+        }
+    }
     
 
     useEffect(() => {
@@ -146,11 +187,12 @@ export function EditStation({ stationId } : Props){
                         weatherStation && weatherStation.partners && weatherStation.partners.length > 0 ? (
                             <PartnerContainer showsVerticalScrollIndicator={false} horizontal={true}>
                                 {chunkArray(weatherStation.partners, 3).map((partnerGroup, groupIndex) => (
-                                    <View key={groupIndex} style={{ flexDirection: 'column', width: 300 }}>
+                                    <View key={groupIndex} style={{ flexDirection: 'column', width: 350 }}>
                                         {partnerGroup.map((partner: any) => (
                                             <ManegeInformationCard 
                                                 key={partner.id}
                                                 title={partner.name} 
+                                                email={partner.email || ""}
                                                 hideBackground 
                                                 showEdit 
                                                 showDelete
@@ -180,16 +222,17 @@ export function EditStation({ stationId } : Props){
                         mantainer && mantainer.length > 0 ? (
                             <PartnerContainer showsVerticalScrollIndicator={false} horizontal={true}>
                                 {chunkArray(mantainer, 3).map((mantainerGroup, groupIndex) => (
-                                    <View key={groupIndex} style={{ flexDirection: 'column', width: 300 }}>
+                                    <View key={groupIndex} style={{ flexDirection: 'column', width: 350 }}>
                                         {mantainerGroup.map((mantainer: any) => (
                                             <ManegeInformationCard 
-                                                key={mantainer.id}
-                                                title={mantainer.applicationUserName} 
+                                                key={mantainer.applicationUserId}
+                                                title={mantainer.applicationUserName}
+                                                email={mantainer.applicationUserEmail}
                                                 hideBackground 
                                                 showEdit 
                                                 showDelete
                                                 onPressEdit={() => {setPartner(mantainer); setShowModalPartner(true)}}
-                                                onPressDelete={() => handleDeletePartner(mantainer.id)}
+                                                onPressDelete={() => handleDeleteMantainer(mantainer.applicationUserId)}
                                             />
                                         ))}
                                     </View>
@@ -197,7 +240,7 @@ export function EditStation({ stationId } : Props){
                             </PartnerContainer>
                         ) : (
                             <PartnerContainer contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}>
-                                <ListEmpty message="Nenhum parceiro cadastrado" />
+                                <ListEmpty message="Nenhum mantenedor cadastrado" />
                             </PartnerContainer>
                         )
                     }
@@ -242,6 +285,7 @@ export function EditStation({ stationId } : Props){
                 <ModalMantainer
                     showModal={showModalMantainer}
                     onClose={() => {setShowModalMantainer(false)}}
+                    onSubmit={(email) => handleAddMantainer(email)}
                 />
             }
 
