@@ -6,13 +6,17 @@ A plataforma de gerenciamento de dados meteorológicos consiste em um aplicaçã
 
 Na plataforma móvel proposta, será possibilitado ao usuário o cadastro de estações meteorológicas, atribuindo identificadores como nome, coordenadas geográficas, altitude, selecionar os sensores desejaveis com base nos disponíveis, instituições parceiras, se a estação e os dados estarão públicos ou privados e uma imagem representativa da estação. 
 
+### Backend
+
 Dentre os dados que o mantenedor poderá selecionar para que a estação envie, estão os de sensores de temperatura, umidade, pressão, radiação solar direta, radiação solar global, direção do vento, pluviômetro e anemômetro, com a possibilidade de expansão mediante solicitação.
 
-No backend terá a implementação do endpoint que receberá os dados das estações meteorológicas e os identifica por meio de um token que será único para cada estação, esses dados serão tratados e inseridos em um banco de dados de séries temporais. Através de uma API REST esses dados poderão ser disponibilizados para aplicações, com essa mesma API, também será feita a comunicação com a aplicação mobile.
+O backend possui os endpoint que recebem os dados das estações meteorológicas e os identifica por meio de um token que será único para cada estação, esses dados serão tratados e inseridos em um banco de dados de séries temporais. Através de uma API REST esses dados poderão ser disponibilizados para aplicações, com essa mesma API, também será feita a comunicação com a aplicação mobile.
 
-Planeja-se desenvolver uma interface para a listagem das estações sob responsabilidade do usuário, além das estações públicas de seu interesse e aquelas privadas cujo acesso lhe foi concedido. Uma estação poderá ter um ou mais mantenedores e cada mantenedor, que também é um usuário que faz uso de dados da plataforma, estará responsável por nenhuma ou várias estações.
+### Frontend
 
-A pesquisa de estações será viabilizada por meio de um mapa interativo, onde cada estação será representada por um marcador. Ao selecionar um marcador, será apresentada uma breve descrição da estação e de seus sensores disponíveis. No caso de estações públicas, será disponibilizado um botão para acessar os dados coletados e um para adicioná-la aos favoritos, enquanto que para estações privadas, será possível solicitar o acesso. Tal solicitação acionará uma notificação, tanto na aplicação quanto via e-mail, aos responsáveis pela estação.
+O aplicativo permite a listagem das estações sob responsabilidade do usuário, além das estações públicas de seu interesse e aquelas privadas cujo acesso lhe foi concedido. Uma estação poderá ter um ou mais mantenedores e cada mantenedor, que também é um usuário que faz uso de dados da plataforma, estará responsável por nenhuma ou várias estações.
+
+A pesquisa é realizada através de um mapa interativo, onde cada estação será representada por um marcador. Ao selecionar um marcador, será apresentada uma breve descrição da estação e de seus sensores disponíveis. No caso de estações públicas, será disponibilizado um botão para acessar os dados coletados e um para adicioná-la aos favoritos, enquanto que para estações privadas, será possível solicitar o acesso. Tal solicitação acionará uma notificação, tanto na aplicação quanto via e-mail, aos responsáveis pela estação.
 
 A tela de visualização dos dados coletados pelas estações poderá ser feita acessando tanto pela lista de estações quanto pelos marcadores no mapa, caso a estação seja pública. Estes dados, correspondentes às últimas 24 horas, serão representados em gráficos correspondentes a cada sensor cadastrado na estação. Caso não haja informações recentes para um determinado sensor, uma mensagem informativa será apresentada.
 
@@ -22,15 +26,20 @@ Para o gerenciamento pessoal, será proporcionado ao usuário uma interface na q
 
 ## Tecnologias
 
-O mobile do projeto será desenvolvido utilizando a biblioteca [React Native](https://reactnative.dev/docs/getting-started) da Meta, tendo o [Typescript](https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html) como linguagem de programação. A estilização da aplicação será utilizando o [Styled Components](https://styled-components.com/docs/basics#getting-started), uma biblioteca de estilizações de componentes em React. A comunicação da aplicação com a API REST será realizado pelo [Axios](https://axios-http.com/docs/intro), um cliente http baseado em promisse para navegadores e node.js.
+O projeto mobile será desenvolvido utilizando a biblioteca [React Native](https://reactnative.dev/docs/getting-started) da Meta, tendo o [Typescript](https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html) como linguagem de programação. A estilização da aplicação será utilizando o [Styled Components](https://styled-components.com/docs/basics#getting-started), uma biblioteca de estilizações de componentes em React. A comunicação da aplicação com a API REST do backend será realizado pelo [Axios](https://axios-http.com/docs/intro), um cliente http baseado em promisse para navegadores e node.js.
 
 ## O Repositório
 
-Neste repositório estará o código fonte do mobile . O código fonte do frontend pode ser encontrado em [aty-frontend](https://github.com/aty-plataforma-dados-meteorologicos/aty-frontend) e o código backend em [aty-backend](https://github.com/aty-plataforma-dados-meteorologicos/aty-backend). Ao longo do desenvolvimento, também será adicionado aqui a documentação do projeto, seja para implementar ou para usar.
 
 ## Executar o projeto
 
 Para executar o projeto é necessário baixar a instalar a [Node.js 18.17.0](https://nodejs.org/en), e o repositorio [aty-backend](https://github.com/aty-plataforma-dados-meteorologicos/aty-backend).
+
+
+```
+npx ...
+```
+
 
 ## Equipe e contato
 
