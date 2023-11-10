@@ -1,18 +1,26 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";
 import { useEffect } from "react";
-import { View, Text } from "react-native";
+import { StackType } from "../interfaces/routes/routs";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export function Exit(){
-    const navigation = useNavigation();
+    const navigation = useNavigation<StackType>();
+
+    async function RemoveUser(){
+      await AsyncStorage.removeItem('userToken');
+    }
 
     useEffect(() => {
-        (navigation.navigate as any)("EntryScreen");
+        RemoveUser();
+        navigation.reset({
+          index: 0,
+          routes: [{name: 'EntryScreen'}]
+      })
       }, []);
 
       return(
-        <></>
+        <>
+        </>
       )
 }

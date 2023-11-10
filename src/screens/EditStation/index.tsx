@@ -32,7 +32,7 @@ export function EditStation({ stationId } : Props){
             longitude: '',
             altitudeMSL: '',
             partners: [],
-            image: '',
+            photoBase64: '',
             sensors: [],
         }
     );
@@ -249,12 +249,12 @@ export function EditStation({ stationId } : Props){
                 <ItemContainer>
                     <TitleItem>Foto</TitleItem>
                     <ImageContainer>
-                        <Image source={weatherStation?.image ? {uri: weatherStation.image} : require('../../assets/aty.png')} />
+                        <Image source={{ uri: `data:image/jpeg;base64,${weatherStation?.photoBase64}` }}/>
                     </ImageContainer>
                 </ItemContainer>
 
                 <ContainerButtons>
-                        <Button title={weatherStation?.image ? "Adicionar nova foto" : "Adicionar Foto"} onPress={() => setShowModalImage(true)} color="SECONDARY" />
+                        <Button title={weatherStation?.photoBase64 ? "Adicionar nova foto" : "Adicionar Foto"} onPress={() => setShowModalImage(true)} color="SECONDARY" />
                         <Button title="Atualizar Estação" onPress={() =>{hasStationChanged() ? UpdateStation() : console.log("Não foi")} } color="PRIMARY" />
                 </ContainerButtons>
             </ListContainer>

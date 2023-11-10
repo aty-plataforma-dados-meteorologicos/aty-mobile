@@ -82,6 +82,42 @@ export class WeatherStationsService {
         }
     }
 
+    public async getAllAcessStation() : Promise<WeatherStationResponse> {
+        try {
+            const response = await api.get(`WeatherStations/RetrieveDataAccessRequests?pageSize=1000&status=20`);
+            return response.data;
+        } catch (error : any) {
+            throw new Error(error)
+        }
+    }
+
+    public async getAcessStation(id : any){
+        try {
+            const response = await api.get(`WeatherStations/${id}/DataAccessRequests`);
+            return response
+        } catch (error : any) {
+            throw new Error(error)
+        }
+    }
+
+    public async getAllStationWithAcessPendent() : Promise<WeatherStationResponse> {
+        try {
+            const response = await api.get(`WeatherStations/RetrieveDataAccessRequests?pageSize=1000&status=10`);
+            return response.data;
+        } catch (error : any) {
+            throw new Error(error)
+        }
+    }
+
+    public async getUserAcessByIdStation(id: any, status: any) : Promise<WeatherStationResponse> {
+        try {
+            const response = await api.get(`WeatherStations/${id}/DataAccessRequests?status=${status}`);
+            return response.data;
+        } catch (error : any) {
+            throw new Error(error)
+        }
+    }
+
     public async getAllStationFavoritesByUser() : Promise<WeatherStationResponse> {
         try {
             const response = await api.get('WeatherStations/Favorites?pageSize=10000');
@@ -137,6 +173,15 @@ export class WeatherStationsService {
             if(response.status === 200)
                 return true;
             return false;
+        } catch (error : any) {
+            throw new Error(error)
+        }
+    }
+
+    public async aceptRejectUserSolicitation(idStation: any, idUser: any, auth: any) : Promise<WeatherStationResponse> {
+        try {
+            const response = await api.put(`WeatherStations/${idStation}/DataAccessRequests/${idUser}?newAuth=${auth}`);
+            return response.data;
         } catch (error : any) {
             throw new Error(error)
         }

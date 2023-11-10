@@ -23,11 +23,12 @@ export function ManegeAcessStation({ stationId } : Props){
             longitude: '',
             altitudeMSL: '',
             partners: [],
-            image: '',
+            photoBase64: '',
             sensors: [],
         }
     );
-    const [mantainer, setMantainer] = useState<MantainerData[]>();
+    const [usersWhithAcess, setUsersWhithAcess] = useState<any[]>();
+    const [usersWhithAcessPendent, setUsersWhithAcessPendent] = useState<any[]>();
     const service = new WeatherStationsService();
     const navigate = useNavigation<StackType>();
 
@@ -36,9 +37,22 @@ export function ManegeAcessStation({ stationId } : Props){
         setWeatherStation(response)
     }
 
-    async function getMaintainers(){
-        const response = await service.getAllMaintainersByWeatherStationId(stationId || '1')
-        setMantainer(response.data)
+    async function getUsersWhiAcess(){
+        const response = await service.getUserAcessByIdStation(stationId || '1', 20)
+        setUsersWhithAcess(response.data)
+    }
+
+    async function getUsersWhiAcessPendent(){
+        const response = await service.getUserAcessByIdStation(stationId || '1', 10)
+        setUsersWhithAcessPendent(response.data)
+    }
+
+    async function handleConfirmUser(idUser : any){
+        const response = await service.aceptRejectUserSolicitation(stationId, idUser, 20)
+    }
+
+    async function handleRejectDeleteUser(idUser : any){
+        const response = await service.aceptRejectUserSolicitation(stationId, idUser, 30)
     }
 
     function handleBack(){
@@ -61,7 +75,8 @@ export function ManegeAcessStation({ stationId } : Props){
 
     useEffect(() => {
         getStation()
-        getMaintainers()
+        getUsersWhiAcess()
+        getUsersWhiAcessPendent()
     }, [])
 
     return(
@@ -71,23 +86,22 @@ export function ManegeAcessStation({ stationId } : Props){
 
                 <ItemContainer>
                     <PartnerHeader>
-                        <TitlePartnerSensorContainer>Acessos Concedidos</TitlePartnerSensorContainer>
+                        <TitlePartnerSensorContainer>Acessos Solicitados</TitlePartnerSensorContainer>
                     </PartnerHeader>
                     {
-                        mantainer && mantainer.length > 0 ? (
+                        usersWhithAcessPendent && usersWhithAcessPendent.length > 0 ? (
                             <PartnerContainer showsVerticalScrollIndicator={false} horizontal={true}>
-                                {chunkArray(mantainer, 3).map((mantainerGroup, groupIndex) => (
+                                {chunkArray(usersWhithAcess, 3).map((usersWhithAcessGroup, groupIndex) => (
                                     <View key={groupIndex} style={{ flexDirection: 'column', width: 350 }}>
-                                        {mantainerGroup.map((mantainer: any) => (
+                                        {usersWhithAcessGroup.map((user: any) => (
                                             <ManegeInformationCard 
-                                                key={mantainer.applicationUserId}
-                                                title={mantainer.applicationUserName}
-                                                email={mantainer.applicationUserEmail}
+                                                key={user.userId}
+                                                title={user.userEmail}
                                                 hideBackground 
                                                 showDelete
                                                 showConfirm
-                                                onPressConfirm={() => console.log(mantainer.applicationUserId)}
-                                                onPressDelete={() => console.log(mantainer.applicationUserId)}
+                                                onPressConfirm={() => handleConfirmUser(user.userId)}
+                                                onPressDelete={() => handleRejectDeleteUser(user.userId)}
                                             />
                                         ))}
                                     </View>
@@ -95,7 +109,7 @@ export function ManegeAcessStation({ stationId } : Props){
                             </PartnerContainer>
                         ) : (
                             <PartnerContainer contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}>
-                                <ListEmpty message="Nenhum mantenedor cadastrado" />
+                                <ListEmpty message="Nenhum acesso solicitado" />
                             </PartnerContainer>
                         )
                     }
@@ -106,18 +120,17 @@ export function ManegeAcessStation({ stationId } : Props){
                         <TitlePartnerSensorContainer>Acessos Concedidos</TitlePartnerSensorContainer>
                     </PartnerHeader>
                     {
-                        mantainer && mantainer.length > 0 ? (
+                        usersWhithAcess && usersWhithAcess.length > 0 ? (
                             <PartnerContainer showsVerticalScrollIndicator={false} horizontal={true}>
-                                {chunkArray(mantainer, 3).map((mantainerGroup, groupIndex) => (
+                                {chunkArray(usersWhithAcess, 3).map((usersWhithAcessGroup, groupIndex) => (
                                     <View key={groupIndex} style={{ flexDirection: 'column', width: 350 }}>
-                                        {mantainerGroup.map((mantainer: any) => (
+                                        {usersWhithAcessGroup.map((user: any) => (
                                             <ManegeInformationCard 
-                                                key={mantainer.applicationUserId}
-                                                title={mantainer.applicationUserName}
-                                                email={mantainer.applicationUserEmail}
+                                                key={user.userId}
+                                                title={user.userEmail}
                                                 hideBackground 
                                                 showDelete
-                                                onPressDelete={() => console.log(mantainer.applicationUserId)}
+                                                onPressDelete={() => handleRejectDeleteUser(user.userId)}
                                             />
                                         ))}
                                     </View>
@@ -125,7 +138,7 @@ export function ManegeAcessStation({ stationId } : Props){
                             </PartnerContainer>
                         ) : (
                             <PartnerContainer contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}>
-                                <ListEmpty message="Nenhum mantenedor cadastrado" />
+                                <ListEmpty message="Nenhum acesso concedido" />
                             </PartnerContainer>
                         )
                     }

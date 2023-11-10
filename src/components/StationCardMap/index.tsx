@@ -43,7 +43,7 @@ export function StationCardMap({
         <Container>
             <ContainerOne>
                 <ContainerPhoto onPress={onPressImage}>
-                    <Photo source={imageUri ? {uri: imageUri} : require("../../assets/aty.png")}></Photo>
+                    <Photo source={imageUri != undefined ? { uri: `data:image/jpeg;base64,${imageUri}` } : require('../../assets/aty.png')}></Photo>
                 </ContainerPhoto>
                 <ContainerTitle>
                     <Title numberOfLines={2} ellipsizeMode="tail">{title}</Title>

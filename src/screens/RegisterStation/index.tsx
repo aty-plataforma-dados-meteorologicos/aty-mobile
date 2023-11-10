@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { HeaderApp } from "../../components/HeaderApp";
-import { ButtonMap, Container, ContainerButtons, ContainerModalSensor, FormContainer, Image, LocationContainer, NoPartner, PartnerHeader, SensorPartnerContainer, TitlePartnerSensorContainer } from "./styles";
+import { ButtonMap, ButtonPublicPrivate, ButtonText, Container, ContainerButtons, ContainerModalSensor, ContainerPublicPrivate, FormContainer, Image, LocationContainer, NoPartner, PartnerHeader, SensorPartnerContainer, TitlePartnerSensorContainer } from "./styles";
 import { WeatherStationsService } from "../../services/WeatherStationService";
 import { useNavigation } from "@react-navigation/native";
 import { Input } from "../../components/Input";
@@ -19,8 +19,8 @@ import { ModalPartners } from "../../components/ModalPartners";
 import PartnerData from "../../interfaces/partner/PartnerData";
 import { ModalInfoSensor } from "../../components/ModalSensor";
 import { ModalLocation } from "../../components/ModalLocation";
-import WeatherStationData from "../../interfaces/WeatherStation/WeatherStationData";
 import { ModalImagePicker } from "../../components/ModalImagePicker";
+import WeatherStationData from "../../interfaces/weatherStation/WeatherStationData";
 
 export function RegisterStation(){
     const initialWeatherStation: WeatherStationData = {
@@ -29,8 +29,9 @@ export function RegisterStation(){
         longitude: '',
         altitudeMSL: '',
         partners: [],
-        image: '',
+        photoBase64: '',
         sensors: [],
+        isPrivate: false
     };
     const [sensor, setSensor] = useState<SensorData>({
         measurementType: 0, 
@@ -64,15 +65,14 @@ export function RegisterStation(){
     }
 
     function handlePressCheck(sensor: SensorData) {
-        // Verificar se o sensor já está na lista
         const index = weatherStation.sensors.findIndex((s : any) => s.id === sensor.id);
       
-        if (index === -1) { // Se o sensor não estiver na lista, adicione-o
+        if (index === -1) {
           setWeatherStation((prevState : any) => ({
             ...prevState,
             sensors: [...prevState.sensors, sensor]
           }));
-        } else { // Se estiver na lista, remova-o
+        } else {
           setWeatherStation((prevState : any) => {
             const newSensors = [...prevState.sensors];
             newSensors.splice(index, 1);
@@ -86,7 +86,6 @@ export function RegisterStation(){
       
     function handleSubmitPartner(data: PartnerData) {
         setWeatherStation((prevState : any) => {
-            // Se estamos em modo de edição
             if (editingPartnerIndex !== null) {
                 const updatedPartners = [...prevState.partners];
                 updatedPartners[editingPartnerIndex] = data;
@@ -140,6 +139,7 @@ export function RegisterStation(){
 
     async function RegisterStation(station : WeatherStationData) {
         const isValid = isWeatherStationValid(station);
+        console.log(weatherStation)
 
         if(isValid){
             try {
@@ -271,9 +271,21 @@ export function RegisterStation(){
                             </SensorPartnerContainer>
                         )
                     }
+
+                    <PartnerHeader>
+                        <TitlePartnerSensorContainer>Tipo da Estação:</TitlePartnerSensorContainer>
+                    </PartnerHeader>
+                    <ContainerPublicPrivate>
+                        <ButtonPublicPrivate onPress={() => setWeatherStation(prevState => ({ ...prevState, isPrivate: false }))} bgColor={weatherStation.isPrivate ? "BLUE" : "GREEN"}>
+                            <ButtonText>Estação Pública</ButtonText>    
+                        </ButtonPublicPrivate>
+                        <ButtonPublicPrivate onPress={() => setWeatherStation(prevState => ({ ...prevState, isPrivate: true }))} bgColor={weatherStation.isPrivate ? "GREEN" : "BLUE"}>
+                            <ButtonText>Estação Privada</ButtonText>    
+                        </ButtonPublicPrivate>
+                    </ContainerPublicPrivate>
                     
                     {
-                        weatherStation && weatherStation.image && (
+                        weatherStation && weatherStation.photoBase64 && (
                             <>
                             <PartnerHeader>
                                 <TitlePartnerSensorContainer>Foto</TitlePartnerSensorContainer>
@@ -281,13 +293,13 @@ export function RegisterStation(){
                                     <FontAwesomeIcon icon={faTrash} color="red" size={20} />
                                 </TouchableOpacity>
                             </PartnerHeader>
-                            <Image source={{ uri: weatherStation.image }}/>
+                                <Image source={{ uri: `data:image/jpeg;base64,${weatherStation.photoBase64}` }}/>
                             </>
                         )
                     }
 
                     <ContainerButtons>
-                        <Button title={weatherStation.image ? "Adicionar nova foto" : "Adicionar Foto"} onPress={() => setShowModalImage(true)} color="SECONDARY" />
+                        <Button title={weatherStation.photoBase64 ? "Adicionar nova foto" : "Adicionar Foto"} onPress={() => setShowModalImage(true)} color="SECONDARY" />
                         <Button title="Cadastrar Estação" onPress={() => RegisterStation(weatherStation)} color="PRIMARY" />
                     </ContainerButtons>
                 </FormContainer>
@@ -335,7 +347,7 @@ export function RegisterStation(){
                     onSubmit={(data) => {
                         setWeatherStation((prev: any) => ({
                             ...prev,
-                            image: data
+                            photoBase64: data
                         }));
                         setShowModalImage(false)
                     }}

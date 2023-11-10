@@ -20,10 +20,11 @@ export function MantainerStations(){
 
 
     function handleBack(){
-        navigate.reset({
-            index: 0,
-            routes: [{name: 'Home'}]
-        })
+        // navigate.reset({
+        //     index: 0,
+        //     routes: [{name: 'Home'}]
+        // })
+        navigate.goBack()
     }
 
     function handleStation(id: string){
@@ -48,6 +49,7 @@ export function MantainerStations(){
                                 onPressIcon={() => handleStation(item.id || '1')}
                                 title={item.name || "Estação sem nome"}
                                 subtitle={item.isPrivate ? "Estação Privada" : "Estação Pública"}
+                                imageUri={item.photoBase64 || undefined}
                             />
                         ))
                     ) : (

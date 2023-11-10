@@ -119,7 +119,7 @@ export function InfoStation({ stationId } : Props){
                 <ItemContainer>
                     <TitleItem>Foto</TitleItem>
                     <ImageContainer>
-                        <Image source={weatherStation?.image ? {uri: weatherStation.image} : require('../../assets/aty.png')} />
+                        <Image source={{ uri: `data:image/jpeg;base64,${weatherStation?.photoBase64}` }}/>
                     </ImageContainer>
                 </ItemContainer>
             </ListContainer>

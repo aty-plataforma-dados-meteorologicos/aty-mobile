@@ -20,7 +20,7 @@ export function ModalImagePicker({ onClose, onSubmit, showModal } : Props){
         let result = await ImagePicker.launchImageLibraryAsync({
             mediaTypes: ImagePicker.MediaTypeOptions.Images,
             allowsEditing: true,
-            quality: 1,
+            quality: 0.3,
         });
 
         if (!result.canceled) {
@@ -39,7 +39,7 @@ export function ModalImagePicker({ onClose, onSubmit, showModal } : Props){
         let result = await ImagePicker.launchCameraAsync({
             mediaTypes: ImagePicker.MediaTypeOptions.Images,
             allowsEditing: false,
-            quality: 1,
+            quality: 0.3,
         });
 
         if (!result.canceled) {
@@ -60,7 +60,7 @@ export function ModalImagePicker({ onClose, onSubmit, showModal } : Props){
             const base64 = await FileSystem.readAsStringAsync(imageUri, {
                 encoding: FileSystem.EncodingType.Base64,
             });
-            return `data:image/jpeg;base64,${base64}`;
+            return `${base64}`;
         } else {
             throw new Error('Arquivo de imagem não encontrado');
         }
@@ -95,7 +95,7 @@ export function ModalImagePicker({ onClose, onSubmit, showModal } : Props){
                     </CloseButton>
                 </Header>
                     <BodyModalContent>
-                        {imageBase64 && <Image source={{ uri: imageBase64 }} /> }
+                        {imageBase64 && <Image source={{ uri: `data:image/jpeg;base64,${imageBase64}` }} /> }
                         <Button title="Abrir Galeria" onPress={pickImage} color="PRIMARY" />
                         <Button title="Abrir Camera" onPress={openCamera} color="PRIMARY" />
                         {imageBase64 && <Button title="Enviar" onPress={() => onSubmit(imageBase64)} color="SECONDARY" /> }

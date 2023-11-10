@@ -25,6 +25,8 @@ export function Home() {
   const [isCardVisible, setIsCardVisible] = useState(false);
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
   const [weatherStations, setWeatherStations] = useState<any>();
+  const [weatherStationsWhithAcess, setWeatherStationsWhithAcess] = useState<any>();
+  const [weatherStationsWhithAcessPendent, setWeatherStationsWhithAcessPendent] = useState<any>();
   const [weatherStation, setWeatherStation] = useState<WeatherStationData>();
   const [sensorInformation, setSensorInformation] = useState<SensorData | null>(null);
   const [favoriteStation, setFavoriteStation] = useState<any>();
@@ -62,11 +64,10 @@ export function Home() {
         longitudeDelta: 0.01,
       };
       setMapRegion(region);
-      mapRef.current?.animateToRegion(region, 500);  // 500ms para a animação
+      mapRef.current?.animateToRegion(region, 500);
     }
   };
 
-  // Função que obtem todas as estações
   async function getAllWeatherStation(){
     const response = await weatherStationService.getAllWeatherStationsMap()
     if(response != null){
@@ -81,6 +82,33 @@ export function Home() {
       setFavoriteStation(response.data)
     }
   }
+
+  async function getAcessStation(){
+    try {
+        const response = await weatherStationService.getAllAcessStation();
+
+        if (response) {
+            setWeatherStationsWhithAcess(response.data);
+        }
+
+    } catch (error) {
+        console.log("Erro")
+    }
+  }
+
+  async function getAcessStationPendent(){
+      try {
+          const response = await weatherStationService.getAllStationWithAcessPendent();
+
+          if (response) {
+              setWeatherStationsWhithAcessPendent(response.data);
+          }
+
+      } catch (error) {
+        console.log("Erro")
+      }
+  }
+
 
   // Função que obtem dados do sensor e abre o modal
   async function getSensorInfo(sensorId : string){
@@ -140,37 +168,37 @@ export function Home() {
         duration: 300, 
         useNativeDriver: true 
     }).start();
-}
-
-function closeDrawer() {
-  Animated.timing(drawerPosition, {
-      toValue: -drawerWidth, 
-      duration: 300, 
-      useNativeDriver: true 
-  }).start(() => setIsDrawerVisible(false)); 
-}
-
-const panResponder = PanResponder.create({
-  onStartShouldSetPanResponder: () => true,
-  onMoveShouldSetPanResponder: (evt, gestureState) => {
-    // Permitir o gesto apenas se estiver se movendo da direita para a esquerda
-    return gestureState.dx < 0;
-  },
-  onPanResponderMove: (evt, gestureState) => {
-    if (gestureState.dx < 0) {
-      drawerPosition.setValue(gestureState.dx);
-    }
-  },
-  onPanResponderRelease: (e, gestureState) => {
-    if (gestureState.dx < -50) {
-      closeDrawer();
-    } else {
-      Animated.spring(drawerPosition, {
-        toValue: 0,
-        useNativeDriver: true,   // <-- Atualizado para true
-      }).start();
-    }
   }
+
+  function closeDrawer() {
+    Animated.timing(drawerPosition, {
+        toValue: -drawerWidth, 
+        duration: 300, 
+        useNativeDriver: true 
+    }).start(() => setIsDrawerVisible(false)); 
+  }
+
+  const panResponder = PanResponder.create({
+    onStartShouldSetPanResponder: () => true,
+    onMoveShouldSetPanResponder: (evt, gestureState) => {
+      // Permitir o gesto apenas se estiver se movendo da direita para a esquerda
+      return gestureState.dx < 0;
+    },
+    onPanResponderMove: (evt, gestureState) => {
+      if (gestureState.dx < 0) {
+        drawerPosition.setValue(gestureState.dx);
+      }
+    },
+    onPanResponderRelease: (e, gestureState) => {
+      if (gestureState.dx < -50) {
+        closeDrawer();
+      } else {
+        Animated.spring(drawerPosition, {
+          toValue: 0,
+          useNativeDriver: true,   // <-- Atualizado para true
+        }).start();
+      }
+    }
   });
 
   async function handleFavorite(weatherStation: WeatherStationData) {
@@ -205,6 +233,42 @@ const panResponder = PanResponder.create({
     navigation.navigate('Station', { stationId: stationId })
   }
 
+  const determineTitleButton = () => {
+    console.log(weatherStationsWhithAcess)
+    console.log(weatherStationsWhithAcessPendent)
+    console.log(weatherStation)
+    if (weatherStation?.isPrivate) {
+        // Verifica se weatherStationsWhithAcess não é vazio e se weatherStation está presente nele
+        if (weatherStationsWhithAcess && weatherStationsWhithAcess.some((station: any) => station.id == weatherStation.id)) {
+            return "Acessar Estação";
+        } 
+        // Verifica se weatherStationsWhithAcessPendent não é vazio e se weatherStation está presente nele
+        else if (weatherStationsWhithAcessPendent && weatherStationsWhithAcessPendent.some((station: any) => station.id == weatherStation.id)) {
+            return "Acesso Solicitado";
+        } else {
+            return "Solicitar Acesso";
+        }
+    } else {
+        return "Acessar Estação";
+    }
+  }
+
+  async function handleButtonStationCard(){
+    if(!weatherStation?.isPrivate || weatherStationsWhithAcess.some((station: any) => station.id == weatherStation?.id)){
+      handleGoToStation(weatherStation?.id || '1')
+    }
+
+    
+
+    if(weatherStationsWhithAcess && !weatherStationsWhithAcess.some((station: any) => station.id == weatherStation?.id)){
+      const response = await weatherStationService.getAcessStation(weatherStation?.id)
+      if(response.status == 200){
+        getAcessStation()
+        getAcessStationPendent()
+      }
+    }
+  }
+
 
   useEffect(() => {
     if (openModal) {
@@ -224,13 +288,31 @@ const panResponder = PanResponder.create({
   useEffect(() => {
     requestUserLocationPermission();
     getAllWeatherStation();
-    getAllFavoriteWeatherStation()
+    getAllFavoriteWeatherStation();
+    getAcessStation()
+    getAcessStationPendent()
   }, []);
 
   useEffect(() => {
     getAllWeatherStation();
     getAllFavoriteWeatherStation()
   }, [openModal]);
+
+  // useEffect(() => {
+  //   const fetchData = () => {
+  //       getAllWeatherStation();
+  //       getAllFavoriteWeatherStation();
+  //       getAcessStation();
+  //       getAcessStationPendent();
+  //   };
+
+  //   fetchData();
+
+  //   const intervalId = setInterval(fetchData, 15000);
+
+  //   return () => clearInterval(intervalId);
+  // }, []);
+
 
 
 
@@ -271,6 +353,7 @@ const panResponder = PanResponder.create({
                 onPress={(event) => {
                   event.stopPropagation();
                   setOpenModal(true);
+
                   setWeatherStation(station);
                 }}
                 pinColor={station.id === weatherStation?.id ? "#0000FF" : "#FF0000"}
@@ -294,12 +377,12 @@ const panResponder = PanResponder.create({
           <StationCardMap 
             title={weatherStation.name || "Estação Meteorológica"}
             stationType={weatherStation.isPrivate ? "Estação Privada" : "Estação Pública"}
-            titleButton={weatherStation.isPrivate ? weatherStation.acessValid ? "Acessar Estação" : "Solicitar Acesso" : "Acessar Estação"}
+            titleButton={determineTitleButton()}
             sensors={weatherStation.sensors}
-            imageUri={weatherStation.image}
+            imageUri={weatherStation.photoBase64}
             showFavorite={weatherStation.isPrivate ? false : true}
             isFavorite={favoriteStation ? favoriteStation.some((station : any )=> station.id === weatherStation.id) : false}
-            onPressButton={() => handleGoToStation(weatherStation.id || '1')}
+            onPressButton={() => handleButtonStationCard()}
             onPressImage={() => setOpenPicture(true)}
             onPressInfo={(sensorId) => getSensorInfo(sensorId)}
             onPressFavorite={() => handleFavorite(weatherStation)}
@@ -321,7 +404,9 @@ const panResponder = PanResponder.create({
             }
           ]}
         >
-          <ModalImage onClose={(event) => {
+          <ModalImage 
+          imageUri={weatherStation?.photoBase64}
+          onClose={(event) => {
             event.stopPropagation();
             requestAnimationFrame(() => {
               fadeOut();
