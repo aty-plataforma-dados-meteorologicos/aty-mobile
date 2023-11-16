@@ -24,7 +24,7 @@ export function MantainerStations(){
         //     index: 0,
         //     routes: [{name: 'Home'}]
         // })
-        navigate.goBack()
+            navigate.navigate('Home')
     }
 
     function handleStation(id: string){

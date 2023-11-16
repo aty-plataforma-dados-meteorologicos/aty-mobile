@@ -53,6 +53,9 @@ export function ManegeAcessStation({ stationId } : Props){
 
     async function handleRejectDeleteUser(idUser : any){
         const response = await service.aceptRejectUserSolicitation(stationId, idUser, 30)
+        getUsersWhiAcess()
+        getUsersWhiAcessPendent()
+
     }
 
     function handleBack(){

@@ -27,6 +27,7 @@ export function Home() {
   const [weatherStations, setWeatherStations] = useState<any>();
   const [weatherStationsWhithAcess, setWeatherStationsWhithAcess] = useState<any>();
   const [weatherStationsWhithAcessPendent, setWeatherStationsWhithAcessPendent] = useState<any>();
+  const [isButtonCardLoading, setIsButtonCardLoading] = useState<boolean>(false);
   const [weatherStation, setWeatherStation] = useState<WeatherStationData>();
   const [sensorInformation, setSensorInformation] = useState<SensorData | null>(null);
   const [favoriteStation, setFavoriteStation] = useState<any>();
@@ -234,9 +235,6 @@ export function Home() {
   }
 
   const determineTitleButton = () => {
-    console.log(weatherStationsWhithAcess)
-    console.log(weatherStationsWhithAcessPendent)
-    console.log(weatherStation)
     if (weatherStation?.isPrivate) {
         // Verifica se weatherStationsWhithAcess não é vazio e se weatherStation está presente nele
         if (weatherStationsWhithAcess && weatherStationsWhithAcess.some((station: any) => station.id == weatherStation.id)) {
@@ -253,21 +251,41 @@ export function Home() {
     }
   }
 
-  async function handleButtonStationCard(){
-    if(!weatherStation?.isPrivate || weatherStationsWhithAcess.some((station: any) => station.id == weatherStation?.id)){
-      handleGoToStation(weatherStation?.id || '1')
-    }
+  async function handleButtonStationCard() {
+    // Verifica se a estação é pública
+    if (!weatherStation?.isPrivate) {
+      handleGoToStation(weatherStation?.id || '1');
+    } 
+    // Caso seja estação privada
+    else {
 
-    
-
-    if(weatherStationsWhithAcess && !weatherStationsWhithAcess.some((station: any) => station.id == weatherStation?.id)){
-      const response = await weatherStationService.getAcessStation(weatherStation?.id)
-      if(response.status == 200){
-        getAcessStation()
-        getAcessStationPendent()
+      // Verifica se a estação está na lista de estações com acesso
+      const hasAccess = weatherStationsWhithAcess.some((station : WeatherStationData) => station.id === weatherStation?.id);
+      // Verifica se a estação está na lista de estações com acesso pendente
+      const isAccessPending = weatherStationsWhithAcessPendent.some((station : WeatherStationData) => station.id === weatherStation?.id);
+  
+      // Se tem acesso, navega para a estação
+      if (hasAccess) {
+        handleGoToStation(weatherStation?.id || '1');
+      } 
+      // Se não tem acesso e não está pendente, faz a requisição para obter o acesso
+      else if (!isAccessPending) {
+        setIsButtonCardLoading(true)
+        try {
+          const response = await weatherStationService.RequestAcessToTheWeatherStation(weatherStation?.id);
+          console.log(response);
+          // Após obter a resposta, atualiza as listas de estações
+          await getAcessStation();
+          await getAcessStationPendent();
+        } catch (error) {
+          console.error("Erro ao solicitar acesso à estação:", error);
+        }
+        setIsButtonCardLoading(false)
       }
+      // Se está pendente, não faz nada
     }
   }
+  
 
 
   useEffect(() => {
@@ -298,20 +316,20 @@ export function Home() {
     getAllFavoriteWeatherStation()
   }, [openModal]);
 
-  // useEffect(() => {
-  //   const fetchData = () => {
-  //       getAllWeatherStation();
-  //       getAllFavoriteWeatherStation();
-  //       getAcessStation();
-  //       getAcessStationPendent();
-  //   };
+  useEffect(() => {
+    const fetchData = () => {
+        getAllWeatherStation();
+        getAllFavoriteWeatherStation();
+        getAcessStation();
+        getAcessStationPendent();
+    };
 
-  //   fetchData();
+    fetchData();
 
-  //   const intervalId = setInterval(fetchData, 15000);
+    const intervalId = setInterval(fetchData, 15000);
 
-  //   return () => clearInterval(intervalId);
-  // }, []);
+    return () => clearInterval(intervalId);
+  }, []);
 
 
 
@@ -386,6 +404,7 @@ export function Home() {
             onPressImage={() => setOpenPicture(true)}
             onPressInfo={(sensorId) => getSensorInfo(sensorId)}
             onPressFavorite={() => handleFavorite(weatherStation)}
+            isLoading={isButtonCardLoading}
           />
 
           

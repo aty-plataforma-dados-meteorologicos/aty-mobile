@@ -153,6 +153,18 @@ export class WeatherStationsService {
             return {} as WeatherStationSensorData;
         }
     }
+
+    public async RequestAcessToTheWeatherStation(stationId : any) : Promise<Boolean>{
+        try{
+            const response = await api.get(`WeatherStations/${stationId}/RequestDataAccess`)
+            if(response.status === 200){
+                return true
+            }
+            return false
+        } catch (error : any) {
+            throw new Error(error)
+        }
+    }
     
     
 

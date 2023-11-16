@@ -7,7 +7,7 @@
     "icon": "./src/assets/aty.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./src/assets/aty.png",
+      "image": "./src/assets/aty-splash.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
