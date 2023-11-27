@@ -5,6 +5,8 @@ import api from "./Api";
 import WeatherStationSensorData from "../interfaces/weatherStation/WeatherStationSensorData";
 import WeatherStationData from "src/interfaces/WeatherStation/WeatherStationData";
 import WeatherStationResponse from "src/interfaces/WeatherStation/WeatherStationResponse";
+import { err } from "react-native-svg/lib/typescript/xml";
+import * as Notification from "expo-notifications"
 
 export class WeatherStationsService {
     public async getAllWeatherStations() : Promise<WeatherStationResponse> {
@@ -129,6 +131,16 @@ export class WeatherStationsService {
             return {} as WeatherStationResponse;
         } catch (error : any) {
             return {} as WeatherStationResponse;
+        }
+    }
+
+    public async getWeatherStationPhoto(stationId : any) : Promise<String> {
+        try {
+            const response = await api.get(`WeatherStations/${stationId}/Photo`);
+            if(response.status === 200)
+                return response.data;
+        } catch (error : any) {
+            console.log(error)
         }
     }
 

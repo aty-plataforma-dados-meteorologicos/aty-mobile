@@ -29,6 +29,7 @@ export function Home() {
   const [weatherStationsWhithAcessPendent, setWeatherStationsWhithAcessPendent] = useState<any>();
   const [isButtonCardLoading, setIsButtonCardLoading] = useState<boolean>(false);
   const [weatherStation, setWeatherStation] = useState<WeatherStationData>();
+  const [weatherStationPhoto, setWeatherStationPhoto] = useState<String>()
   const [sensorInformation, setSensorInformation] = useState<SensorData | null>(null);
   const [favoriteStation, setFavoriteStation] = useState<any>();
   const [openPicture, setOpenPicture] = useState(false);
@@ -100,7 +101,6 @@ export function Home() {
   async function getAcessStationPendent(){
       try {
           const response = await weatherStationService.getAllStationWithAcessPendent();
-
           if (response) {
               setWeatherStationsWhithAcessPendent(response.data);
           }
@@ -120,6 +120,13 @@ export function Home() {
     }
   }
   
+  async function getWeatherStationPhoto(stationid : string){
+    const response = await weatherStationService.getWeatherStationPhoto(stationid)
+    if(response){
+      setWeatherStationPhoto(response)
+    }
+  }
+
 
   const animateCard = () => {
     requestAnimationFrame(() => {
@@ -234,57 +241,47 @@ export function Home() {
     navigation.navigate('Station', { stationId: stationId })
   }
 
-  const determineTitleButton = () => {
-    if (weatherStation?.isPrivate) {
-        // Verifica se weatherStationsWhithAcess não é vazio e se weatherStation está presente nele
-        if (weatherStationsWhithAcess && weatherStationsWhithAcess.some((station: any) => station.id == weatherStation.id)) {
-            return "Acessar Estação";
-        } 
-        // Verifica se weatherStationsWhithAcessPendent não é vazio e se weatherStation está presente nele
-        else if (weatherStationsWhithAcessPendent && weatherStationsWhithAcessPendent.some((station: any) => station.id == weatherStation.id)) {
-            return "Acesso Solicitado";
-        } else {
-            return "Solicitar Acesso";
-        }
-    } else {
+  function determineTitleButton(weatherStationObject : WeatherStationData){
+    if (weatherStationObject.isPrivate) {
+      if (weatherStationsWhithAcess && weatherStationsWhithAcess.some(station => station.id == weatherStationObject.id)) {
         return "Acessar Estação";
+      } else if (weatherStationsWhithAcessPendent && weatherStationsWhithAcessPendent.some(station => station.id == weatherStationObject.id)) {
+        return "Acesso Solicitado";
+      } else {
+        return "Solicitar Acesso";
+      }
+    } else {
+      return "Acessar Estação";
     }
   }
 
-  async function handleButtonStationCard() {
-    // Verifica se a estação é pública
-    if (!weatherStation?.isPrivate) {
-      handleGoToStation(weatherStation?.id || '1');
-    } 
-    // Caso seja estação privada
-    else {
-
-      // Verifica se a estação está na lista de estações com acesso
-      const hasAccess = weatherStationsWhithAcess.some((station : WeatherStationData) => station.id === weatherStation?.id);
-      // Verifica se a estação está na lista de estações com acesso pendente
-      const isAccessPending = weatherStationsWhithAcessPendent.some((station : WeatherStationData) => station.id === weatherStation?.id);
+  async function handleButtonStationCard(weatherStationObject : WeatherStationData) {
+    if (!weatherStationObject.isPrivate) {
+      handleGoToStation(weatherStationObject.id || '1');
+    } else {
+      const hasAccess = weatherStationsWhithAcess?.some(station => station.id == weatherStationObject.id) || false;
+      const isAccessPending = weatherStationsWhithAcessPendent?.some(station => station.id == weatherStationObject.id) || false;
   
-      // Se tem acesso, navega para a estação
       if (hasAccess) {
-        handleGoToStation(weatherStation?.id || '1');
-      } 
-      // Se não tem acesso e não está pendente, faz a requisição para obter o acesso
-      else if (!isAccessPending) {
-        setIsButtonCardLoading(true)
+        handleGoToStation(weatherStationObject.id || '1');
+      } else if (!isAccessPending) {
+        setIsButtonCardLoading(true);
         try {
-          const response = await weatherStationService.RequestAcessToTheWeatherStation(weatherStation?.id);
-          console.log(response);
-          // Após obter a resposta, atualiza as listas de estações
-          await getAcessStation();
-          await getAcessStationPendent();
+          const response = await weatherStationService.RequestAcessToTheWeatherStation(weatherStationObject.id);
+          if(response){
+            await getAcessStation();
+            await getAcessStationPendent();
+          }
+          console.log("Pedido de acesso", response)
+          
         } catch (error) {
           console.error("Erro ao solicitar acesso à estação:", error);
         }
-        setIsButtonCardLoading(false)
+        setIsButtonCardLoading(false);
       }
-      // Se está pendente, não faz nada
     }
   }
+  
   
 
 
@@ -316,20 +313,20 @@ export function Home() {
     getAllFavoriteWeatherStation()
   }, [openModal]);
 
-  useEffect(() => {
-    const fetchData = () => {
-        getAllWeatherStation();
-        getAllFavoriteWeatherStation();
-        getAcessStation();
-        getAcessStationPendent();
-    };
+  // useEffect(() => {
+  //   const fetchData = () => {
+  //       getAllWeatherStation();
+  //       getAllFavoriteWeatherStation();
+  //       getAcessStation();
+  //       getAcessStationPendent();
+  //   };
 
-    fetchData();
+  //   fetchData();
 
-    const intervalId = setInterval(fetchData, 15000);
+  //   const intervalId = setInterval(fetchData, 15000);
 
-    return () => clearInterval(intervalId);
-  }, []);
+  //   return () => clearInterval(intervalId);
+  // }, []);
 
 
 
@@ -357,6 +354,7 @@ export function Home() {
           onPress={() => {
             setOpenModal(false);
             setWeatherStation(undefined);
+            setWeatherStationPhoto(undefined)
             closeDrawer();
           }}
           style={styles.map}
@@ -371,7 +369,7 @@ export function Home() {
                 onPress={(event) => {
                   event.stopPropagation();
                   setOpenModal(true);
-
+                  getWeatherStationPhoto(station?.id || '0ss')
                   setWeatherStation(station);
                 }}
                 pinColor={station.id === weatherStation?.id ? "#0000FF" : "#FF0000"}
@@ -395,12 +393,12 @@ export function Home() {
           <StationCardMap 
             title={weatherStation.name || "Estação Meteorológica"}
             stationType={weatherStation.isPrivate ? "Estação Privada" : "Estação Pública"}
-            titleButton={determineTitleButton()}
+            titleButton={determineTitleButton(weatherStation)}
             sensors={weatherStation.sensors}
-            imageUri={weatherStation.photoBase64}
+            imageUri={weatherStationPhoto}
             showFavorite={weatherStation.isPrivate ? false : true}
-            isFavorite={favoriteStation ? favoriteStation.some((station : any )=> station.id === weatherStation.id) : false}
-            onPressButton={() => handleButtonStationCard()}
+            isFavorite={favoriteStation ? favoriteStation.some((station : any )=> station.id == weatherStation.id) : false}
+            onPressButton={() => handleButtonStationCard(weatherStation)}
             onPressImage={() => setOpenPicture(true)}
             onPressInfo={(sensorId) => getSensorInfo(sensorId)}
             onPressFavorite={() => handleFavorite(weatherStation)}
@@ -424,7 +422,7 @@ export function Home() {
           ]}
         >
           <ModalImage 
-          imageUri={weatherStation?.photoBase64}
+          imageUri={weatherStationPhoto}
           onClose={(event) => {
             event.stopPropagation();
             requestAnimationFrame(() => {

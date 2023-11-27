@@ -62,18 +62,25 @@ export function ManegeAcessStation({ stationId } : Props){
         navigate.navigate("Home")
     }
 
-    function chunkArray(myArray : any, chunk_size : any){
+    function chunkArray(myArray, chunk_size) {
+        // Verificação inicial para garantir que myArray é um array válido
+        if (!Array.isArray(myArray) || myArray.length === 0) {
+            // Retorna um array vazio ou realiza outra ação conforme necessário
+            return [];
+        }
+    
         let index = 0;
-        let arrayLength = myArray.length;
+        const arrayLength = myArray.length;
         let tempArray = [];
         
         for (index = 0; index < arrayLength; index += chunk_size) {
-            let chunk = myArray.slice(index, index+chunk_size);
+            let chunk = myArray.slice(index, index + chunk_size);
             tempArray.push(chunk);
         }
     
         return tempArray;
     }
+    
     
 
     useEffect(() => {

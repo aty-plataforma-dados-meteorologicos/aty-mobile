@@ -18,6 +18,7 @@ import { Button } from "../../components/Button";
 import { ModalImagePicker } from "../../components/ModalImagePicker";
 import MantainerData from "../../interfaces/weatherStation/MantainerData";
 import { ModalMantainer } from "../../components/ModalMantainer";
+import * as Notification from 'expo-notifications'
 
 type Props = {
     stationId?: string;
@@ -38,10 +39,12 @@ export function EditStation({ stationId } : Props){
     );
     const [mantainer, setMantainer] = useState<MantainerData[]>();
     const [originalWeatherStation, setOriginalWeatherStation] = useState<WeatherStationData>();
+    const [weatherStationPhoto, setWeatherStationPhoto] = useState<String>();
     const [showModalPartner, setShowModalPartner] = useState(false);
     const [showModalImage, setShowModalImage] = useState(false);
     const [showModalMantainer, setShowModalMantainer] = useState(false);
     const [partner, setPartner] = useState()
+    const [loading, setLoading] = useState<boolean>(false);
     const service = new WeatherStationsService();
     const navigate = useNavigation<StackType>();
 
@@ -54,6 +57,18 @@ export function EditStation({ stationId } : Props){
     async function getMaintainers(){
         const response = await service.getAllMaintainersByWeatherStationId(stationId || '1')
         setMantainer(response.data)
+    }
+
+    async function getWeatherStationPhoto(stationid : string){
+        try {
+            const response = await service.getWeatherStationPhoto(stationid)
+            if(response){
+                setWeatherStationPhoto(response)
+            }
+        } catch (error) {
+            
+        }
+        
     }
 
     function handleBack(){
@@ -111,6 +126,7 @@ export function EditStation({ stationId } : Props){
     }
 
     async function UpdateStation() {
+        setLoading(true)
             try {
                 const response = await service.updateWeatherStation(weatherStation);
                 if(response){
@@ -120,6 +136,7 @@ export function EditStation({ stationId } : Props){
             } catch (error) {
                 console.log(error)
             }
+        setLoading(false)
     }
 
     function hasStationChanged(): boolean {
@@ -160,6 +177,7 @@ export function EditStation({ stationId } : Props){
     useEffect(() => {
         getStation()
         getMaintainers()
+        getWeatherStationPhoto(stationId || '0')
     }, [])
 
     return(
@@ -249,13 +267,13 @@ export function EditStation({ stationId } : Props){
                 <ItemContainer>
                     <TitleItem>Foto</TitleItem>
                     <ImageContainer>
-                        <Image source={{ uri: `data:image/jpeg;base64,${weatherStation?.photoBase64}` }}/>
+                        <Image source={weatherStationPhoto != undefined ? { uri: `data:image/jpeg;base64,${weatherStationPhoto}` } : require('../../assets/aty.png')}/>
                     </ImageContainer>
                 </ItemContainer>
 
                 <ContainerButtons>
-                        <Button title={weatherStation?.photoBase64 ? "Adicionar nova foto" : "Adicionar Foto"} onPress={() => setShowModalImage(true)} color="SECONDARY" />
-                        <Button title="Atualizar Estação" onPress={() =>{hasStationChanged() ? UpdateStation() : console.log("Não foi")} } color="PRIMARY" />
+                        <Button title={weatherStationPhoto ? "Adicionar nova foto" : "Adicionar Foto"} onPress={() => setShowModalImage(true)} color="SECONDARY" />
+                        <Button title="Atualizar Estação" onPress={() =>{hasStationChanged() ? UpdateStation() : console.log("Não foi")} } color="PRIMARY" isLoading={loading} />
                 </ContainerButtons>
             </ListContainer>
 
@@ -273,8 +291,9 @@ export function EditStation({ stationId } : Props){
                     onSubmit={(data) => {
                         setWeatherStation((prev: any) => ({
                             ...prev,
-                            image: data
+                            photoBase64: data
                         }));
+                        setWeatherStationPhoto(data)
                         setShowModalImage(false)
                     }}
                 />
