@@ -21,6 +21,7 @@ import { ModalInfoSensor } from "../../components/ModalSensor";
 import { ModalLocation } from "../../components/ModalLocation";
 import { ModalImagePicker } from "../../components/ModalImagePicker";
 import WeatherStationData from "../../interfaces/weatherStation/WeatherStationData";
+import Toast from 'react-native-toast-message'
 
 export function RegisterStation(){
     const initialWeatherStation: WeatherStationData = {
@@ -145,6 +146,13 @@ export function RegisterStation(){
             try {
                 const response = await serviceWeatherStation.createWeatherStation(station)
                 if(response){
+                    Toast.show({
+                        type: 'success',
+                        text1: 'Estação criada com sucesso',
+                        position: 'bottom',
+                        bottomOffset: 60
+                    })
+
                     navigate.reset({
                         index: 0,
                         routes: [{name: 'MantainerStations'}]

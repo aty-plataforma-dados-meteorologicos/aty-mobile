@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { HeaderApp } from "../../components/HeaderApp";
-import { Container, ContainerButtons, Image, ImageContainer, ItemContainer, ListContainer, PartnerContainer, PartnerHeader, SensorPartnerContainer, TitleItem, TitlePartnerSensorContainer } from "./styles";
+import { ButtonPublicPrivate, ButtonText, Container, ContainerButtons, ContainerPublicPrivate, Image, ImageContainer, ItemContainer, ListContainer, PartnerContainer, PartnerHeader, SensorPartnerContainer, TitleItem, TitlePartnerSensorContainer } from "./styles";
 import { WeatherStationsService } from "../../services/WeatherStationService";
 import { useNavigation } from "@react-navigation/native";
 import { ListEmpty } from "../../components/ListEmpty";
@@ -18,7 +18,7 @@ import { Button } from "../../components/Button";
 import { ModalImagePicker } from "../../components/ModalImagePicker";
 import MantainerData from "../../interfaces/weatherStation/MantainerData";
 import { ModalMantainer } from "../../components/ModalMantainer";
-import * as Notification from 'expo-notifications'
+import Toast from 'react-native-toast-message'
 
 type Props = {
     stationId?: string;
@@ -160,16 +160,26 @@ export function EditStation({ stationId } : Props){
         
     }
 
-    async function handleDeleteMantainer(mantainerId : number){
+    async function handleDeleteMantainer(mantainerId : string){
         try {
-            const response = await service.deleteMantainer(weatherStation.id, mantainerId);
-            if(response){
-                alert("Mantenedor removido com sucesso")
-                getMaintainers()
-                getStation()
+            if(mantainer?.length == 1){
+                Toast.show({
+                    type: 'error',
+                    text1: 'Erro ao remover mantenedor',
+                    text2: 'A estação deve ter no mínimo um mantenedor',
+                    position: 'bottom',
+                    bottomOffset: 60
+                })
+            } else {
+                const response = await service.deleteMantainer(weatherStation.id, mantainerId);
+                if(response){
+                    alert("Mantenedor removido com sucesso")
+                    getMaintainers()
+                    getStation()
+                }
             }
         } catch (error) {
-            alert("Erro ao remover mantenedor")
+            // alert("Erro ao remover mantenedor")
         }
     }
     
@@ -263,13 +273,24 @@ export function EditStation({ stationId } : Props){
                         )
                     }
                 </ItemContainer>
-
                 <ItemContainer>
                     <TitleItem>Foto</TitleItem>
                     <ImageContainer>
                         <Image source={weatherStationPhoto != undefined ? { uri: `data:image/jpeg;base64,${weatherStationPhoto}` } : require('../../assets/aty.png')}/>
                     </ImageContainer>
                 </ItemContainer>
+
+                {/* <PartnerHeader>
+                    <TitlePartnerSensorContainer>Tipo da Estação:</TitlePartnerSensorContainer>
+                </PartnerHeader>
+                <ContainerPublicPrivate>
+                    <ButtonPublicPrivate onPress={() => setWeatherStation(prevState => ({ ...prevState, isPrivate: false }))} bgColor={weatherStation.isPrivate ? "BLUE" : "GREEN"}>
+                        <ButtonText>Estação Pública</ButtonText>    
+                    </ButtonPublicPrivate>
+                    <ButtonPublicPrivate onPress={() => setWeatherStation(prevState => ({ ...prevState, isPrivate: true }))} bgColor={weatherStation.isPrivate ? "GREEN" : "BLUE"}>
+                        <ButtonText>Estação Privada</ButtonText>    
+                    </ButtonPublicPrivate>
+                </ContainerPublicPrivate> */}
 
                 <ContainerButtons>
                         <Button title={weatherStationPhoto ? "Adicionar nova foto" : "Adicionar Foto"} onPress={() => setShowModalImage(true)} color="SECONDARY" />

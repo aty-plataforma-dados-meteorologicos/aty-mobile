@@ -11,7 +11,7 @@ import * as Notification from "expo-notifications"
 export class WeatherStationsService {
     public async getAllWeatherStations() : Promise<WeatherStationResponse> {
         try {
-            const response = await api.get('WeatherStations?pageSize=10');
+            const response = await api.get('WeatherStations?pageSize=500');
             return response.data;
         } catch (error : any) {
             throw new Error(error);
@@ -20,7 +20,7 @@ export class WeatherStationsService {
 
     public async getAllWeatherStationsMap() : Promise<WeatherStationData> {
         try {
-            const response = await api.get('WeatherStations?pageSize=10000');
+            const response = await api.get('WeatherStations?pageSize=500');
             return response.data.data;
         } catch (error : any) {
             return {} as WeatherStationData;
@@ -29,12 +29,11 @@ export class WeatherStationsService {
 
     public async getAllWeatherStationByMantainer() : Promise<WeatherStationResponse>{
         try {
-            const response = await api.get('WeatherStations/Maintainers?pageSize=10000')
+            const response = await api.get('WeatherStations/Maintainers?pageSize=500')
             if(response.status === 200)
                 return response.data;
             return {} as WeatherStationResponse;
         } catch (error: any) {
-            return {} as WeatherStationResponse;
             throw new Error(error);
         }
     }
@@ -86,7 +85,7 @@ export class WeatherStationsService {
 
     public async getAllAcessStation() : Promise<WeatherStationResponse> {
         try {
-            const response = await api.get(`WeatherStations/RetrieveDataAccessRequests?pageSize=1000&status=20`);
+            const response = await api.get(`WeatherStations/RetrieveDataAccessRequests?pageSize=500&status=20`);
             return response.data;
         } catch (error : any) {
             throw new Error(error)
@@ -104,7 +103,7 @@ export class WeatherStationsService {
 
     public async getAllStationWithAcessPendent() : Promise<WeatherStationResponse> {
         try {
-            const response = await api.get(`WeatherStations/RetrieveDataAccessRequests?pageSize=1000&status=10`);
+            const response = await api.get(`WeatherStations/RetrieveDataAccessRequests?pageSize=500&status=10`);
             return response.data;
         } catch (error : any) {
             throw new Error(error)
@@ -122,7 +121,7 @@ export class WeatherStationsService {
 
     public async getAllStationFavoritesByUser() : Promise<WeatherStationResponse> {
         try {
-            const response = await api.get('WeatherStations/Favorites?pageSize=10000');
+            const response = await api.get('WeatherStations/Favorites?pageSize=500');
             if(response.status === 200)
                 return response.data;
 

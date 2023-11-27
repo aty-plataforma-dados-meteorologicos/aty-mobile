@@ -43,8 +43,6 @@ export function Home() {
   const weatherStationService = new WeatherStationsService();
   const sensorService = new SensorService();
 
-
-  // Requisição da localização
   async function requestUserLocationPermission() {
     setIsLoading(true);
     const { granted } = await requestForegroundPermissionsAsync();
@@ -55,21 +53,6 @@ export function Home() {
     }
   }
 
-  // Função que leva o mapa para a localização do usuário
-  function handleUserLocation() {
-    if (location) {
-      const { latitude, longitude } = location.coords;
-      const region = {
-        latitude,
-        longitude,
-        latitudeDelta: 0.01,
-        longitudeDelta: 0.01,
-      };
-      setMapRegion(region);
-      mapRef.current?.animateToRegion(region, 500);
-    }
-  };
-
   async function getAllWeatherStation(){
     const response = await weatherStationService.getAllWeatherStationsMap()
     if(response != null){
@@ -77,7 +60,6 @@ export function Home() {
     }
   }
 
-  // Função que obtem todas as estações favoritas
   async function getAllFavoriteWeatherStation(){
     const response = await weatherStationService.getAllStationFavoritesByUser()
     if(response != null){
@@ -99,27 +81,17 @@ export function Home() {
   }
 
   async function getAcessStationPendent(){
-      try {
-          const response = await weatherStationService.getAllStationWithAcessPendent();
-          if (response) {
-              setWeatherStationsWhithAcessPendent(response.data);
-          }
+    try {
+        const response = await weatherStationService.getAllStationWithAcessPendent();
+        if (response) {
+            setWeatherStationsWhithAcessPendent(response.data);
+        }
 
-      } catch (error) {
-        console.log("Erro")
-      }
-  }
-
-
-  // Função que obtem dados do sensor e abre o modal
-  async function getSensorInfo(sensorId : string){
-    const response = await sensorService.getSensorById(sensorId);
-    if(response){
-      setSensorInformation(response);
-      setOpenInfoSensor(true);
+    } catch (error) {
+      console.log("Erro")
     }
   }
-  
+
   async function getWeatherStationPhoto(stationid : string){
     const response = await weatherStationService.getWeatherStationPhoto(stationid)
     if(response){
@@ -127,6 +99,114 @@ export function Home() {
     }
   }
 
+  async function getSensorInfo(sensorId : string){
+    const response = await sensorService.getSensorById(sensorId);
+    if(response){
+      setSensorInformation(response);
+      setOpenInfoSensor(true);
+    }
+  }
+
+  async function handleFavorite(weatherStation: WeatherStationData) {
+    let isFavorite = false;
+    if (favoriteStation && Array.isArray(favoriteStation)) {
+        isFavorite = favoriteStation.some((station: WeatherStationData) => station.id === weatherStation.id);
+    }
+
+    try {
+        if (isFavorite) {
+            const response = await weatherStationService.removeWeatherStationFavorite(weatherStation);
+            if (response) {
+                getAllFavoriteWeatherStation()
+            }
+        } else {
+            // Se não está na lista, adicione
+            const response = await weatherStationService.addWeatherStationFavorite(weatherStation);
+            if (response) {
+                getAllFavoriteWeatherStation()
+            }
+        }
+    } catch (error) {
+        console.error("Erro ao processar a estação favorita:", error);
+    }
+  }
+
+  // Função de decisão para o botão do card da estação
+  async function handleButtonStationCard(weatherStationObject : WeatherStationData) {
+    if (!weatherStationObject.isPrivate) {
+      handleGoToStation(weatherStationObject.id || '1');
+    } else {
+      const hasAccess = weatherStationsWhithAcess?.some(station => station.id == weatherStationObject.id) || false;
+      const isAccessPending = weatherStationsWhithAcessPendent?.some(station => station.id == weatherStationObject.id) || false;
+  
+      if (hasAccess) {
+        handleGoToStation(weatherStationObject.id || '1');
+      } else if (!isAccessPending) {
+        setIsButtonCardLoading(true);
+        try {
+          const response = await weatherStationService.RequestAcessToTheWeatherStation(weatherStationObject.id);
+          if(response){
+            await getAcessStation();
+            await getAcessStationPendent();
+          }
+          console.log("Pedido de acesso", response)
+          
+        } catch (error) {
+          console.error("Erro ao solicitar acesso à estação:", error);
+        }
+        setIsButtonCardLoading(false);
+      }
+    }
+  }
+
+  function determineTitleButton(weatherStationObject : WeatherStationData){
+    if (weatherStationObject.isPrivate) {
+      if (weatherStationsWhithAcess && weatherStationsWhithAcess.some(station => station.id == weatherStationObject.id)) {
+        return "Acessar Estação";
+      } else if (weatherStationsWhithAcessPendent && weatherStationsWhithAcessPendent.some(station => station.id == weatherStationObject.id)) {
+        return "Acesso Solicitado";
+      } else {
+        return "Solicitar Acesso";
+      }
+    } else {
+      return "Acessar Estação";
+    }
+  }
+
+  function handleGoToStation(stationId: string) {
+    navigation.navigate('Station', { stationId: stationId })
+  }
+
+  function handleUserLocation() {
+    if (location) {
+      const { latitude, longitude } = location.coords;
+      const region = {
+        latitude,
+        longitude,
+        latitudeDelta: 0.01,
+        longitudeDelta: 0.01,
+      };
+      setMapRegion(region);
+      mapRef.current?.animateToRegion(region, 500);
+    }
+  };
+
+  function handleMenu() {
+    setIsDrawerVisible(true);
+    Animated.timing(drawerPosition, {
+        toValue: 0, 
+        duration: 300, 
+        useNativeDriver: true 
+    }).start();
+  }
+
+  function closeDrawer() {
+    Animated.timing(drawerPosition, {
+        toValue: -drawerWidth, 
+        duration: 300, 
+        useNativeDriver: true 
+    }).start(() => setIsDrawerVisible(false)); 
+  }
 
   const animateCard = () => {
     requestAnimationFrame(() => {
@@ -165,31 +245,9 @@ export function Home() {
     });
   };
 
-  function teste() {
-    console.log('teste');
-  }
-
-  function handleMenu() {
-    setIsDrawerVisible(true);
-    Animated.timing(drawerPosition, {
-        toValue: 0, 
-        duration: 300, 
-        useNativeDriver: true 
-    }).start();
-  }
-
-  function closeDrawer() {
-    Animated.timing(drawerPosition, {
-        toValue: -drawerWidth, 
-        duration: 300, 
-        useNativeDriver: true 
-    }).start(() => setIsDrawerVisible(false)); 
-  }
-
   const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: () => true,
     onMoveShouldSetPanResponder: (evt, gestureState) => {
-      // Permitir o gesto apenas se estiver se movendo da direita para a esquerda
       return gestureState.dx < 0;
     },
     onPanResponderMove: (evt, gestureState) => {
@@ -203,87 +261,11 @@ export function Home() {
       } else {
         Animated.spring(drawerPosition, {
           toValue: 0,
-          useNativeDriver: true,   // <-- Atualizado para true
+          useNativeDriver: true,
         }).start();
       }
     }
   });
-
-  async function handleFavorite(weatherStation: WeatherStationData) {
-    // Inicializa isFavorite como false por padrão
-    let isFavorite = false;
-
-    // Se favoriteStation não é null e é um array, verifica se weatherStation está na lista
-    if (favoriteStation && Array.isArray(favoriteStation)) {
-        isFavorite = favoriteStation.some((station: WeatherStationData) => station.id === weatherStation.id);
-    }
-
-    try {
-        if (isFavorite) {
-            // Se está na lista, remova
-            const response = await weatherStationService.removeWeatherStationFavorite(weatherStation);
-            if (response) {
-                getAllFavoriteWeatherStation()
-            }
-        } else {
-            // Se não está na lista, adicione
-            const response = await weatherStationService.addWeatherStationFavorite(weatherStation);
-            if (response) {
-                getAllFavoriteWeatherStation()
-            }
-        }
-    } catch (error) {
-        console.error("Erro ao processar a estação favorita:", error);
-    }
-  }
-
-  function handleGoToStation(stationId: string) {
-    navigation.navigate('Station', { stationId: stationId })
-  }
-
-  function determineTitleButton(weatherStationObject : WeatherStationData){
-    if (weatherStationObject.isPrivate) {
-      if (weatherStationsWhithAcess && weatherStationsWhithAcess.some(station => station.id == weatherStationObject.id)) {
-        return "Acessar Estação";
-      } else if (weatherStationsWhithAcessPendent && weatherStationsWhithAcessPendent.some(station => station.id == weatherStationObject.id)) {
-        return "Acesso Solicitado";
-      } else {
-        return "Solicitar Acesso";
-      }
-    } else {
-      return "Acessar Estação";
-    }
-  }
-
-  async function handleButtonStationCard(weatherStationObject : WeatherStationData) {
-    if (!weatherStationObject.isPrivate) {
-      handleGoToStation(weatherStationObject.id || '1');
-    } else {
-      const hasAccess = weatherStationsWhithAcess?.some(station => station.id == weatherStationObject.id) || false;
-      const isAccessPending = weatherStationsWhithAcessPendent?.some(station => station.id == weatherStationObject.id) || false;
-  
-      if (hasAccess) {
-        handleGoToStation(weatherStationObject.id || '1');
-      } else if (!isAccessPending) {
-        setIsButtonCardLoading(true);
-        try {
-          const response = await weatherStationService.RequestAcessToTheWeatherStation(weatherStationObject.id);
-          if(response){
-            await getAcessStation();
-            await getAcessStationPendent();
-          }
-          console.log("Pedido de acesso", response)
-          
-        } catch (error) {
-          console.error("Erro ao solicitar acesso à estação:", error);
-        }
-        setIsButtonCardLoading(false);
-      }
-    }
-  }
-  
-  
-
 
   useEffect(() => {
     if (openModal) {
@@ -328,9 +310,6 @@ export function Home() {
   //   return () => clearInterval(intervalId);
   // }, []);
 
-
-
-
   return (
     <View style={styles.container}>
       <LoadingModal isVisible={isLoading} />
@@ -359,7 +338,7 @@ export function Home() {
           }}
           style={styles.map}
         >
-          {weatherStations &&
+          {weatherStations && weatherStations.length > 0 &&
             weatherStations.map((station: WeatherStationData) => (
               <Marker 
                 coordinate={{

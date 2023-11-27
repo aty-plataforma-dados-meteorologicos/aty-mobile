@@ -44,6 +44,7 @@ export function ManegeAcessStation({ stationId } : Props){
 
     async function getUsersWhiAcessPendent(){
         const response = await service.getUserAcessByIdStation(stationId || '1', 10)
+        console.log(response)
         setUsersWhithAcessPendent(response.data)
     }
 
