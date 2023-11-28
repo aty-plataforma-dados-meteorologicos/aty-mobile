@@ -39,24 +39,29 @@ export function ManegeAcessStation({ stationId } : Props){
 
     async function getUsersWhiAcess(){
         const response = await service.getUserAcessByIdStation(stationId || '1', 20)
+        console.log(response)
         setUsersWhithAcess(response.data)
     }
 
     async function getUsersWhiAcessPendent(){
         const response = await service.getUserAcessByIdStation(stationId || '1', 10)
-        console.log(response)
         setUsersWhithAcessPendent(response.data)
     }
 
     async function handleConfirmUser(idUser : any){
         const response = await service.aceptRejectUserSolicitation(stationId, idUser, 20)
+        if(response){
+            getUsersWhiAcess()
+            getUsersWhiAcessPendent()
+        }
     }
 
     async function handleRejectDeleteUser(idUser : any){
         const response = await service.aceptRejectUserSolicitation(stationId, idUser, 30)
-        getUsersWhiAcess()
-        getUsersWhiAcessPendent()
-
+        if(response){
+            getUsersWhiAcess()
+            getUsersWhiAcessPendent()
+        }
     }
 
     function handleBack(){
@@ -102,9 +107,9 @@ export function ManegeAcessStation({ stationId } : Props){
                     {
                         usersWhithAcessPendent && usersWhithAcessPendent.length > 0 ? (
                             <PartnerContainer showsVerticalScrollIndicator={false} horizontal={true}>
-                                {chunkArray(usersWhithAcess, 3).map((usersWhithAcessGroup, groupIndex) => (
+                                {chunkArray(usersWhithAcessPendent, 3).map((usersWhithAcessPendentGroup, groupIndex) => (
                                     <View key={groupIndex} style={{ flexDirection: 'column', width: 350 }}>
-                                        {usersWhithAcessGroup.map((user: any) => (
+                                        {usersWhithAcessPendentGroup.map((user: any) => (
                                             <ManegeInformationCard 
                                                 key={user.userId}
                                                 title={user.userEmail}
