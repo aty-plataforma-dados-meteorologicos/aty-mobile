@@ -50,6 +50,8 @@ export function Home() {
       const currentPosition = await getCurrentPositionAsync();
       setLocation(currentPosition);
       setIsLoading(false);
+    } else {
+      setIsLoading(false)
     }
   }
 
@@ -297,20 +299,20 @@ export function Home() {
     getAcessStationPendent()
   }, [openModal]);
 
-  useEffect(() => {
-    const fetchData = () => {
-        getAllWeatherStation();
-        getAllFavoriteWeatherStation();
-        getAcessStation();
-        getAcessStationPendent();
-    };
+  // useEffect(() => {
+  //   const fetchData = () => {
+  //       getAllWeatherStation();
+  //       getAllFavoriteWeatherStation();
+  //       getAcessStation();
+  //       getAcessStationPendent();
+  //   };
 
-    fetchData();
+  //   fetchData();
 
-    const intervalId = setInterval(fetchData, 5000);
+  //   const intervalId = setInterval(fetchData, 5000);
 
-    return () => clearInterval(intervalId);
-  }, []);
+  //   return () => clearInterval(intervalId);
+  // }, []);
 
   return (
     <View style={styles.container}>

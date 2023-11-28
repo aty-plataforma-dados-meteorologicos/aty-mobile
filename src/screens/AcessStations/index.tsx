@@ -10,12 +10,25 @@ import WeatherStationData from "../../interfaces/weatherStation/WeatherStationDa
 
 export function AcessStations(){
     const [weatherStations, setWeatherStations] = useState<WeatherStationData[]>();
+    const [photos, setPhotos] = useState<Record<string, string>>({});
     const service = new WeatherStationsService();
     const navigate = useNavigation<StackType>();
 
     async function getAcessStation(){
         const response = await service.getAllAcessStation()
         setWeatherStations(response.data)
+        loadPhotos(response.data)
+    }
+
+    async function loadPhotos(stations: WeatherStationData[]) {
+        const newPhotos = {};
+        for (const station of stations) {
+            const response = await service.getWeatherStationPhoto(station.id);
+            if (response) {
+                newPhotos[station.id] = response;
+            }
+        }
+        setPhotos(newPhotos);
     }
 
 
@@ -48,7 +61,7 @@ export function AcessStations(){
                                 onPressIcon={() => handleStation(item.id || '1')}
                                 title={item.name || "Estação sem nome"}
                                 subtitle={item.isPrivate ? "Estação Privada" : "Estação Pública"}
-                                imageUri={item.photoBase64 || undefined}
+                                imageUri={photos[item.id] || undefined}
                             />
                         ))
                     ) : (

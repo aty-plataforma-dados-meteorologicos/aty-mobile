@@ -13,6 +13,7 @@ import { AcessStations } from "../screens/AcessStations";
 import { Exit } from "./exit";
 import { Test } from "../screens/Test";
 import { PerfilEdit } from "../screens/PerfilEdit";
+import { ResetPassword } from "../screens/ResetPassword";
 
 const Stack = createStackNavigator()
 
@@ -34,6 +35,10 @@ export default function StackRoutes(){
             <Stack.Screen 
                 name="RegisterUser"
                 component={RegisterUser}
+            />
+             <Stack.Screen 
+                name="ResetPassword"
+                component={ResetPassword}
             />
             <Stack.Screen 
                 name="Home"

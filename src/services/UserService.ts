@@ -125,6 +125,28 @@ class UserService {
         }
     }
 
+    public async requestCodeResetPassword(email : string) : Promise<Boolean> {
+        try {
+            const response = await api.post('Users/ResetPassword', { email: email });
+            if(response.status == 200)
+                return true;
+            return false;
+        } catch (error : any) {
+            return false;
+        }
+    }
+
+    public async resetPassword(email : string, password : string, code : number) : Promise<Boolean> {
+        try {
+            const response = await api.put('Users/ResetPassword', { email: email, password : password, code : code });
+            if(response.status == 200)
+                return true;
+            return false;
+        } catch (error : any) {
+            return false;
+        }
+    }
+
 }
 
 export default UserService;

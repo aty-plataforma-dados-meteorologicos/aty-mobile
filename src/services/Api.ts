@@ -8,6 +8,7 @@ export interface CustomAxiosRequestConfig extends AxiosRequestConfig {
 // Cria uma instância do Axios
 const api = axios.create({
   baseURL: 'http://62.72.9.154:5121/api/',
+  // baseURL: 'https://68af-2804-d55-49c8-400-1532-55c5-9128-544d.ngrok.io/api/'
 });
 
 // Interceptor de requisição para adicionar o token ao header

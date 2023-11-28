@@ -50,6 +50,7 @@ export function RegisterStation(){
     const [showModalSensor, setShowModalSensor] = useState(false);
     const [showModalLocation, setShowModalLocation] = useState(false);
     const [showModalImage, setShowModalImage] = useState(false);
+    const [loading, setLoading] = useState(false)
     const [partner, setPartner] = useState<PartnerData>();
     const [editingPartnerIndex, setEditingPartnerIndex] = useState<number | null>(null);
     const serviceSensor = new SensorService();
@@ -139,13 +140,13 @@ export function RegisterStation(){
     }
 
     async function RegisterStation(station : WeatherStationData) {
+        setLoading(true)
         const isValid = isWeatherStationValid(station);
-        console.log(weatherStation)
-
         if(isValid){
             try {
                 const response = await serviceWeatherStation.createWeatherStation(station)
                 if(response){
+                    setLoading(false)
                     Toast.show({
                         type: 'success',
                         text1: 'Estação criada com sucesso',
@@ -164,6 +165,7 @@ export function RegisterStation(){
         } else {
             Alert.alert("Atenção", "Os campos Nome, Latitude, Longitude, Altitude a nível do mar e Sensores devem ser preenchidos.");
         }
+        setLoading(false)
     }
 
     function chunkArray(myArray : any, chunk_size : any){
@@ -308,7 +310,7 @@ export function RegisterStation(){
 
                     <ContainerButtons>
                         <Button title={weatherStation.photoBase64 ? "Adicionar nova foto" : "Adicionar Foto"} onPress={() => setShowModalImage(true)} color="SECONDARY" />
-                        <Button title="Cadastrar Estação" onPress={() => RegisterStation(weatherStation)} color="PRIMARY" />
+                        <Button title="Cadastrar Estação" onPress={() => RegisterStation(weatherStation)} color="PRIMARY" isLoading={loading} />
                     </ContainerButtons>
                 </FormContainer>
             </KeyboardAwareScrollView>

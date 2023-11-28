@@ -18,4 +18,13 @@ export const ContainerButton = styled.View`
     justify-items: center;
     justify-content: flex-end;
     margin-bottom: 40px;
+    gap: 20px;
+`
+
+export const TimerText = styled.Text`
+    width: 300px;
+    font-family: ${({theme}) => theme.FONT_FAMILY.REGULAR};
+    font-size: ${({theme}) => theme.FONT_SIZE.MD}px;
+    color: ${({theme}) => theme.COLORS.WHITE};
+    text-align: center;
 `
