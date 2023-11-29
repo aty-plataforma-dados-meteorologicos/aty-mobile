@@ -35,6 +35,7 @@ export function Home() {
   const [openPicture, setOpenPicture] = useState(false);
   const [openInfoSensor, setOpenInfoSensor] = useState(false);
   const [mapRegion, setMapRegion] = useState<any>(null);
+  const [showMap, setShowMap] = useState<boolean>(false);
   const stationCardYPosition = useRef(new Animated.Value(500)).current;
   const drawerPosition = useRef(new Animated.Value(-drawerWidth)).current;
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -45,13 +46,30 @@ export function Home() {
 
   async function requestUserLocationPermission() {
     setIsLoading(true);
-    const { granted } = await requestForegroundPermissionsAsync();
-    if (granted) {
-      const currentPosition = await getCurrentPositionAsync();
-      setLocation(currentPosition);
-      setIsLoading(false);
-    } else {
-      setIsLoading(false)
+
+    // Definindo um tempo limite
+    const timeout = setTimeout(() => {
+        console.log("Tempo de localização excedido");
+        setIsLoading(false);
+    }, 8000); // 8 segundos
+
+    try {
+        const { granted } = await requestForegroundPermissionsAsync();
+        if (granted) {
+            const currentPosition = await getCurrentPositionAsync();
+            setLocation(currentPosition);
+            setShowMap(true);
+        }
+    } catch (error) {
+        console.log("Erro ao obter localização:", error);
+        clearTimeout(timeout);
+        setIsLoading(false);
+        setShowMap(true);
+    } finally {
+        // Limpar o timeout e definir o carregamento para false
+        clearTimeout(timeout);
+        setIsLoading(false);
+        setShowMap(true);
     }
   }
 
@@ -322,7 +340,7 @@ export function Home() {
       </View>
 
       {/* Mapa da Aplicação */}
-      {location && (
+      {showMap && (
         <MapView
           provider="google"
           ref={mapRef}

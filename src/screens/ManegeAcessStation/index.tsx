@@ -39,7 +39,6 @@ export function ManegeAcessStation({ stationId } : Props){
 
     async function getUsersWhiAcess(){
         const response = await service.getUserAcessByIdStation(stationId || '1', 20)
-        console.log(response)
         setUsersWhithAcess(response.data)
     }
 
@@ -50,6 +49,7 @@ export function ManegeAcessStation({ stationId } : Props){
 
     async function handleConfirmUser(idUser : any){
         const response = await service.aceptRejectUserSolicitation(stationId, idUser, 20)
+        console.log(response)
         if(response){
             getUsersWhiAcess()
             getUsersWhiAcessPendent()

@@ -7,6 +7,7 @@ import WeatherStationData from "src/interfaces/WeatherStation/WeatherStationData
 import WeatherStationResponse from "src/interfaces/WeatherStation/WeatherStationResponse";
 import { err } from "react-native-svg/lib/typescript/xml";
 import * as Notification from "expo-notifications"
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export class WeatherStationsService {
     public async getAllWeatherStations() : Promise<WeatherStationResponse> {
@@ -27,6 +28,32 @@ export class WeatherStationsService {
         }
     }
 
+    // public async getAllWeatherStationByMantainer() : Promise<WeatherStationResponse>{
+    //     try {
+    //         const response = await api.get('WeatherStations/Maintainers?pageSize=500')
+    //         if(response.status === 200)
+    //             return response.data;
+    //         return {} as WeatherStationResponse;
+    //     } catch (error: any) {
+    //         if(error.response.status === 403){
+    //             const tokenString = await AsyncStorage.getItem('userToken');
+    //             const tokenObj = JSON.parse(tokenString || '{}');
+    //             const token = tokenObj.token;
+
+    //             // Fazer a requisição usando fetch
+    //             const response = await fetch('http://62.72.9.154:5121/api/Maintainers?pageSize=500', {
+    //                 method: 'GET',
+    //                 headers: {
+    //                     'Authorization': `Bearer ${token}`,
+    //                     'Content-Type': 'application/json'
+    //                 }
+    //             });
+
+    //             console.log(response)
+    //         }
+    //     }
+    // }
+
     public async getAllWeatherStationByMantainer() : Promise<WeatherStationResponse>{
         try {
             const response = await api.get('WeatherStations/Maintainers?pageSize=500')
@@ -34,9 +61,30 @@ export class WeatherStationsService {
                 return response.data;
             return {} as WeatherStationResponse;
         } catch (error: any) {
-            throw new Error(error);
+            return {} as WeatherStationResponse;
+                console.log(error)
         }
     }
+
+    // public async getAllWeatherStationByMantainer(){
+    //     const tokenString = await AsyncStorage.getItem('userToken');
+    //             const tokenObj = JSON.parse(tokenString || '{}');
+    //             const token = tokenObj.token;
+
+    //             console.log(token)
+
+    //             // Fazer a requisição usando fetch
+    //             const response = await fetch('http://62.72.9.154:5121/api/Maintainers?pageSize=500', {
+    //                 method: 'GET',
+    //                 headers: {
+    //                     'Authorization': `Bearer ${token}`,
+    //                     'Content-Type': 'application/json'
+    //                 }
+    //             });
+
+    //             console.log(response)
+    // }
+
 
     public async getAllWeatherStationsPerPage(text : string) : Promise<WeatherStationResponse> {
         try {
