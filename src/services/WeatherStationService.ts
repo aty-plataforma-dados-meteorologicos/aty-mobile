@@ -249,7 +249,7 @@ export class WeatherStationsService {
         }
     }
 
-    public async aceptRejectUserSolicitation(idStation: any, idUser: any, auth: any) : Promise<WeatherStationResponse> {
+    public async aceptRejectUserSolicitation(idStation: any, idUser: any, auth: any) {
         try {
             const response = await api.put(`WeatherStations/${idStation}/DataAccessRequests/${idUser}?newAuth=${auth}`);
             return response.data;

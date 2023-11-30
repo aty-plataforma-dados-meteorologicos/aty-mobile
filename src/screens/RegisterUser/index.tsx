@@ -81,6 +81,8 @@ export function RegisterUser(){
                         ]
                       );
                 }
+            } else {
+                setIsLoading(false)
             }
         } catch (error) {
             setIsLoading(false)
@@ -100,11 +102,11 @@ export function RegisterUser(){
                     <Subtitle>Cadastre-se na plataforma</Subtitle>
                 </ContainerTitle>
                 <ContainerInput>
-                    <Input titleInput="Nome" placeholder="Insira o nome" onChangeText={(text) => handleInputChange('name', text)}/>
-                    <Input titleInput="Email" placeholder="Insira o email" onChangeText={(text) => handleInputChange('email', text)}/>
-                    <Input titleInput="Senha" placeholder="Insira o senha" onChangeText={(text) => handleInputChange('password', text)} onBlur={() => handlePasswordBlur('password')} secureTextEntry/>
+                    <Input titleInput="Nome *" placeholder="Insira o nome" onChangeText={(text) => handleInputChange('name', text)}/>
+                    <Input titleInput="Email *" placeholder="Insira o email" onChangeText={(text) => handleInputChange('email', text)}/>
+                    <Input titleInput="Senha *" placeholder="Insira o senha" onChangeText={(text) => handleInputChange('password', text)} onBlur={() => handlePasswordBlur('password')} secureTextEntry/>
                     <Input titleInput="Repita a senha" placeholder="Insira a senha novamente" onChangeText={(text) => handleInputChange('passwordRepeat', text)} onBlur={() => handlePasswordBlur('passwordRepeat')} secureTextEntry/>
-                    <RadioCheck titleInput="Tipo do Usuário" arrayText={typeUser} onClick={(value) => handleInputChange('type', value)} isCheck={user.type} />
+                    <RadioCheck titleInput="Tipo do Usuário *" arrayText={typeUser} onClick={(value) => handleInputChange('type', value)} isCheck={user.type} />
                 </ContainerInput>
                 <ContainerButton>
                     <Button title="Cadastrar" color="PRIMARY" onPress={handleLogin} isLoading={isloading} />

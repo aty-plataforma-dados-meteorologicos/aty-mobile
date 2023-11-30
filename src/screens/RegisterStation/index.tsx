@@ -193,20 +193,20 @@ export function RegisterStation(){
             <KeyboardAwareScrollView contentContainerStyle={{ flexGrow: 1 }}>
                 <FormContainer>
                     <Input 
-                        titleInput="Nome da Estação" 
+                        titleInput="Nome da Estação *" 
                         placeholder="Insira o nome da estação"
                         onChangeText={(text) => setWeatherStation((prev : any) => ({ ...prev, name: text }))}
                     />
 
                     <LocationContainer>
                         <InputLocation 
-                            titleInput="Latitude"
+                            titleInput="Latitude *"
                             placeholder="Insira a Latitude"
                             value={weatherStation.latitude}
                             onChangeText={(text) => setWeatherStation((prev : any) => ({ ...prev, latitude: text }))}
                         />
                         <InputLocation 
-                            titleInput="Longitude"
+                            titleInput="Longitude *"
                             placeholder="Insira a Longitude"
                             value={weatherStation.longitude}
                             onChangeText={(text) => setWeatherStation((prev : any) => ({ ...prev, longitude: text }))}
@@ -217,14 +217,14 @@ export function RegisterStation(){
                     </LocationContainer>
 
                     <Input 
-                        titleInput="Altura a nivel do mar" 
+                        titleInput="Altura a nivel do mar *" 
                         placeholder="Insira altura a nivel do mar"
                         keyboardType="num"
                         value={weatherStation.altitudeMSL}
                         onChangeText={(text) => setWeatherStation((prev : any) => ({ ...prev, altitudeMSL: text }))}
                     />
 
-                    <TitlePartnerSensorContainer>Sensores</TitlePartnerSensorContainer>
+                    <TitlePartnerSensorContainer>Sensores *</TitlePartnerSensorContainer>
                     { sensors && sensors.length > 0 && (
                         <SensorPartnerContainer showsHorizontalScrollIndicator={true} horizontal={true} >
                             {chunkArray(sensors, 3).map((sensorGroup, groupIndex) => (

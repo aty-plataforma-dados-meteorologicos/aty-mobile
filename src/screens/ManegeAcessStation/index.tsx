@@ -7,113 +7,109 @@ import { ListEmpty } from "../../components/ListEmpty";
 import { StackType } from "../../interfaces/routes/routs";
 import WeatherStationData from "../../interfaces/weatherStation/WeatherStationData";
 import { ManegeInformationCard } from "../../components/ManegeInformationCard";
-import { Alert, View } from "react-native";
-import MantainerData from "../../interfaces/weatherStation/MantainerData";
+import { View } from "react-native";
 
 type Props = {
     stationId?: string;
 }
 
-export function ManegeAcessStation({ stationId } : Props){
-    const [weatherStation, setWeatherStation] = useState<WeatherStationData>(
-        {
-            id: '0',
-            name: '',
-            latitude: '',
-            longitude: '',
-            altitudeMSL: '',
-            partners: [],
-            photoBase64: '',
-            sensors: [],
-        }
-    );
-    const [usersWhithAcess, setUsersWhithAcess] = useState<any[]>();
-    const [usersWhithAcessPendent, setUsersWhithAcessPendent] = useState<any[]>();
+export function ManegeAcessStation({ stationId }: Props) {
+    const [weatherStation, setWeatherStation] = useState<WeatherStationData>({
+        id: '0',
+        name: '',
+        latitude: '',
+        longitude: '',
+        altitudeMSL: '',
+        partners: [],
+        photoBase64: '',
+        sensors: [],
+    });
+    const [usersWithAcess, setUsersWithAcess] = useState<any[]>([]);
+    const [usersWithAcessPendent, setUsersWithAcessPendent] = useState<any[]>([]);
+    const [usersWithAcessGroups, setUsersWithAcessGroups] = useState<any[][]>([]);
+    const [usersWithAcessPendentGroups, setUsersWithAcessPendentGroups] = useState<any[][]>([]);
+
     const service = new WeatherStationsService();
     const navigate = useNavigation<StackType>();
 
-    async function getStation(){
-        const response = await service.getWeatherStationById(stationId || '1')
-        setWeatherStation(response)
+    async function getStation() {
+        const response = await service.getWeatherStationById(stationId || '1');
+        setWeatherStation(response);
     }
 
-    async function getUsersWhiAcess(){
-        const response = await service.getUserAcessByIdStation(stationId || '1', 20)
-        setUsersWhithAcess(response.data)
+    async function getUsersWithAcess() {
+        const response = await service.getUserAcessByIdStation(stationId || '1', 20);
+        setUsersWithAcess(response.data);
     }
 
-    async function getUsersWhiAcessPendent(){
-        const response = await service.getUserAcessByIdStation(stationId || '1', 10)
-        setUsersWhithAcessPendent(response.data)
+    async function getUsersWithAcessPendent() {
+        const response = await service.getUserAcessByIdStation(stationId || '1', 10);
+        setUsersWithAcessPendent(response.data);
     }
 
-    async function handleConfirmUser(idUser : any){
-        const response = await service.aceptRejectUserSolicitation(stationId, idUser, 20)
-        console.log(response)
-        if(response){
-            getUsersWhiAcess()
-            getUsersWhiAcessPendent()
+    async function handleConfirmUser(idUser: any) {
+        const response = await service.aceptRejectUserSolicitation(stationId, idUser, 20);
+        if (response) {
+            getUsersWithAcess();
+            getUsersWithAcessPendent();
         }
     }
 
-    async function handleRejectDeleteUser(idUser : any){
-        const response = await service.aceptRejectUserSolicitation(stationId, idUser, 30)
-        if(response){
-            getUsersWhiAcess()
-            getUsersWhiAcessPendent()
+    async function handleRejectDeleteUser(idUser: any) {
+        const response = await service.aceptRejectUserSolicitation(stationId, idUser, 30);
+        if (response) {
+            getUsersWithAcess();
+            getUsersWithAcessPendent();
         }
     }
 
-    function handleBack(){
-        navigate.navigate("Home")
+    function handleBack() {
+        navigate.navigate("Home");
     }
 
-    function chunkArray(myArray, chunk_size) {
-        // Verificação inicial para garantir que myArray é um array válido
+    function chunkArray(myArray: any[], chunk_size: number) {
         if (!Array.isArray(myArray) || myArray.length === 0) {
-            // Retorna um array vazio ou realiza outra ação conforme necessário
             return [];
         }
     
-        let index = 0;
-        const arrayLength = myArray.length;
         let tempArray = [];
-        
-        for (index = 0; index < arrayLength; index += chunk_size) {
+        for (let index = 0; index < myArray.length; index += chunk_size) {
             let chunk = myArray.slice(index, index + chunk_size);
             tempArray.push(chunk);
         }
     
         return tempArray;
     }
-    
-    
 
     useEffect(() => {
-        getStation()
-        getUsersWhiAcess()
-        getUsersWhiAcessPendent()
-    }, [])
+        getStation();
+        getUsersWithAcess();
+        getUsersWithAcessPendent();
+    }, []);
 
-    return(
+    useEffect(() => {
+        setUsersWithAcessGroups(chunkArray(usersWithAcess, 3));
+        setUsersWithAcessPendentGroups(chunkArray(usersWithAcessPendent, 3));
+    }, [usersWithAcess, usersWithAcessPendent]);
+
+    return (
         <Container>
-            <HeaderApp title={weatherStation?.name || "Estação Meteorológica"} onMenuPress={handleBack}/>
+            <HeaderApp title={weatherStation?.name || "Estação Meteorológica"} onMenuPress={handleBack} />
             <ListContainer>
-
                 <ItemContainer>
                     <PartnerHeader>
                         <TitlePartnerSensorContainer>Acessos Solicitados</TitlePartnerSensorContainer>
                     </PartnerHeader>
-                    {
-                        usersWhithAcessPendent && usersWhithAcessPendent.length > 0 ? (
+                    { usersWithAcessPendent &&
+                        usersWithAcessPendent.length > 0 ? (
                             <PartnerContainer showsVerticalScrollIndicator={false} horizontal={true}>
-                                {chunkArray(usersWhithAcessPendent, 3).map((usersWhithAcessPendentGroup, groupIndex) => (
+                                {usersWithAcessPendentGroups.map((group, groupIndex) => (
                                     <View key={groupIndex} style={{ flexDirection: 'column', width: 350 }}>
-                                        {usersWhithAcessPendentGroup.map((user: any) => (
-                                            <ManegeInformationCard 
+                                        {group.map((user: any) => (
+                                            <ManegeInformationCard
                                                 key={user.userId}
                                                 title={user.userEmail}
-                                                hideBackground 
+                                                hideBackground
                                                 showDelete
                                                 showConfirm
                                                 onPressConfirm={() => handleConfirmUser(user.userId)}
@@ -135,16 +131,16 @@ export function ManegeAcessStation({ stationId } : Props){
                     <PartnerHeader>
                         <TitlePartnerSensorContainer>Acessos Concedidos</TitlePartnerSensorContainer>
                     </PartnerHeader>
-                    {
-                        usersWhithAcess && usersWhithAcess.length > 0 ? (
+                    { usersWithAcess &&
+                        usersWithAcess.length > 0 ? (
                             <PartnerContainer showsVerticalScrollIndicator={false} horizontal={true}>
-                                {chunkArray(usersWhithAcess, 3).map((usersWhithAcessGroup, groupIndex) => (
+                                {usersWithAcessGroups.map((group, groupIndex) => (
                                     <View key={groupIndex} style={{ flexDirection: 'column', width: 350 }}>
-                                        {usersWhithAcessGroup.map((user: any) => (
-                                            <ManegeInformationCard 
+                                        {group.map((user: any) => (
+                                            <ManegeInformationCard
                                                 key={user.userId}
                                                 title={user.userEmail}
-                                                hideBackground 
+                                                hideBackground
                                                 showDelete
                                                 onPressDelete={() => handleRejectDeleteUser(user.userId)}
                                             />
@@ -159,8 +155,7 @@ export function ManegeAcessStation({ stationId } : Props){
                         )
                     }
                 </ItemContainer>
-
             </ListContainer>
         </Container>
-    )
+    );
 }
