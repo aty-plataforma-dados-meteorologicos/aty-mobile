@@ -7,87 +7,113 @@ import { ListEmpty } from "../../components/ListEmpty";
 import { StackType } from "../../interfaces/routes/routs";
 import WeatherStationData from "../../interfaces/weatherStation/WeatherStationData";
 import { ManegeInformationCard } from "../../components/ManegeInformationCard";
-import { Alert, View } from "react-native";
-import MantainerData from "../../interfaces/weatherStation/MantainerData";
+import { View } from "react-native";
 
 type Props = {
     stationId?: string;
 }
 
-export function ManegeAcessStation({ stationId } : Props){
-    const [weatherStation, setWeatherStation] = useState<WeatherStationData>(
-        {
-            id: '0',
-            name: '',
-            latitude: '',
-            longitude: '',
-            altitudeMSL: '',
-            partners: [],
-            image: '',
-            sensors: [],
-        }
-    );
-    const [mantainer, setMantainer] = useState<MantainerData[]>();
+export function ManegeAcessStation({ stationId }: Props) {
+    const [weatherStation, setWeatherStation] = useState<WeatherStationData>({
+        id: '0',
+        name: '',
+        latitude: '',
+        longitude: '',
+        altitudeMSL: '',
+        partners: [],
+        photoBase64: '',
+        sensors: [],
+    });
+    const [usersWithAcess, setUsersWithAcess] = useState<any[]>([]);
+    const [usersWithAcessPendent, setUsersWithAcessPendent] = useState<any[]>([]);
+    const [usersWithAcessGroups, setUsersWithAcessGroups] = useState<any[][]>([]);
+    const [usersWithAcessPendentGroups, setUsersWithAcessPendentGroups] = useState<any[][]>([]);
+
     const service = new WeatherStationsService();
     const navigate = useNavigation<StackType>();
 
-    async function getStation(){
-        const response = await service.getWeatherStationById(stationId || '1')
-        setWeatherStation(response)
+    async function getStation() {
+        const response = await service.getWeatherStationById(stationId || '1');
+        setWeatherStation(response);
     }
 
-    async function getMaintainers(){
-        const response = await service.getAllMaintainersByWeatherStationId(stationId || '1')
-        setMantainer(response.data)
+    async function getUsersWithAcess() {
+        const response = await service.getUserAcessByIdStation(stationId || '1', 20);
+        setUsersWithAcess(response.data);
     }
 
-    function handleBack(){
-        navigate.navigate("Home")
+    async function getUsersWithAcessPendent() {
+        const response = await service.getUserAcessByIdStation(stationId || '1', 10);
+        setUsersWithAcessPendent(response.data);
     }
 
-    function chunkArray(myArray : any, chunk_size : any){
-        let index = 0;
-        let arrayLength = myArray.length;
+    async function handleConfirmUser(idUser: any) {
+        const response = await service.aceptRejectUserSolicitation(stationId, idUser, 20);
+        if (response) {
+            getUsersWithAcess();
+            getUsersWithAcessPendent();
+        }
+    }
+
+    async function handleRejectDeleteUser(idUser: any) {
+        const response = await service.aceptRejectUserSolicitation(stationId, idUser, 30);
+        if (response) {
+            getUsersWithAcess();
+            getUsersWithAcessPendent();
+        }
+    }
+
+    function handleBack() {
+        navigate.navigate("Home");
+    }
+
+    function chunkArray(myArray: any[], chunk_size: number) {
+        if (!Array.isArray(myArray) || myArray.length === 0) {
+            return [];
+        }
+    
         let tempArray = [];
-        
-        for (index = 0; index < arrayLength; index += chunk_size) {
-            let chunk = myArray.slice(index, index+chunk_size);
+        for (let index = 0; index < myArray.length; index += chunk_size) {
+            let chunk = myArray.slice(index, index + chunk_size);
             tempArray.push(chunk);
         }
     
         return tempArray;
     }
-    
 
     useEffect(() => {
-        getStation()
-        getMaintainers()
-    }, [])
+        getStation();
+        getUsersWithAcess();
+        getUsersWithAcessPendent();
+    }, []);
 
-    return(
+    useEffect(() => {
+        setUsersWithAcessGroups(chunkArray(usersWithAcess, 3));
+        setUsersWithAcessPendentGroups(chunkArray(usersWithAcessPendent, 3));
+    }, [usersWithAcess, usersWithAcessPendent]);
+
+    return (
         <Container>
-            <HeaderApp title={weatherStation?.name || "Estação Meteorológica"} onMenuPress={handleBack}/>
+            <HeaderApp title={weatherStation?.name || "Estação Meteorológica"} onMenuPress={handleBack} />
             <ListContainer>
-
                 <ItemContainer>
                     <PartnerHeader>
-                        <TitlePartnerSensorContainer>Acessos Concedidos</TitlePartnerSensorContainer>
+                        <TitlePartnerSensorContainer>Acessos Solicitados</TitlePartnerSensorContainer>
                     </PartnerHeader>
-                    {
-                        mantainer && mantainer.length > 0 ? (
+                    { usersWithAcessPendent &&
+                        usersWithAcessPendent.length > 0 ? (
                             <PartnerContainer showsVerticalScrollIndicator={false} horizontal={true}>
-                                {chunkArray(mantainer, 3).map((mantainerGroup, groupIndex) => (
+                                {usersWithAcessPendentGroups.map((group, groupIndex) => (
                                     <View key={groupIndex} style={{ flexDirection: 'column', width: 350 }}>
-                                        {mantainerGroup.map((mantainer: any) => (
-                                            <ManegeInformationCard 
-                                                key={mantainer.applicationUserId}
-                                                title={mantainer.applicationUserName}
-                                                email={mantainer.applicationUserEmail}
-                                                hideBackground 
+                                        {group.map((user: any) => (
+                                            <ManegeInformationCard
+                                                key={user.userId}
+                                                title={user.userEmail}
+                                                hideBackground
                                                 showDelete
                                                 showConfirm
-                                                onPressConfirm={() => console.log(mantainer.applicationUserId)}
-                                                onPressDelete={() => console.log(mantainer.applicationUserId)}
+                                                onPressConfirm={() => handleConfirmUser(user.userId)}
+                                                onPressDelete={() => handleRejectDeleteUser(user.userId)}
                                             />
                                         ))}
                                     </View>
@@ -95,7 +121,7 @@ export function ManegeAcessStation({ stationId } : Props){
                             </PartnerContainer>
                         ) : (
                             <PartnerContainer contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}>
-                                <ListEmpty message="Nenhum mantenedor cadastrado" />
+                                <ListEmpty message="Nenhum acesso solicitado" />
                             </PartnerContainer>
                         )
                     }
@@ -105,19 +131,18 @@ export function ManegeAcessStation({ stationId } : Props){
                     <PartnerHeader>
                         <TitlePartnerSensorContainer>Acessos Concedidos</TitlePartnerSensorContainer>
                     </PartnerHeader>
-                    {
-                        mantainer && mantainer.length > 0 ? (
+                    { usersWithAcess &&
+                        usersWithAcess.length > 0 ? (
                             <PartnerContainer showsVerticalScrollIndicator={false} horizontal={true}>
-                                {chunkArray(mantainer, 3).map((mantainerGroup, groupIndex) => (
+                                {usersWithAcessGroups.map((group, groupIndex) => (
                                     <View key={groupIndex} style={{ flexDirection: 'column', width: 350 }}>
-                                        {mantainerGroup.map((mantainer: any) => (
-                                            <ManegeInformationCard 
-                                                key={mantainer.applicationUserId}
-                                                title={mantainer.applicationUserName}
-                                                email={mantainer.applicationUserEmail}
-                                                hideBackground 
+                                        {group.map((user: any) => (
+                                            <ManegeInformationCard
+                                                key={user.userId}
+                                                title={user.userEmail}
+                                                hideBackground
                                                 showDelete
-                                                onPressDelete={() => console.log(mantainer.applicationUserId)}
+                                                onPressDelete={() => handleRejectDeleteUser(user.userId)}
                                             />
                                         ))}
                                     </View>
@@ -125,13 +150,12 @@ export function ManegeAcessStation({ stationId } : Props){
                             </PartnerContainer>
                         ) : (
                             <PartnerContainer contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}>
-                                <ListEmpty message="Nenhum mantenedor cadastrado" />
+                                <ListEmpty message="Nenhum acesso concedido" />
                             </PartnerContainer>
                         )
                     }
                 </ItemContainer>
-
             </ListContainer>
         </Container>
-    )
+    );
 }

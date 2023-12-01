@@ -6,6 +6,7 @@ import theme from './src/theme';
 import React from 'react';
 import { Routes } from './src/routes';
 import 'react-native-gesture-handler';
+import Toast from 'react-native-toast-message'
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -36,6 +37,7 @@ export default function App() {
         backgroundColor="transparent"
       />
       <Routes />
+      <Toast />
     </ThemeProvider>
   )
 }

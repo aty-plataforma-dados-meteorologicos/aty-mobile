@@ -10,6 +10,7 @@ import { WeatherStationsService } from "../services/WeatherStationService";
 import { InfoStation } from "../screens/InfoStation";
 import { EditStation } from "../screens/EditStation";
 import { ManegeAcessStation } from "../screens/ManegeAcessStation";
+import WeatherStationData from "../interfaces/WeatherStation/WeatherStationData";
 
 
 const Tab = createBottomTabNavigator()
@@ -18,6 +19,7 @@ export default function TabRoutes({ route }: { route: RouteProp<StackNavigation>
 
     const stationId  = route.params?.stationId;
     const [isMaintainer, setIsMaintainer] = useState<boolean>(false);
+    const [station, setStation] = useState<WeatherStationData>();
     const service = new WeatherStationsService();
 
     async function isMaintainerStation() {
@@ -26,8 +28,7 @@ export default function TabRoutes({ route }: { route: RouteProp<StackNavigation>
             if (!Array.isArray(response.data)) {
                 return;
             }
-    
-            const stationExists = response.data.some(station => station.id && station.id === stationId);
+            const stationExists = response.data.some(station => station.id && station.id == stationId);
             setIsMaintainer(stationExists);
     
         } catch (error) {
@@ -38,7 +39,9 @@ export default function TabRoutes({ route }: { route: RouteProp<StackNavigation>
     async function getStation(){
         try {
             const response = await service.getWeatherStationById(stationId || '');
-            console.log(response)
+            if(response){
+                setStation(response)
+            }
         } catch (error) {
             console.error("Erro ao verificar se é mantenedor:", error);
         }
@@ -47,6 +50,7 @@ export default function TabRoutes({ route }: { route: RouteProp<StackNavigation>
 
     useEffect(() => {
         isMaintainerStation()
+        getStation()
     }
     , [])
 
@@ -59,7 +63,6 @@ export default function TabRoutes({ route }: { route: RouteProp<StackNavigation>
             tabBarLabelStyle: {
                 fontSize: 11,
               } }}
-
             initialRouteName="Dashboard">
             <Tab.Screen
                 name="Dashboard"
@@ -67,7 +70,8 @@ export default function TabRoutes({ route }: { route: RouteProp<StackNavigation>
                     title: "Sensores",
                     tabBarIcon: ({ focused }) => (
                         <FontAwesomeIcon icon={faChartPie} size={30} color={focused ? '#1B81F5' : 'white'} />
-                    )
+                    ),
+                    unmountOnBlur: true
                 }}
             >
                 {() => <PanoramStation stationId={stationId} />}
@@ -79,7 +83,8 @@ export default function TabRoutes({ route }: { route: RouteProp<StackNavigation>
                     title: "Informações",
                     tabBarIcon: ({ focused }) => (
                         <FontAwesomeIcon icon={faCircleInfo} size={30} color={focused ? '#1B81F5' : 'white'} />
-                    )
+                    ),
+                    unmountOnBlur: true
                 }}
             >
                 {() => <InfoStation stationId={stationId} />}
@@ -92,23 +97,28 @@ export default function TabRoutes({ route }: { route: RouteProp<StackNavigation>
                             title: "Editar",
                             tabBarIcon: ({ focused }) => (
                                 <FontAwesomeIcon icon={faPen} size={30} color={focused ? '#1B81F5' : 'white'} />
-                            )
+                            ),
+                            unmountOnBlur: true
                         }}
                     >
                         {() => <EditStation stationId={stationId} />}
                     </Tab.Screen>
 
-                    <Tab.Screen
-                        name="Acess"
-                        options={{
-                            title: "Acessos",
-                            tabBarIcon: ({ focused }) => (
-                                <FontAwesomeIcon icon={faUserLock} size={30} color={focused ? '#1B81F5' : 'white'} />
-                            )
-                        }}
-                    >
-                        {() => <ManegeAcessStation stationId={stationId} />}
-                    </Tab.Screen>
+                    {station?.isPrivate == true && (
+                        <Tab.Screen
+                            name="Acess"
+                            options={{
+                                title: "Acessos",
+                                tabBarIcon: ({ focused }) => (
+                                    <FontAwesomeIcon icon={faUserLock} size={30} color={focused ? '#1B81F5' : 'white'} />
+                                ),
+                                unmountOnBlur: true
+                            }}
+                        >
+                            {() => <ManegeAcessStation stationId={stationId} />}
+                        </Tab.Screen>
+                    )}
+                    
                 </>
             )}
 

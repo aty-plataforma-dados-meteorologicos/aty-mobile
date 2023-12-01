@@ -39,4 +39,5 @@ export const Subtitle = styled.Text`
 `
 
 export const Icon = styled.TouchableOpacity`
+    margin-right: 10px;
 `

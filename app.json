@@ -7,8 +7,8 @@
     "icon": "./src/assets/aty.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./src/assets/aty.png",
-      "resizeMode": "contain",
+      "image": "./src/assets/aty-splash.png",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "assetBundlePatterns": [

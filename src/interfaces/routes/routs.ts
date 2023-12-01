@@ -8,6 +8,7 @@ export type StackNavigation = {
     Login: undefined;
     RegisterUser: undefined;
     Home: undefined;
+    ResetPassword: undefined;
     RegisterStation: undefined;
     MantainerStations: undefined;
     FavoriteStations: undefined;

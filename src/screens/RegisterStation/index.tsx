@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { HeaderApp } from "../../components/HeaderApp";
-import { ButtonMap, Container, ContainerButtons, ContainerModalSensor, FormContainer, Image, LocationContainer, NoPartner, PartnerHeader, SensorPartnerContainer, TitlePartnerSensorContainer } from "./styles";
+import { ButtonMap, ButtonPublicPrivate, ButtonText, Container, ContainerButtons, ContainerModalSensor, ContainerPublicPrivate, FormContainer, Image, LocationContainer, NoPartner, PartnerHeader, SensorPartnerContainer, TitlePartnerSensorContainer } from "./styles";
 import { WeatherStationsService } from "../../services/WeatherStationService";
 import { useNavigation } from "@react-navigation/native";
 import { Input } from "../../components/Input";
@@ -19,8 +19,9 @@ import { ModalPartners } from "../../components/ModalPartners";
 import PartnerData from "../../interfaces/partner/PartnerData";
 import { ModalInfoSensor } from "../../components/ModalSensor";
 import { ModalLocation } from "../../components/ModalLocation";
-import WeatherStationData from "../../interfaces/WeatherStation/WeatherStationData";
 import { ModalImagePicker } from "../../components/ModalImagePicker";
+import WeatherStationData from "../../interfaces/weatherStation/WeatherStationData";
+import Toast from 'react-native-toast-message'
 
 export function RegisterStation(){
     const initialWeatherStation: WeatherStationData = {
@@ -29,8 +30,9 @@ export function RegisterStation(){
         longitude: '',
         altitudeMSL: '',
         partners: [],
-        image: '',
+        photoBase64: '',
         sensors: [],
+        isPrivate: false
     };
     const [sensor, setSensor] = useState<SensorData>({
         measurementType: 0, 
@@ -48,6 +50,7 @@ export function RegisterStation(){
     const [showModalSensor, setShowModalSensor] = useState(false);
     const [showModalLocation, setShowModalLocation] = useState(false);
     const [showModalImage, setShowModalImage] = useState(false);
+    const [loading, setLoading] = useState(false)
     const [partner, setPartner] = useState<PartnerData>();
     const [editingPartnerIndex, setEditingPartnerIndex] = useState<number | null>(null);
     const serviceSensor = new SensorService();
@@ -64,15 +67,14 @@ export function RegisterStation(){
     }
 
     function handlePressCheck(sensor: SensorData) {
-        // Verificar se o sensor já está na lista
         const index = weatherStation.sensors.findIndex((s : any) => s.id === sensor.id);
       
-        if (index === -1) { // Se o sensor não estiver na lista, adicione-o
+        if (index === -1) {
           setWeatherStation((prevState : any) => ({
             ...prevState,
             sensors: [...prevState.sensors, sensor]
           }));
-        } else { // Se estiver na lista, remova-o
+        } else {
           setWeatherStation((prevState : any) => {
             const newSensors = [...prevState.sensors];
             newSensors.splice(index, 1);
@@ -86,7 +88,6 @@ export function RegisterStation(){
       
     function handleSubmitPartner(data: PartnerData) {
         setWeatherStation((prevState : any) => {
-            // Se estamos em modo de edição
             if (editingPartnerIndex !== null) {
                 const updatedPartners = [...prevState.partners];
                 updatedPartners[editingPartnerIndex] = data;
@@ -139,12 +140,20 @@ export function RegisterStation(){
     }
 
     async function RegisterStation(station : WeatherStationData) {
+        setLoading(true)
         const isValid = isWeatherStationValid(station);
-
         if(isValid){
             try {
                 const response = await serviceWeatherStation.createWeatherStation(station)
                 if(response){
+                    setLoading(false)
+                    Toast.show({
+                        type: 'success',
+                        text1: 'Estação criada com sucesso',
+                        position: 'bottom',
+                        bottomOffset: 60
+                    })
+
                     navigate.reset({
                         index: 0,
                         routes: [{name: 'MantainerStations'}]
@@ -156,6 +165,7 @@ export function RegisterStation(){
         } else {
             Alert.alert("Atenção", "Os campos Nome, Latitude, Longitude, Altitude a nível do mar e Sensores devem ser preenchidos.");
         }
+        setLoading(false)
     }
 
     function chunkArray(myArray : any, chunk_size : any){
@@ -183,20 +193,20 @@ export function RegisterStation(){
             <KeyboardAwareScrollView contentContainerStyle={{ flexGrow: 1 }}>
                 <FormContainer>
                     <Input 
-                        titleInput="Nome da Estação" 
+                        titleInput="Nome da Estação *" 
                         placeholder="Insira o nome da estação"
                         onChangeText={(text) => setWeatherStation((prev : any) => ({ ...prev, name: text }))}
                     />
 
                     <LocationContainer>
                         <InputLocation 
-                            titleInput="Latitude"
+                            titleInput="Latitude *"
                             placeholder="Insira a Latitude"
                             value={weatherStation.latitude}
                             onChangeText={(text) => setWeatherStation((prev : any) => ({ ...prev, latitude: text }))}
                         />
                         <InputLocation 
-                            titleInput="Longitude"
+                            titleInput="Longitude *"
                             placeholder="Insira a Longitude"
                             value={weatherStation.longitude}
                             onChangeText={(text) => setWeatherStation((prev : any) => ({ ...prev, longitude: text }))}
@@ -207,14 +217,14 @@ export function RegisterStation(){
                     </LocationContainer>
 
                     <Input 
-                        titleInput="Altura a nivel do mar" 
+                        titleInput="Altura a nivel do mar *" 
                         placeholder="Insira altura a nivel do mar"
                         keyboardType="num"
                         value={weatherStation.altitudeMSL}
                         onChangeText={(text) => setWeatherStation((prev : any) => ({ ...prev, altitudeMSL: text }))}
                     />
 
-                    <TitlePartnerSensorContainer>Sensores</TitlePartnerSensorContainer>
+                    <TitlePartnerSensorContainer>Sensores *</TitlePartnerSensorContainer>
                     { sensors && sensors.length > 0 && (
                         <SensorPartnerContainer showsHorizontalScrollIndicator={true} horizontal={true} >
                             {chunkArray(sensors, 3).map((sensorGroup, groupIndex) => (
@@ -271,9 +281,21 @@ export function RegisterStation(){
                             </SensorPartnerContainer>
                         )
                     }
+
+                    <PartnerHeader>
+                        <TitlePartnerSensorContainer>Tipo da Estação:</TitlePartnerSensorContainer>
+                    </PartnerHeader>
+                    <ContainerPublicPrivate>
+                        <ButtonPublicPrivate onPress={() => setWeatherStation(prevState => ({ ...prevState, isPrivate: false }))} bgColor={weatherStation.isPrivate ? "BLUE" : "GREEN"}>
+                            <ButtonText>Estação Pública</ButtonText>    
+                        </ButtonPublicPrivate>
+                        <ButtonPublicPrivate onPress={() => setWeatherStation(prevState => ({ ...prevState, isPrivate: true }))} bgColor={weatherStation.isPrivate ? "GREEN" : "BLUE"}>
+                            <ButtonText>Estação Privada</ButtonText>    
+                        </ButtonPublicPrivate>
+                    </ContainerPublicPrivate>
                     
                     {
-                        weatherStation && weatherStation.image && (
+                        weatherStation && weatherStation.photoBase64 && (
                             <>
                             <PartnerHeader>
                                 <TitlePartnerSensorContainer>Foto</TitlePartnerSensorContainer>
@@ -281,14 +303,14 @@ export function RegisterStation(){
                                     <FontAwesomeIcon icon={faTrash} color="red" size={20} />
                                 </TouchableOpacity>
                             </PartnerHeader>
-                            <Image source={{ uri: weatherStation.image }}/>
+                                <Image source={{ uri: `data:image/jpeg;base64,${weatherStation.photoBase64}` }}/>
                             </>
                         )
                     }
 
                     <ContainerButtons>
-                        <Button title={weatherStation.image ? "Adicionar nova foto" : "Adicionar Foto"} onPress={() => setShowModalImage(true)} color="SECONDARY" />
-                        <Button title="Cadastrar Estação" onPress={() => RegisterStation(weatherStation)} color="PRIMARY" />
+                        <Button title={weatherStation.photoBase64 ? "Adicionar nova foto" : "Adicionar Foto"} onPress={() => setShowModalImage(true)} color="SECONDARY" />
+                        <Button title="Cadastrar Estação" onPress={() => RegisterStation(weatherStation)} color="PRIMARY" isLoading={loading} />
                     </ContainerButtons>
                 </FormContainer>
             </KeyboardAwareScrollView>
@@ -335,7 +357,7 @@ export function RegisterStation(){
                     onSubmit={(data) => {
                         setWeatherStation((prev: any) => ({
                             ...prev,
-                            image: data
+                            photoBase64: data
                         }));
                         setShowModalImage(false)
                     }}

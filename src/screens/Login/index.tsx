@@ -46,7 +46,7 @@ export function Login(){
     }
 
     const handleForgetPassword = () => {
-        console.log("Esqueceu a senha")
+        navigation.navigate('ResetPassword')
     }
 
 

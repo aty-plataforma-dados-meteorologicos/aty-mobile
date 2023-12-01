@@ -19,6 +19,7 @@ type Props = {
 
 export function InfoStation({ stationId } : Props){
     const [weatherStation, setWeatherStation] = useState<WeatherStationData>();
+    const [weatherStationPhoto, setWeatherStationPhoto] = useState<String>();
     const [showModalSensor, setShowModalSensor] = useState(false);
     const [showModalPartner, setShowModalPartner] = useState(false);
     const [showMap, setShowMap] = useState(false);
@@ -50,6 +51,13 @@ export function InfoStation({ stationId } : Props){
         setShowMap(true)
     }
 
+    async function getWeatherStationPhoto(stationid : string){
+        const response = await service.getWeatherStationPhoto(stationid)
+        if(response){
+          setWeatherStationPhoto(response)
+        }
+    }
+
     function handleBack(){
         navigate.navigate("Home")
     }
@@ -67,6 +75,7 @@ export function InfoStation({ stationId } : Props){
 
     useEffect(() => {
         getStation()
+        getWeatherStationPhoto(stationId || '0')
     }, [])
 
     return(
@@ -119,7 +128,7 @@ export function InfoStation({ stationId } : Props){
                 <ItemContainer>
                     <TitleItem>Foto</TitleItem>
                     <ImageContainer>
-                        <Image source={weatherStation?.image ? {uri: weatherStation.image} : require('../../assets/aty.png')} />
+                        <Image source={weatherStationPhoto != undefined ? { uri: `data:image/jpeg;base64,${weatherStationPhoto}` } : require('../../assets/aty.png')}/>
                     </ImageContainer>
                 </ItemContainer>
             </ListContainer>

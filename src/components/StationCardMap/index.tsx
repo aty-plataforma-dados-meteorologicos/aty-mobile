@@ -3,7 +3,7 @@ import { Button, Container, ContainerOne, ContainerPhoto, ContainerSensor, Conta
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome"
 import { faCircleInfo, faInfo, faStar } from "@fortawesome/free-solid-svg-icons"
 import { faStar as farStar } from "@fortawesome/free-regular-svg-icons"
-import { Text, View } from "react-native";
+import { ActivityIndicator, Text, View } from "react-native";
 import { ManegeInformationCard } from "../ManegeInformationCard";
 import WeatherStationData from "../../interfaces/weatherStation/WeatherStationData"
 
@@ -16,6 +16,7 @@ type Props = {
     titleButton: 'Acessar Estação' | 'Solicitar Acesso' | 'Acesso Solicitado',
     showFavorite?: boolean,
     isFavorite?: boolean,
+    isLoading?: boolean
     onPressFavorite?: () => void,
     onPressButton: () => void,
     onPressImage: () => void,
@@ -31,6 +32,7 @@ export function StationCardMap({
     titleButton,
     showFavorite,
     isFavorite,
+    isLoading,
     onPressImage,
     onPressButton,
     onPressFavorite,
@@ -43,7 +45,7 @@ export function StationCardMap({
         <Container>
             <ContainerOne>
                 <ContainerPhoto onPress={onPressImage}>
-                    <Photo source={imageUri ? {uri: imageUri} : require("../../assets/aty.png")}></Photo>
+                    <Photo source={imageUri != undefined ? { uri: `data:image/jpeg;base64,${imageUri}` } : require('../../assets/aty.png')}></Photo>
                 </ContainerPhoto>
                 <ContainerTitle>
                     <Title numberOfLines={2} ellipsizeMode="tail">{title}</Title>
@@ -73,7 +75,11 @@ export function StationCardMap({
             </ContainerTwo>
             <ContainerThree>
                 <Button onPress={onPressButton}>
-                    <Title>{titleButton}</Title>
+                    {isLoading ? (
+                        <ActivityIndicator size="small" color="#FFFFFF" />
+                    ) : (
+                        <Title>{titleButton}</Title>
+                    )}
                 </Button>
             </ContainerThree>
         </Container>

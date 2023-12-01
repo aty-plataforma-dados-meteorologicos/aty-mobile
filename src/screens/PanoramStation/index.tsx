@@ -2,11 +2,8 @@ import React, { useEffect, useState } from "react";
 import { HeaderApp } from "../../components/HeaderApp";
 import { Container, ContainerList, ListContainer, Sensor } from "./styles";
 import { WeatherStationsService } from "../../services/WeatherStationService";
-import { StationCardList } from "../../components/StationCardList";
 import { useNavigation } from "@react-navigation/native";
 import { StackType } from "../../interfaces/routes/routs";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { Text } from "react-native";
 import Collapsible from 'react-native-collapsible';
 import { ManegeInformationCard } from "../../components/ManegeInformationCard";
 import WeatherStationData from "../../interfaces/weatherStation/WeatherStationData";
@@ -22,15 +19,6 @@ type Props = {
 export function PanoramStation({ stationId } : Props){
     const [weatherStation, setWeatherStation] = useState<WeatherStationData>();
     const [collapsedItemId, setCollapsedItemId] = useState<number | null>(null);
-    const initialData: WeatherStationSensorData = {
-        weatherStationId: 0,
-        sensorId: 0,
-        typeTag: '',
-        start: new Date(),
-        stop: new Date(),
-        sensor: {} as SensorData, // Aqui, você pode precisar adicionar uma estrutura inicial mais detalhada para `SensorData` se necessário
-        measurements: []
-    };
     const [data, setData] = useState<WeatherStationSensorData>();
     const service = new WeatherStationsService();
     const navigate = useNavigation<StackType>();

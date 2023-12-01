@@ -6,7 +6,6 @@ export const Container = styled.View`
 `
 
 export const ListContainer = styled.ScrollView`
-    margin-top: 40px;
 `
 
 export const List = styled.FlatList`

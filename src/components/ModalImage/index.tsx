@@ -21,7 +21,7 @@ export function ModalImage({ onClose, imageUri } : Props) {
             </TouchableOpacity>
         </CloseIconContainer>
         <ImagePlaceholder>
-          <Image source={require("../../assets/aty.png")} style={{width: 300, height: 300}}/>
+          <Image source={imageUri != undefined ? { uri: `data:image/jpeg;base64,${imageUri}` } : require('../../assets/aty.png')} style={imageUri != undefined ? {width: 300, height: 550} : {width: 300, height: 300}}/>
         </ImagePlaceholder>
       </ModalContainer>
   );

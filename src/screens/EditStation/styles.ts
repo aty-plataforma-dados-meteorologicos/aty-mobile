@@ -69,3 +69,24 @@ export const ContainerButtons = styled.View`
     align-items: center;
     gap: 10px;
 `
+
+export const ContainerPublicPrivate = styled.View`
+    flex-direction: row;
+    gap: 10px;
+`
+
+export const ButtonText = styled.Text`
+    font-family: ${({theme}) => theme.FONT_FAMILY.BOLD};
+    font-size: ${({theme}) => theme.FONT_SIZE.MD}px;
+    color: ${({theme}) => theme.COLORS.WHITE};
+`;
+
+export const ButtonPublicPrivate = styled.TouchableOpacity<{bgColor : string}>`
+    flex: 1;
+    height: 50px;
+    border-radius: 10px;
+    background-color: ${({bgColor, theme}) => bgColor === 'GREEN' ? theme.COLORS.GREEN : bgColor === 'BLUE' ? theme.COLORS.BLUE : theme.COLORS.GREEN};
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+`

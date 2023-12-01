@@ -13,6 +13,6 @@ export default interface WeatherStationData{
     isPrivate?: boolean;
     isEnabled?: boolean;
     acessValid?: boolean;
-    image?: string;
+    photoBase64?: string;
     sensors: SensorData[];
 }

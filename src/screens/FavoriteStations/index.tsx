@@ -8,38 +8,47 @@ import { ListEmpty } from "../../components/ListEmpty";
 import WeatherStationData from "../../interfaces/WeatherStation/WeatherStationData";
 import { StackType } from "../../interfaces/routes/routs";
 
-export function FavoriteStations(){
-    const [weatherStations, setWeatherStations] = useState<WeatherStationData[]>();
+export function FavoriteStations() {
+    const [weatherStations, setWeatherStations] = useState<WeatherStationData[]>([]);
+    const [photos, setPhotos] = useState<Record<string, string>>({}); // Dicionário para armazenar as fotos
     const service = new WeatherStationsService();
     const navigate = useNavigation<StackType>();
 
-    async function getAllMantainerStation(){
-        const response = await service.getAllStationFavoritesByUser()
-        setWeatherStations(response.data)   
+    async function getAllMantainerStation() {
+        const response = await service.getAllStationFavoritesByUser();
+        setWeatherStations(response.data);
+        loadPhotos(response.data); // Carregar fotos após obter estações
     }
 
-
-    function handleBack(){
-        navigate.reset({
-            index: 0,
-            routes: [{name: 'Home'}]
-        })
+    async function loadPhotos(stations: WeatherStationData[]) {
+        const newPhotos = {};
+        for (const station of stations) {
+            const response = await service.getWeatherStationPhoto(station.id);
+            if (response) {
+                newPhotos[station.id] = response; // Armazenar a foto no dicionário
+            }
+        }
+        setPhotos(newPhotos);
     }
 
-    function handleStation(id: string){
-        navigate.navigate('Station', { stationId: id })
+    function handleBack() {
+        navigate.goBack();
+    }
+
+    function handleStation(id: string) {
+        navigate.navigate('Station', { stationId: id });
     }
 
     useEffect(() => {
-        getAllMantainerStation()
-    }, [])
+        getAllMantainerStation();
+    }, []);
 
-    return(
+    return (
         <Container>
-            <HeaderApp title="Estações Favoritas" onMenuPress={handleBack}/>
+            <HeaderApp title="Estações Favoritas" onMenuPress={handleBack} />
             <ListContainer>
                 {
-                    weatherStations && weatherStations.length > 0 ? (
+                    weatherStations.length > 0 ? (
                         weatherStations.map(item => (
                             <StationCardList
                                 key={item.id}
@@ -47,6 +56,7 @@ export function FavoriteStations(){
                                 onPressIcon={() => handleStation(item.id || '1')}
                                 title={item.name || "Estação sem nome"}
                                 subtitle={item.isPrivate ? "Estação Privada" : "Estação Pública"}
+                                imageUri={photos[item.id] || undefined}
                             />
                         ))
                     ) : (
@@ -55,5 +65,5 @@ export function FavoriteStations(){
                 }
             </ListContainer>
         </Container>
-    )
+    );
 }

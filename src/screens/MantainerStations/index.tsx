@@ -1,30 +1,46 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { HeaderApp } from "../../components/HeaderApp";
 import { Container, List, ListContainer } from "./styles";
 import { WeatherStationsService } from "../../services/WeatherStationService";
 import { StationCardList } from "../../components/StationCardList";
-import { useNavigation } from "@react-navigation/native";
+import { NavigationContext, useNavigation } from "@react-navigation/native";
 import { ListEmpty } from "../../components/ListEmpty";
 import WeatherStationData from "../../interfaces/WeatherStation/WeatherStationData";
 import { StackType } from "../../interfaces/routes/routs";
 
 export function MantainerStations(){
     const [weatherStations, setWeatherStations] = useState<WeatherStationData[]>();
+    const [photos, setPhotos] = useState<Record<string, string>>({});
     const service = new WeatherStationsService();
     const navigate = useNavigation<StackType>();
 
     async function getAllMantainerStation(){
         const response = await service.getAllWeatherStationByMantainer()
-        setWeatherStations(response.data) 
+        setWeatherStations(response.data)
+        loadPhotos(response.data);
+    }
+
+    async function loadPhotos(stations: WeatherStationData[]) {
+        const newPhotos = {};
+        for (const station of stations) {
+            const response = await service.getWeatherStationPhoto(station.id);
+            if (response) {
+                newPhotos[station.id] = response;
+            }
+        }
+        setPhotos(newPhotos);
     }
 
 
-    function handleBack(){
-        navigate.reset({
-            index: 0,
-            routes: [{name: 'Home'}]
-        })
+    function handleBack() {
+        if (navigate.canGoBack()) {
+            navigate.goBack();
+        } else {
+            navigate.navigate('Home');
+        }
     }
+    
+    
 
     function handleStation(id: string){
         navigate.navigate('Station', { stationId: id })
@@ -48,6 +64,7 @@ export function MantainerStations(){
                                 onPressIcon={() => handleStation(item.id || '1')}
                                 title={item.name || "Estação sem nome"}
                                 subtitle={item.isPrivate ? "Estação Privada" : "Estação Pública"}
+                                imageUri={photos[item.id] || undefined}
                             />
                         ))
                     ) : (

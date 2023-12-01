@@ -7,6 +7,7 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 type Props = {
     titleInput?: string,
     placeholder?: string,
+    auto?: boolean
     value?: any,
     keyboardType?: 'default' | 'phone-pad' | 'cpf-cnpj' | 'url' | 'num',
     secureTextEntry?: boolean,
@@ -18,7 +19,7 @@ type Props = {
 // como default será o de texto. Phone-pad e cpf-cnpj mudam o estilo do teclado para numérico e aplica uma mascara. URL somente muda o estilo
 // do teclado com atalhos para url.
 
-export function Input({titleInput, placeholder, value, onChangeText, keyboardType, onBlur, secureTextEntry=false} : Props){
+export function Input({titleInput, placeholder, value, onChangeText, keyboardType, onBlur, auto=false, secureTextEntry=false} : Props){
     const [maskedText, setMaskedText] = useState(value || '');  
     const [unmaskedText, setUnmaskedText] = useState('');
     const [isPasswordVisible, setIsPasswordVisible] = useState(secureTextEntry);
@@ -89,24 +90,24 @@ export function Input({titleInput, placeholder, value, onChangeText, keyboardTyp
     return(
         <Container>
             {titleInput && <Title>{titleInput}</Title>}
-            <InputContainer>
-            <InputText 
-                placeholder={placeholder} 
-                value={maskedText} 
-                onChangeText={handleChangeText} 
-                keyboardType={
-                    keyboardType === 'phone-pad' || keyboardType === 'cpf-cnpj' 
-                    ? 'numeric' 
-                    : keyboardType === 'url'
-                        ? 'url'
-                        : keyboardType === 'num'
-                            ? 'numeric'
-                            : 'default'
-                } 
-                secureTextEntry={isPasswordVisible}
-                onBlur={onBlur}
-            />
-            {secureTextEntry && (
+            <InputContainer auto={auto}>
+                <InputText 
+                    placeholder={placeholder} 
+                    value={maskedText} 
+                    onChangeText={handleChangeText} 
+                    keyboardType={
+                        keyboardType === 'phone-pad' || keyboardType === 'cpf-cnpj' 
+                        ? 'numeric' 
+                        : keyboardType === 'url'
+                            ? 'url'
+                            : keyboardType === 'num'
+                                ? 'numeric'
+                                : 'default'
+                    } 
+                    secureTextEntry={isPasswordVisible}
+                    onBlur={onBlur}
+                />
+                {secureTextEntry && (
                     <EyeIconContainer onPress={() => setIsPasswordVisible(!isPasswordVisible)}>
                         <FontAwesomeIcon icon={isPasswordVisible ? faEyeSlash : faEye} color="#FFF" />
                     </EyeIconContainer>
