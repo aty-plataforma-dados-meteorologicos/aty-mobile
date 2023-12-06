@@ -127,6 +127,10 @@ export function EditStation({ stationId } : Props){
 
     async function UpdateStation() {
         setLoading(true)
+        setWeatherStation((prevState : any) => ({
+            ...prevState,
+            photoBase64: weatherStationPhoto
+        }))
             try {
                 const response = await service.updateWeatherStation(weatherStation);
                 if(response){

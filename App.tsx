@@ -7,9 +7,11 @@ import React from 'react';
 import { Routes } from './src/routes';
 import 'react-native-gesture-handler';
 import Toast from 'react-native-toast-message'
+import { LogBox } from 'react-native';
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
+  LogBox.ignoreAllLogs(true);
   useEffect(() => {
     const loadFonts = async () => {
       await Font.loadAsync({

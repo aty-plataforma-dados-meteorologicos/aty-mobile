@@ -16,9 +16,12 @@ export function AcessStations(){
 
     async function getAcessStation(){
         const response = await service.getAllAcessStation()
-        setWeatherStations(response.data)
-        loadPhotos(response.data)
+        const validData = Array.isArray(response.data) ? response.data : [];
+        const privateStations = validData.filter(station => station.isPrivate !== false);
+        setWeatherStations(privateStations);
+        loadPhotos(privateStations);
     }
+    
 
     async function loadPhotos(stations: WeatherStationData[]) {
         const newPhotos = {};

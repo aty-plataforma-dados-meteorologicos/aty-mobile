@@ -299,7 +299,7 @@ export function RegisterStation(){
                             <>
                             <PartnerHeader>
                                 <TitlePartnerSensorContainer>Foto</TitlePartnerSensorContainer>
-                                <TouchableOpacity onPress={() => {const updatedWeatherStation = { ...weatherStation, image: undefined }; setWeatherStation(updatedWeatherStation);}}>
+                                <TouchableOpacity onPress={() => {const updatedWeatherStation = { ...weatherStation, photoBase64: undefined }; setWeatherStation(updatedWeatherStation);}}>
                                     <FontAwesomeIcon icon={faTrash} color="red" size={20} />
                                 </TouchableOpacity>
                             </PartnerHeader>

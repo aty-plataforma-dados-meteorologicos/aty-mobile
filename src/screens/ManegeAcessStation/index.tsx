@@ -49,18 +49,15 @@ export function ManegeAcessStation({ stationId }: Props) {
 
     async function handleConfirmUser(idUser: any) {
         const response = await service.aceptRejectUserSolicitation(stationId, idUser, 20);
-        if (response) {
-            getUsersWithAcess();
-            getUsersWithAcessPendent();
-        }
+        getUsersWithAcess();
+        getUsersWithAcessPendent();
     }
 
     async function handleRejectDeleteUser(idUser: any) {
         const response = await service.aceptRejectUserSolicitation(stationId, idUser, 30);
-        if (response) {
-            getUsersWithAcess();
-            getUsersWithAcessPendent();
-        }
+
+        getUsersWithAcess();
+        getUsersWithAcessPendent();
     }
 
     function handleBack() {
@@ -100,60 +97,48 @@ export function ManegeAcessStation({ stationId }: Props) {
                     <PartnerHeader>
                         <TitlePartnerSensorContainer>Acessos Solicitados</TitlePartnerSensorContainer>
                     </PartnerHeader>
-                    { usersWithAcessPendent &&
-                        usersWithAcessPendent.length > 0 ? (
-                            <PartnerContainer showsVerticalScrollIndicator={false} horizontal={true}>
-                                {usersWithAcessPendentGroups.map((group, groupIndex) => (
-                                    <View key={groupIndex} style={{ flexDirection: 'column', width: 350 }}>
-                                        {group.map((user: any) => (
-                                            <ManegeInformationCard
-                                                key={user.userId}
-                                                title={user.userEmail}
-                                                hideBackground
-                                                showDelete
-                                                showConfirm
-                                                onPressConfirm={() => handleConfirmUser(user.userId)}
-                                                onPressDelete={() => handleRejectDeleteUser(user.userId)}
-                                            />
-                                        ))}
-                                    </View>
-                                ))}
-                            </PartnerContainer>
-                        ) : (
-                            <PartnerContainer contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}>
-                                <ListEmpty message="Nenhum acesso solicitado" />
-                            </PartnerContainer>
-                        )
-                    }
+                    {usersWithAcessPendent && usersWithAcessPendent.length > 0 ? (
+                        <PartnerContainer showsVerticalScrollIndicator={false}>
+                            {usersWithAcessPendent.map((user: any) => (
+                                <ManegeInformationCard
+                                    key={user.userId}
+                                    title={user.userEmail}
+                                    hideBackground
+                                    showDelete
+                                    showConfirm
+                                    onPressConfirm={() => handleConfirmUser(user.userId)}
+                                    onPressDelete={() => handleRejectDeleteUser(user.userId)}
+                                />
+                            ))}
+                        </PartnerContainer>
+                    ) : (
+                        <PartnerContainer contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}>
+                            <ListEmpty message="Nenhum acesso solicitado" />
+                        </PartnerContainer>
+                    )}
                 </ItemContainer>
-
+    
                 <ItemContainer>
                     <PartnerHeader>
                         <TitlePartnerSensorContainer>Acessos Concedidos</TitlePartnerSensorContainer>
                     </PartnerHeader>
-                    { usersWithAcess &&
-                        usersWithAcess.length > 0 ? (
-                            <PartnerContainer showsVerticalScrollIndicator={false} horizontal={true}>
-                                {usersWithAcessGroups.map((group, groupIndex) => (
-                                    <View key={groupIndex} style={{ flexDirection: 'column', width: 350 }}>
-                                        {group.map((user: any) => (
-                                            <ManegeInformationCard
-                                                key={user.userId}
-                                                title={user.userEmail}
-                                                hideBackground
-                                                showDelete
-                                                onPressDelete={() => handleRejectDeleteUser(user.userId)}
-                                            />
-                                        ))}
-                                    </View>
-                                ))}
-                            </PartnerContainer>
-                        ) : (
-                            <PartnerContainer contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}>
-                                <ListEmpty message="Nenhum acesso concedido" />
-                            </PartnerContainer>
-                        )
-                    }
+                    {usersWithAcess && usersWithAcess.length > 0 ? (
+                        <PartnerContainer showsVerticalScrollIndicator={false}>
+                            {usersWithAcess.map((user: any) => (
+                                <ManegeInformationCard
+                                    key={user.userId}
+                                    title={user.userEmail}
+                                    hideBackground
+                                    showDelete
+                                    onPressDelete={() => handleRejectDeleteUser(user.userId)}
+                                />
+                            ))}
+                        </PartnerContainer>
+                    ) : (
+                        <PartnerContainer contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}>
+                            <ListEmpty message="Nenhum acesso concedido" />
+                        </PartnerContainer>
+                    )}
                 </ItemContainer>
             </ListContainer>
         </Container>
